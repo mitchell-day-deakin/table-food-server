@@ -15,9 +15,9 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   bool isTriggered = aCapture.readMics();
-  //if(isTriggered){
+  if(isTriggered){
     int degrees = aCapture.getAudioDirection();
     int time = car.turn(degrees);
-  //}
+  }
 
 }

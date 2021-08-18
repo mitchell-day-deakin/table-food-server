@@ -4,15 +4,19 @@
 
 Car::Car(int forR, int revR, int forL, int revL)
 {
+    forwardEnabled = true;
     rMotor.init(forR, revR);
     lMotor.init(forL, revL);
 };
 
 void Car::forward()
 {
-    rMotor.forward();
-    lMotor.forward();
-}
+    if (forwardEnabled)
+    {
+        rMotor.forward();
+        lMotor.forward();
+    }
+};
 
 void Car::reverse()
 {
@@ -43,6 +47,18 @@ int Car::turn(int angle)
     }
 
     return onTime;
+};
+
+//the distance sensor would use this to stop the vehicle from moving forward
+void disableForward()
+{
+    forwardEnabled = false;
+};
+
+//distance sensor would enable forward when it doesnt detect edge
+void enableForward()
+{
+    forwardEnabled = true;
 };
 
 void Car::brake()

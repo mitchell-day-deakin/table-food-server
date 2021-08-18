@@ -19,7 +19,7 @@ public:
   void reverse();
 
   //input from -180 to 180
-  void turn(int angle);
+  int turn(int angle);
 
   void brake();
 };

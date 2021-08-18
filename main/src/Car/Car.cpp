@@ -10,17 +10,17 @@ Car::Car(int forR, int revR, int forL, int revL)
 
 void Car::forward()
 {
-    *rMotor.forward();
-    *lMotor.forward();
+    rMotor.forward();
+    lMotor.forward();
 }
 
 void Car::reverse()
 {
-    *rMotor.back();
-    *lMotor.back();
+    rMotor.back();
+    lMotor.back();
 };
 
-void Car::turn(int angle)
+int Car::turn(int angle)
 {
 
     float onTime = abs(angle) * degPerMs;
@@ -41,6 +41,8 @@ void Car::turn(int angle)
         rMotor.brake();
         lMotor.brake();
     }
+
+    return onTime;
 };
 
 void Car::brake()

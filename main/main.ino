@@ -4,7 +4,7 @@
 
 
 Car car(1,2,3,4);
-AudioCapture aCapture = AudioCapture(4,5,6);
+AudioCapture aCapture = AudioCapture(1,2,3);
 
 
 void setup() {

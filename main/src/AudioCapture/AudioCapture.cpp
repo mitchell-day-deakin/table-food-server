@@ -78,50 +78,50 @@ bool AudioCapture::calcTrigger()
 int AudioCapture::calcDirection()
 {
     //this looks at if mic1 and mic2 are similar db
-    if ((abs(mic1Val - mic2Val)) < 100)
+    if ((abs(mic1Val - mic2Val)) < 6)
     {
 
         //checks if mic0 is 50 higher than the average of the other 2
-        if (mic0Val - 50 > (mic1Val - mic2Val) / 2)
+        if (mic0Val - 15 > (mic1Val - mic2Val) / 2)
         {
             return -60;
         };
 
         //checks if mic0 is 50 lower than the average of the other 2, returns angle between the two.
-        if (mic0Val + 50 < (mic1Val - mic2Val) / 2)
+        if (mic0Val + 15 < (mic1Val - mic2Val) / 2)
         {
             return 120;
         };
     };
 
     //this looks at if mic0 and mic2 are similar db
-    if ((abs(mic0Val - mic2Val)) < 100)
+    if ((abs(mic0Val - mic2Val)) < 6)
     {
         //checks if mic1 is 50 higher than the average of the other 2
-        if (mic1Val - 50 > (mic0Val - mic2Val) / 2)
+        if (mic1Val - 15 > (mic0Val - mic2Val) / 2)
         {
             return 60;
         };
 
         //checks if mic1 is 50 lower than the average of the other 2, returns angle between the two.
-        if (mic1Val + 50 > (mic0Val - mic2Val) / 2)
+        if (mic1Val + 15 > (mic0Val - mic2Val) / 2)
         {
             return -120;
         };
     };
 
     //this looks at if mic1 and mic0 are similar db
-    if ((abs(mic1Val - mic0Val)) < 100)
+    if ((abs(mic1Val - mic0Val)) < 6)
     {
 
         //checks if mic2 is 50 higher than the average of the other 2
-        if (mic2Val - 50 > (mic0Val - mic1Val) / 2)
+        if (mic2Val - 15 > (mic0Val - mic1Val) / 2)
         {
             return 180;
         };
 
         //checks if mic1 is 50 lower than the average of the other 2, returns angle between the two.
-        if (mic2Val + 50 > (mic0Val - mic1Val) / 2)
+        if (mic2Val + 15 > (mic0Val - mic1Val) / 2)
         {
             return 0;
         };

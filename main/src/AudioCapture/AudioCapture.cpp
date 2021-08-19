@@ -3,13 +3,13 @@
 
 AudioCapture::AudioCapture(int mic0, int mic1, int mic2)
 {
-    micPin_0 = "A"+mic0; //front left -60deg
-    micPin_1 = "A"+mic1; //front right 60deg
-    micPin_2 = "A"+mic2; //back 180deg
+    micPin_0 = mic0; //front left -60deg
+    micPin_1 = mic1; //front right 60deg
+    micPin_2 = mic2; //back 180deg
 
-    pinMode(micPin_0, INPUT);
-    pinMode(micPin_1, INPUT);
-    pinMode(micPin_2, INPUT);
+    //pinMode(micPin_0, INPUT);
+    //pinMode(micPin_1, INPUT);
+    //pinMode(micPin_2, INPUT);
 };
 
 void AudioCapture::Incr()
@@ -26,12 +26,15 @@ bool AudioCapture::readMics()
 
     //use this to see values coming in from microphones
     //comment out when testing is complete
-    Serial.println("mic0");
-    Serial.println(mic0Val);
-    Serial.println("mic1");
+    if (mic0Val >= TRIG_VAL)
+    {
+        Serial.println("mic0");
+        Serial.println(mic0Val);
+        /* Serial.println("mic1");
     Serial.println(mic1Val);
     Serial.println("mic2");
-    Serial.println(mic2Val);
+    Serial.println(mic2Val); */
+    }
 
     //if a trigger does occur, then get the direction
     bool isTriggered = calcTrigger();
@@ -126,4 +129,3 @@ int AudioCapture::calcDirection()
 
     return -1;
 };
-

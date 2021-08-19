@@ -4,7 +4,7 @@
 
 
 Car car(1,2,3,4);
-AudioCapture aCapture = AudioCapture(1,2,3);
+AudioCapture aCapture = AudioCapture(A0,A1,A2);
 
 
 void setup() {
@@ -15,8 +15,10 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   bool isTriggered = aCapture.readMics();
+  //delay(1000);
   if(isTriggered){
     int degrees = aCapture.getAudioDirection();
+    
     int time = car.turn(degrees);
   }
 

@@ -2,6 +2,9 @@
 This will keep track of any claps and triggers that occur
 And also the direction the audio came from.
 */
+#ifndef AudioCapture_h
+#define AudioCapture_h
+
 
 class AudioCapture {
     private:
@@ -38,3 +41,5 @@ class AudioCapture {
         int calcDirection();
 
 };
+
+#endif

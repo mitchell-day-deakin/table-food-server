@@ -50,13 +50,13 @@ int Car::turn(int angle)
 };
 
 //the distance sensor would use this to stop the vehicle from moving forward
-void disableForward()
+void Car::disableForward()
 {
     forwardEnabled = false;
 };
 
 //distance sensor would enable forward when it doesnt detect edge
-void enableForward()
+void Car::enableForward()
 {
     forwardEnabled = true;
 };

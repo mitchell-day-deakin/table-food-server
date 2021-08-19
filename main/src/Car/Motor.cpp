@@ -12,18 +12,18 @@
     }
 
     void Motor::forward(){
-      analogWrite(_fPin, HIGH);
-      analogWrite(_bPin, LOW);
+      digitalWrite(_fPin, HIGH);
+      digitalWrite(_bPin, LOW);
     };
 
     void Motor::back()
     {
-      analogWrite(_fPin, LOW);
-      analogWrite(_bPin, HIGH);
+      digitalWrite(_fPin, LOW);
+      digitalWrite(_bPin, HIGH);
     };
 
     void Motor::brake()
     {
-      analogWrite(_fPin, LOW);
-      analogWrite(_bPin, LOW);
+      digitalWrite(_fPin, LOW);
+      digitalWrite(_bPin, LOW);
     };

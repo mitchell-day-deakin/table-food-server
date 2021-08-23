@@ -35,6 +35,17 @@ void testCar(){
   car.turn(-120);
 }
 
+//test the audio functionality
+void testAudio(){
+
+}
+
+
+//test distance monitor
+void testDistMonitor(){
+
+}
+
 
 void loop()
 {

@@ -5,7 +5,7 @@
 
 Car car(4,5,6,7);
 AudioCapture aCapture(A0, A1, A2);
-DistMonitor distMonitor(2,3);
+DistMonitor distMonitor(2,3, 300, car);
 
 void setup()
 {
@@ -44,13 +44,15 @@ void testAudio(){
 
 //test distance monitor
 void testDistMonitor(){
-
+  int distance = distMonitor.getCurDist();
+  print(distance);
 }
 
-
+// put your main code here, to run repeatedly:
 void loop()
 {
 
-  testCar();
-  // put your main code here, to run repeatedly:
+  //testCar();
+  testDistMonitor();
+  
 }

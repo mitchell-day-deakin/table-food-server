@@ -5,7 +5,7 @@
 
 Car car(4,5,6,7);
 AudioCapture aCapture(A0, A1, A2);
-DistMonitor distMonitor(2,3, 300);
+DistMonitor distMonitor(2,3, 47);
 void setup()
 {
   Serial.begin(9600);

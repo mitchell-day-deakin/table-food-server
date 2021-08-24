@@ -45,7 +45,7 @@ void testAudio(){
 //test distance monitor
 void testDistMonitor(){
   int distance = distMonitor.getCurDist();
-  print(distance);
+  Serial.print(distance);
 }
 
 // put your main code here, to run repeatedly:

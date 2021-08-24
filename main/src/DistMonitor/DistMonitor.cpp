@@ -2,7 +2,7 @@
 #include "../Car/Car.h"
 #include "Arduino.h"
 
-DistMonitor::DistMonitor(int trigPin, int echoPin, int distThreshold, Car car)
+DistMonitor::DistMonitor(int trigPin, int echoPin, int distThreshold, Car& car)
 {
     _trigPin = trigPin;
     _echoPin = echoPin;

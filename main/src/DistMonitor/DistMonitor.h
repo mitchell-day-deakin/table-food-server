@@ -2,7 +2,7 @@
 #ifndef DistMonitor_h
 #define DistMonitor_h
 
-#include "../Car/Car.h"
+//#include "../Car/Car.h"
 
 class DistMonitor {
   private:
@@ -11,10 +11,11 @@ class DistMonitor {
     long duration;
     int _trigPin;
     int _echoPin;
-    Car _car;
+    //Car _car;
     
   public:
-    DistMonitor(int trigPin, int echoPin, int distThreshold, Car car);
+    DistMonitor(int trigPin, int echoPin, int distThreshold);
+    void init();
     bool checkDist(int distance);
     int getCurDist();
   

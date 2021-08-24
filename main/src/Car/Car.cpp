@@ -2,11 +2,17 @@
 #include "Motor.h"
 #include "Arduino.h"
 
-Car::Car(int forR, int revR, int forL, int revL)
-{
+
+Car::Car(int forR, int revR, int forL, int revL){
     forwardEnabled = true;
     rMotor.init(forR, revR);
     lMotor.init(forL, revL);
+    return;
+};
+
+void Car::init()
+{
+    
 };
 
 void Car::forward()

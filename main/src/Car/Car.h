@@ -12,8 +12,8 @@ private:
   bool forwardEnabled;
 
 public:
-  
   Car(int forR, int revR, int forL, int revL);
+  void init();
 
   void forward();
 
@@ -25,7 +25,7 @@ public:
   //the distance sensor would use this to stop the vehicle from moving forward
   void disableForward();
 
- //distance sensor would enable forward when it doesnt detect edge
+  //distance sensor would enable forward when it doesnt detect edge
   void enableForward();
 
   void brake();

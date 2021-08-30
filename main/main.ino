@@ -52,6 +52,7 @@ void loop()
 {
 
   //testCar();
-  testDistMonitor();
+  //testDistMonitor();
+  audioTest();
   
 }

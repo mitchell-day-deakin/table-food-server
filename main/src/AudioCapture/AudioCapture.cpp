@@ -26,15 +26,15 @@ bool AudioCapture::readMics()
 
     //use this to see values coming in from microphones
     //comment out when testing is complete
-    if (mic0Val >= TRIG_VAL)
-    {
-        Serial.println("mic0");
-        Serial.println(mic0Val);
-        /* Serial.println("mic1");
+    /* if (mic0Val >= TRIG_VAL)
+    {*/
+    Serial.println("mic0");
+    Serial.println(mic0Val);
+    Serial.println("mic1");
     Serial.println(mic1Val);
-    Serial.println("mic2");
-    Serial.println(mic2Val); */
-    }
+    //Serial.println("mic2");
+    //Serial.println(mic2Val);
+    //}
 
     //if a trigger does occur, then get the direction
     bool isTriggered = calcTrigger();

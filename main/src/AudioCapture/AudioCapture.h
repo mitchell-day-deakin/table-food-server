@@ -5,12 +5,12 @@ And also the direction the audio came from.
 #ifndef AudioCapture_h
 #define AudioCapture_h
 
+#include "../Car/Car.h"
 
 class AudioCapture {
     private:
         int TRIG_VAL = 690; // the threshold for a successful clap
         int AUDIO_DIR = -1; //this will store the audio direction heard from clap
-
         int counter = 0; //counts from first clap
         bool clap1;
         bool clap2;

@@ -1,9 +1,12 @@
+
 #include "src/Car/Car.h"
 #include "src/Car/Motor.h"
 #include "src/AudioCapture/AudioCapture.h"
 #include "src/DistMonitor/DistMonitor.h"
-#include <AltSoftSerial.h>
-AltSoftSerial btSerial;
+
+#define CUSTOM_SETTINGS
+#define INCLUDE_GAMEPAD_MODULE
+#include <Dabble.h>
 
 Car car(4,5,6,7);
 AudioCapture aCapture(A0, A1, A2);
@@ -15,8 +18,8 @@ int txPin;
 
 void setup()
 {
-  Serial.begin(9600);
-  btSerial.begin(9600);
+  Serial.begin(19200);
+  Dabble.begin(9600, 8, 9);
   //pinMode(txPin, OUTPUT);
 }
 
@@ -49,15 +52,20 @@ void testAudio(){
 
 }
 
-//check bluetooth board;
 
-void btRead(){
-  if(btSerial.available()){
-    char btValue = btSerial.read();
-    Serial.println("BT Input");
-    Serial.println(btValue);
+void gamePadProcess(){
+  Dabble.processInput();
+  if(GamePad.isUpPressed()){
+    Serial.print("Up pressed");
+    car.forward();
+  }
+  if(GamePad.isDownPressed()){
+    Serial.print("Down pressed");
+    car.reverse();
   }
 }
+
+//check bluetooth board;
 
 
 //test distance monitor
@@ -72,6 +80,6 @@ void loop()
   //testCar();
   //testDistMonitor();
   audioTest();
-  btRead();
+  gamePadProcess();
   
 }

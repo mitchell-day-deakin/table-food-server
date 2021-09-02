@@ -8,18 +8,14 @@
 #define INCLUDE_GAMEPAD_MODULE
 #include <Dabble.h>
 
-Car car(4,5,6,7);
+Car car(4, 5, 6, 7);
 AudioCapture aCapture(A0, A1, A2);
-DistMonitor distMonitor(2,3, 16);
-
-//Bluetooth pins
-int rxPin;
-int txPin;
+DistMonitor distMonitor(8, 9, 16);
 
 void setup()
 {
-  Serial.begin(19200);
-  Dabble.begin(9600, 8, 9);
+  Serial.begin(250000);
+  Dabble.begin(9600);
   //pinMode(txPin, OUTPUT);
 }
 
@@ -36,9 +32,9 @@ void audioTest()
   }
 }
 
-
 //test car dive, reverse, turn functionality
-void testCar(){
+void testCar()
+{
   car.forward();
   delay(1000);
   car.turn(90);
@@ -48,18 +44,20 @@ void testCar(){
 }
 
 //test the audio functionality
-void testAudio(){
-
+void testAudio()
+{
 }
 
-
-void gamePadProcess(){
+void gamePadProcess()
+{
   Dabble.processInput();
-  if(GamePad.isUpPressed()){
+  if (GamePad.isUpPressed())
+  {
     Serial.print("Up pressed");
     car.forward();
   }
-  if(GamePad.isDownPressed()){
+  if (GamePad.isDownPressed())
+  {
     Serial.print("Down pressed");
     car.reverse();
   }
@@ -67,19 +65,18 @@ void gamePadProcess(){
 
 //check bluetooth board;
 
-
 //test distance monitor
-void testDistMonitor(){
+void testDistMonitor()
+{
   int distance = distMonitor.getCurDist();
 }
 
 // put your main code here, to run repeatedly:
 void loop()
 {
-
   //testCar();
   //testDistMonitor();
   audioTest();
   gamePadProcess();
-  
+  Serial.println("From arduino");
 }

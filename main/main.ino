@@ -3,9 +3,9 @@
 #include "src/AudioCapture/AudioCapture.h"
 #include "src/DistMonitor/DistMonitor.h"
 
-Car car(4,5,6,7);
+Car car(4,5,6,7,9,10);
 AudioCapture aCapture(A0, A1, A2);
-DistMonitor distMonitor(2,3, 47);
+DistMonitor distMonitor(2,3, 10);
 void setup()
 {
   Serial.begin(9600);
@@ -44,15 +44,26 @@ void testAudio(){
 //test distance monitor
 void testDistMonitor(){
   int distance = distMonitor.getCurDist();
-  Serial.print("Main: ");
-  Serial.println(distance);
+  //Serial.print("Main: ");
+  //Serial.println(distance);
 }
 
+void testDistStop(){
+    if (!distMonitor.checkDist()) {
+        car.brake();
+        car.disableForward();
+    }
+    else {
+        car.enableForward();
+        car.forward();
+    }
+}
 // put your main code here, to run repeatedly:
 void loop()
 {
 
   //testCar();
-  testDistMonitor();
+  testDistStop();
+    //car.forward();
   
 }

@@ -8,13 +8,13 @@
 #define INCLUDE_GAMEPAD_MODULE
 #include <Dabble.h>
 
-Car car(4, 5, 6, 7);
+Car car(6,7,4,5);
 AudioCapture aCapture(A0, A1, A2);
 DistMonitor distMonitor(8, 9, 16);
 
 void setup()
 {
-  Serial.begin(250000);
+  Serial.begin(9600);
   Dabble.begin(9600);
   //pinMode(txPin, OUTPUT);
 }
@@ -61,6 +61,21 @@ void gamePadProcess()
     Serial.print("Down pressed");
     car.reverse();
   }
+  if (GamePad.isLeftPressed())
+  {
+    Serial.print("Down pressed");
+    car.turn(-180);
+  }
+  if (GamePad.isRightPressed())
+  {
+    Serial.print("Down pressed");
+    car.turn(180);
+  }
+  if (GamePad.isCrossPressed())
+  {
+    Serial.print("Down pressed");
+    car.brake();
+  }
 }
 
 //check bluetooth board;
@@ -76,7 +91,7 @@ void loop()
 {
   //testCar();
   //testDistMonitor();
-  audioTest();
+  //audioTest();
   gamePadProcess();
-  Serial.println("From arduino");
+  Serial.println("From arduino\n");
 }

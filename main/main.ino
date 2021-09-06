@@ -36,16 +36,17 @@ void audioTest()
 //test car dive, reverse, turn functionality
 void testCar()
 {
-  car.forward();
   Serial.println("f");
+  car.forward();
   delay(1000);
-  car.turn(120);
   Serial.println("r");
-  car.reverse();
+  car.turn(120);
   Serial.println("b");
+  car.reverse();
   delay(1000);
-  car.turn(-120);
   Serial.println("l");
+  car.turn(-120);
+  
 }
 
 //test the audio functionality

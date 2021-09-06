@@ -20,6 +20,7 @@ void Car::forward()
 {
     if (forwardEnabled)
     {
+        //if the car was stationary, do max speed for 1 second to get it moving
         if (wasStop) {
             wasStop = false;
             rMotor.forward(255);

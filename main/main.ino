@@ -37,11 +37,15 @@ void audioTest()
 void testCar()
 {
   car.forward();
+  Serial.println("f");
   delay(1000);
-  car.turn(90);
+  car.turn(120);
+  Serial.println("r");
   car.reverse();
+  Serial.println("b");
   delay(1000);
   car.turn(-120);
+  Serial.println("l");
 }
 
 //test the audio functionality
@@ -82,12 +86,14 @@ void gamePadProcess()
 
 void remoteServerControl(){
   if(Serial.available()>0){
-    String value = Serial.read();
+    char value = Serial.read();
     Serial.println(value);
     if(value == "f"){
-      car.foward();
+      car.forward();
     }
-    if(value == "r")
+    if(value == "b"){
+      car.reverse();
+    }
   }
 }
 
@@ -102,10 +108,10 @@ void testDistMonitor()
 // put your main code here, to run repeatedly:
 void loop()
 {
-  //testCar();
+  testCar();
   //testDistMonitor();
   //audioTest();
   //gamePadProcess();
-  remoteSerialControl();
-  Serial.println("From arduino\n");
+  //remoteServerControl();
+  //Serial.println("From arduino\n");
 }

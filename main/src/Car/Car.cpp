@@ -19,7 +19,7 @@ void Car::forward()
 {
     if (forwardEnabled)
     {
-        Serial.println("Driving forward");
+        //Serial.println("Driving forward");
         rMotor.forward();
         lMotor.forward();
     }
@@ -27,7 +27,7 @@ void Car::forward()
 
 void Car::reverse()
 {
-    Serial.println("Driving reverse");
+    //Serial.println("Driving reverse");
     rMotor.back();
     lMotor.back();
 };
@@ -36,10 +36,10 @@ int Car::turn(int angle)
 {
 
     float onTime = abs(angle) / degPerMs;
-    Serial.print("Time");
-    Serial.println(onTime);
-    Serial.print("Angle:");
-    Serial.println(angle);
+    //Serial.print("Time");
+    //Serial.println(onTime);
+    //Serial.print("Angle:");
+    //Serial.println(angle);
 
     if (angle < 0)
     {

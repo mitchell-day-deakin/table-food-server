@@ -50,6 +50,7 @@ void testAudio()
 {
 }
 
+//bluetooth process
 void gamePadProcess()
 {
   Dabble.processInput();
@@ -80,6 +81,14 @@ void gamePadProcess()
   }
 }
 
+void remoteServerControl(){
+  if(Serial.available()>0){
+    String value = Serial.readString();
+    Serial.println(value);
+    
+  }
+}
+
 //check bluetooth board;
 
 //test distance monitor
@@ -94,6 +103,7 @@ void loop()
   //testCar();
   //testDistMonitor();
   //audioTest();
-  gamePadProcess();
+  //gamePadProcess();
+  remoteSerialControl();
   Serial.println("From arduino\n");
 }

@@ -9,13 +9,15 @@ class Motor {
   private:
     int _fPin;
     int _bPin;
+    int _enPin;
+    
   public:
     Motor();
-    void init(int fPin, int bPin);
+    void init(int fPin, int bPin, int enPin);
 
-    void forward();
+    void forward(int pwm);
 
-    void back();
+    void back(int pwm);
 
     void brake();
 };

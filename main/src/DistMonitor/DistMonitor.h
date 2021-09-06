@@ -16,7 +16,7 @@ class DistMonitor {
   public:
     DistMonitor(int trigPin, int echoPin, int distThreshold);
     void init();
-    bool checkDist(int distance);
+    bool checkDist();
     int getCurDist();
   
 };

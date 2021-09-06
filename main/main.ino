@@ -3,7 +3,10 @@
 #include "src/Car/Motor.h"
 #include "src/AudioCapture/AudioCapture.h"
 #include "src/DistMonitor/DistMonitor.h"
+#include "src/Bluetooth/Bluetooth.h"
+#include <SoftwareSerial.h>
 
+<<<<<<< HEAD
 #define CUSTOM_SETTINGS
 #define INCLUDE_GAMEPAD_MODULE
 #include <Dabble.h>
@@ -19,6 +22,17 @@ void setup()
   Serial.begin(9600);
   Dabble.begin(9600);
   //pinMode(txPin, OUTPUT);
+=======
+
+Car car(4,5,6,7,9,10);
+AudioCapture aCapture(A0, A1, A2);
+DistMonitor distMonitor(2,3, 10);
+Bluetooth bluetooth(13, 12);
+void setup()
+{
+  Serial.begin(9600);
+  bluetooth.begin();
+>>>>>>> origin/DistSensorModifications
 }
 
 //test the audio system
@@ -100,6 +114,7 @@ void remoteServerControl(){
 void testDistMonitor()
 {
   int distance = distMonitor.getCurDist();
+<<<<<<< HEAD
 }
 
 
@@ -112,4 +127,55 @@ void loop()
   //gamePadProcess();
   remoteServerControl();
   //Serial.println("From arduino\n");
+=======
+  //Serial.print("Main: ");
+  //Serial.println(distance);
+}
+
+void testDistStop(){
+    if (!distMonitor.checkDist()) {
+        car.brake();
+        car.disableForward();
+    }
+    else {
+        car.enableForward();
+        car.forward();
+    }
+}
+
+void testBluetooth(){
+  bluetooth.receive();
+  
+  if (bluetooth.message == "forward")
+    {
+      car.brake();
+      car.forward();
+
+    }
+  else if(bluetooth.message == "backward") {
+      car.reverse();
+
+    }
+  else if(bluetooth.message == "left") {
+      car.turn(-90);
+
+  }
+  else if(bluetooth.message == "right") {
+      car.turn(90);
+
+  }
+  else{
+    car.brake();
+  }
+}
+// put your main code here, to run repeatedly:
+void loop()
+{
+  testBluetooth();
+    
+  //testCar();
+  //testDistStop();
+  //car.forward();
+  
+>>>>>>> origin/DistSensorModifications
 }

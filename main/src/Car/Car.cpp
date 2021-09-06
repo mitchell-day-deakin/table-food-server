@@ -3,10 +3,11 @@
 #include "Arduino.h"
 
 
-Car::Car(int forR, int revR, int forL, int revL){
+Car::Car(int forR, int revR, int forL, int revL, int enR, int enL){
     forwardEnabled = true;
-    rMotor.init(forR, revR);
-    lMotor.init(forL, revL);
+    wasStop = true;
+    rMotor.init(forR, revR, enR);
+    lMotor.init(forL, revL, enL);
     return;
 };
 
@@ -19,17 +20,23 @@ void Car::forward()
 {
     if (forwardEnabled)
     {
+        if (wasStop) {
+            wasStop = false;
+            rMotor.forward(255);
+            lMotor.forward(255);
+            delay(1000);
+        }
         Serial.println("Driving forward");
-        rMotor.forward();
-        lMotor.forward();
+        rMotor.forward(150);
+        lMotor.forward(150);
     }
 };
 
 void Car::reverse()
 {
     Serial.println("Driving reverse");
-    rMotor.back();
-    lMotor.back();
+    rMotor.back(255);
+    lMotor.back(255);
 };
 
 int Car::turn(int angle)
@@ -43,16 +50,16 @@ int Car::turn(int angle)
 
     if (angle < 0)
     {
-        rMotor.forward();
-        lMotor.back();
+        rMotor.forward(255);
+        lMotor.back(255);
         delay(onTime);
         rMotor.brake();
         lMotor.brake();
     }
     else
     {
-        lMotor.forward();
-        rMotor.back();
+        lMotor.forward(255);
+        rMotor.back(255);
         delay(onTime);
         rMotor.brake();
         lMotor.brake();
@@ -75,6 +82,7 @@ void Car::enableForward()
 
 void Car::brake()
 {
+    wasStop = true;
     lMotor.brake();
     rMotor.brake();
 };

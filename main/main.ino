@@ -85,7 +85,12 @@ void remoteServerControl(){
   if(Serial.available()>0){
     String value = Serial.readString();
     Serial.println(value);
-    
+    if(value == "f"){
+      car.forward();
+    }
+    if(value == "r"){
+      car.reverse();
+    }
   }
 }
 
@@ -97,6 +102,7 @@ void testDistMonitor()
   int distance = distMonitor.getCurDist();
 }
 
+
 // put your main code here, to run repeatedly:
 void loop()
 {
@@ -104,6 +110,6 @@ void loop()
   //testDistMonitor();
   //audioTest();
   //gamePadProcess();
-  remoteSerialControl();
-  Serial.println("From arduino\n");
+  remoteServerControl();
+  //Serial.println("From arduino\n");
 }

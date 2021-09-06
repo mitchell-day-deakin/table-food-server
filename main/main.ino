@@ -82,9 +82,12 @@ void gamePadProcess()
 
 void remoteServerControl(){
   if(Serial.available()>0){
-    String value = Serial.readString();
+    String value = Serial.read();
     Serial.println(value);
-    
+    if(value == "f"){
+      car.foward();
+    }
+    if(value == "r")
   }
 }
 

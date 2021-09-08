@@ -6,6 +6,7 @@
   "main": "app.js",
   "scripts": {
     "start": "electron app.js",
+    "bgServer": "node server.js",
     "bcrypt_win": "install bcrypt",
     "bcrypt_linux": "wsl sudo install bcrypt",
     "buildwin": "electron-packager . TEWT_Server --overwrite --platform=win32 --arch=x64 --icon=data/media/server.png --prune=true --out=../builds",

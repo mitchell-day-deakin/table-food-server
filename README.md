@@ -23,20 +23,17 @@ to the "app" directory and type in:
 
  To build the software use one of the below methods.
  To create a windows installer from the built files, you will need to have <a href="https://jrsoftware.org/isinfo.php">Inno Setup</a>.
- <ol>
- <li>Windows:
+
+1. Windows:
  ```sh
  npm run buildwin
  ```
- </li>
-<li>MacOS:
+2. MacOS:
  ```sh
  npm run buildmac
  ```
-</li>
-<li>Linux: (requires wsl installed on system)
+3. Linux: (requires wsl installed on system)
  ```sh
  npm run buildlinux
  npm run deb64_wsl
  ```
-</li>

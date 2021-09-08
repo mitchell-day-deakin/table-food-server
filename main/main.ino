@@ -109,7 +109,7 @@ void testDistMonitor()
 // put your main code here, to run repeatedly:
 void loop()
 {
-  testCar();
+  //testCar();
   //testDistMonitor();
   //audioTest();
   //gamePadProcess();

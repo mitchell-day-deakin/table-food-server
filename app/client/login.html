@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, target-density-dpi=device-dpi, user-scalable=0">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>Cubic diCon - Login</title>
+	<link rel="stylesheet" type="text/css" href="css/mainstyles.css?v1.2">
+	<link rel="stylesheet" type="text/css" href="css/theme.css?v1.1">
+	<link rel="shortcut icon" href="media/icon.png" sizes="64x64" type="image/png">
+	<link rel="apple-touch-icon" href="media/apple_icon.png">
+</head>
+
+<body>
+    <div id="loadingpage">
+		<div>
+			<img src="media/loading.gif" />
+			<h2>LOADING.......</h2>
+		</div>
+	</div>
+
+	<div class="pages" id="loginpage">
+		<div>
+			<h2>LOGIN</h2><br>
+			<input id="loginUsername" type="text" autocomplete="off"><br>
+			<input id="loginPassword" type="password" autocomplete="off"><br>
+			<button class="hightlight" onclick='serverLogin("login");'>LOGIN</button>
+			<button class="hightlight" onclick='serverLogin("logout");'>LOGOUT</button>
+		</div>
+	</div>
+	<div id="footer">
+		<span id="version"></span>
+		<span id="serverinfo" style="color: red"></span>
+		<span id="userdetails">Logged Out</span>
+	</div>
+	<script src="scripts/main.js" type="text/javascript"></script>
+	<script src="scripts/client.js" type="text/javascript"></script>
+	<script src="scripts/editDom.js" type="text/javascript"></script>
+	<script src="scripts/deviceScript.js" type="text/javascript"></script>
+</body>
+
+</html>

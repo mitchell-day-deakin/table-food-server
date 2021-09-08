@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, target-density-dpi=device-dpi, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="theme-color" content="#333333" />
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" type="text/css" href="./css/mainstyles.css?v1.3">
+    <style>
+        .servers {background-color: black; position: relative; width: 180px; height: 120px; display: inline-table};
+        .server_header {position: relative; height: 40px; width: 100%; };
+    </style>
+    <title>TEWT Server Connect</title>
+</head>
+
+<body style="background-color: #333333;">
+    <div class="content">
+        <h2>Server List</h2>
+
+        <div id="serverlist">
+        </div>
+
+        <div id="connect">
+            <h2>Connect to other TEWT server</h2>
+            <form action="" method="get" onsubmit="connectToServer(); return false;">
+                <input type="text" name="serverip" id="serverip">
+                <input class="highlight" type="submit" value="Connect">
+            </form>
+            <p id="status"></p>
+        </div>
+
+    </div>
+    <script src="./scripts/server_connect.js"></script>
+</body>
+
+</html>

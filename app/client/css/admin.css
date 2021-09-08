@@ -1,0 +1,192 @@
+*{
+    /*-webkit-user-select: none;  Safari */
+    -ms-user-select: none; /* IE 10+ and Edge */
+    user-select: none; /* Standard syntax */
+}
+
+.result-popup {
+    display: none;
+    background-color: #999999;
+    position: absolute;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    top: 10px;
+    left: 10px;
+    z-index: 105;
+    border: 2px white solid;
+    overflow-y: scroll;
+}
+.result-popup .content {
+    height: 100%;
+    background-color: rgb(150, 150, 150);
+    color: rgb(0, 0, 0);
+    /*text-align: justify;*/
+}
+
+.justify {
+    text-align: justify !important;
+}
+
+.center {
+    text-align: center !important;
+}
+
+#report-popup,
+#fp-popup,
+#debrief-popup {
+    max-height: calc(100% - 20px);
+    height: auto;
+}
+
+
+#report-popup h4 {
+    background-color: rgb(180,180,180);
+}
+
+.tewtBtns {
+    background-color: #993333;
+}
+
+.tewtBtns:hover {
+    background-color: #bb5555;
+}
+
+#markingPage {
+    overflow-y: scroll;
+}
+
+#markingPage .content {
+    background-color: transparent;
+}
+
+.attempt {
+    border: 1px solid white;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+.attempt-cont {
+    color: white;
+    text-align: left;
+}
+
+#tewtResultsCont {
+    text-align: left;
+    color: white;
+}
+
+#tewtResultsCont p {
+    display: inline-block;
+    word-wrap: break-word;
+    height: 100%;
+    padding: 10px;
+}
+
+.user-content {
+    background-color: none;
+}
+
+.user-cont h3 {
+    padding: 10px;
+}
+
+.r-label {
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.r-label:hover {
+    background-color: red;
+}
+
+.attempt-title {
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+    width: 100%;
+    background-color: #333;
+}
+
+.link:hover {
+    color: rgb(0, 114, 167);
+}
+
+.attempt-title:hover {
+    background-color: #646464
+}
+
+.qdes-cont {
+    -webkit-transition: 1s linear;
+    -moz-transition: 1s linear;
+    transition: 1s linear;
+}
+
+.qdes-open {
+    -webkit-transition: 1s linear;
+    -moz-transition: 1s linear;
+    transition: 1s linear;
+    height: auto;
+    overflow-y: auto;
+}
+
+.qdes-closed {
+    height: 0px;
+    overflow-y: hidden;
+}
+
+.qdes-cont div {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    background-color: #6d0000;
+}
+
+.content {
+    padding: 0;
+}
+
+li:hover {
+    background-color: rgb(138, 0, 0);
+}
+
+h2 {
+    height: 42px;
+    padding: 0px 8px 0px 8px;
+    color: rgb(248, 248, 248);
+}
+
+.content h2 {
+    color: black;
+    background-color: rgb(196, 196, 196);
+}
+
+#tewtResultsCont textarea {
+    width: 300px;
+    height: 90px;
+    vertical-align: bottom;
+}
+
+.resultsBtn {
+    display: inline-block;
+    padding: 3px 8px 3px 8px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.backBtn {
+    cursor: pointer;
+    padding-right: 10px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    border-radius: 100%;
+}
+
+.closeButton {
+    position: fixed;
+    right: 10px;
+    top: 12px;
+}

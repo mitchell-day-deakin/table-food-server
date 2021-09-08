@@ -1,0 +1,222 @@
+{
+    "name": "FO - Cultana",
+    "id": "r9ipph33fxj1alrgyua16u",
+    "enabled": true,
+    "qdes": [
+        {
+            "name": "Develop Fireplan",
+            "orders": {
+                "videoUrl": "FO_QDE_VID.mp4",
+                "text": [
+                    "<h4>Narrative</h4>",
+                    "You are in command of a JFT, callsign G34, attached to Combat Team Predator. Your JFT consists of yourself, your ACK and two signallers",
+                    "CT PREDATOR has been tasked with conducting an ATTACK against an identified enemy location at GR 4702 6577. This enemy position consists of a PL of motorised Infantry with a squad of engineers who are likely looking to disrupt movement to the south.",
+                    "STRAT ISR have an OP that has good visibility of the Enemy location and is located at GR 4797 6604.",
+                    "The OC for CT PREDATOR has determined that the CT will conduct a 2 up 1 back ATTACK onto the enemy position supported by offensive support. Additionally, the OC has determined that C/S 65X (Sniper Quad), C/S 64 (DFSW section with 2x MAG 58) along with G34A will move by foot to the STRAT ISR OP location and conduct a HOTO in place. From the OP 65X will provide precision fires, DFSW will provide SBF, while 34A acts as an anchor OP. You will be with the OC during the ATTACK.",
+                    "The OC wishes to keep the element of surprise, therefore there is to be no per-adjusting of Tgts. Commencement of engagement is to occur NB H-5",
+                    "The critical information you require is as follows.",
+                    "H Hour- 0600hrs",
+                    "The FUP is at GR 46746 66653",
+                    "The OC assesses that the rate of advance will be 50m per minute.",
+                    "UAS footage has been provided IOT determine enemy grids.",
+                    "G6 has given you the following resources",
+                    "C/S 3 in direct support from now until 1000hrs with 10 HE and 5 SMK. C/S 3 is located at GR 2771 7198",
+                    "C/S 83 in direct support from now until 1000hrs with 5 HE and 3 WP. C/S 83 is located at GR 4760 6800",
+                    "<h4>Problem</h4>",
+                    "You are to develop a fire plan to support this attack and be prepared to back brief this fire plan to the OC." 
+                ]
+            },
+            "uavVideoUrl": "cultana.mp4",
+            "map": {
+                "model": "nz.gltf",
+                "img": {
+                    "url": "cultana.jpg",
+                    "pos": [
+                        137.5829811300083634,
+                        -33.0000669316572441,
+                        137.8330329989969982,
+                        -32.5000152103524726
+                    ]
+                },
+                "camera": {
+                    "lat": -32.812834,
+                    "lon": 137.636733,
+                    "height": 8000
+                },
+                "layers": {
+                    "base": {
+                        "name": "Base",
+                        "entities": [
+                            {
+                                "id": "qde1",
+                                "name": "Clear",
+                                "description": [],
+                                "subType": null,
+                                "type": "rectangle",
+                                "color": null,
+                                "label": null,
+                                "image": "./media/mil/clear.png",
+                                "positions": [
+                                    {
+                                        "lat": -32.81703441614882,
+                                        "lon": 137.6365656449008
+                                    }
+                                ],
+                                "rotation": -3.07178,
+                                "scale": 15
+                            },
+                            {
+                                "id": "qde2",
+                                "name": "ABF",
+                                "description": [],
+                                "subType": null,
+                                "type": "rectangle",
+                                "color": null,
+                                "label": null,
+                                "image": "./media/mil/abf.png",
+                                "positions": [
+                                    {
+                                        "lat": -32.81598474,
+                                        "lon": 137.64653876
+                                    }
+                                ],
+                                "rotation": -4.71239,
+                                "scale": 18
+                            },
+                            {
+                                "id": "qde3",
+                                "name": "FUP",
+                                "description": [],
+                                "subType": null,
+                                "type": "rectangle",
+                                "color": null,
+                                "label": null,
+                                "image": "./media/mil/fup.png",
+                                "positions": [
+                                    {
+                                        "lat": -32.8106178171748,
+                                        "lon": 137.63540710687388
+                                    }
+                                ],
+                                "rotation": -3,
+                                "scale": 15
+                            },
+                            {
+                                "id": "qde9",
+                                "name": "FUP Advance",
+                                "description": [],
+                                "subType": "arrow",
+                                "type": "line",
+                                "color": "#0011cc",
+                                "label": null,
+                                "image": null,
+                                "positions": [
+                                    {
+                                        "lat": -32.81120605762993,
+                                        "lon": 137.63538900289592
+                                    },
+                                    {
+                                        "lat": -32.81466494401015,
+                                        "lon": 137.63588312924946
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 0
+                            },
+                            {
+                                "id": "qde5",
+                                "name": "G34",
+                                "description": [
+                                    ""
+                                ],
+                                "subType": null,
+                                "type": "billboard",
+                                "color": null,
+                                "label": null,
+                                "image": "./media/mil/art.png",
+                                "positions": [
+                                    {
+                                        "lat": -32.7672309,
+                                        "lon": 137.4299935
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 5
+                            },
+                            {
+                                "id": "qde7",
+                                "name": "OP",
+                                "description": [
+                                    "C/S 65X (Sniper Quad)",
+                                    "C/S 64 (DFSW sect, 2 x MAG 58)",
+                                    "G34A"
+                                ],
+                                "subType": null,
+                                "type": "rectangle",
+                                "color": null,
+                                "label": null,
+                                "image": "./media/mil/op.png",
+                                "positions": [
+                                    {
+                                        "lat": -32.81598474,
+                                        "lon": 137.64853876
+                                    }
+                                ],
+                                "rotation": 0.6,
+                                "scale": 3
+                            },
+                            {
+                                "id": "qde6",
+                                "name": "C/S 3",
+                                "description": [
+                                    "spt from now to 1000hrs",
+                                    "10 HE and 5 SMK"
+                                ],
+                                "subType": null,
+                                "type": "billboard",
+                                "color": null,
+                                "label": null,
+                                "image": "./media/mil/art.png",
+                                "positions": [
+                                    {
+                                        "lat": -32.7672309,
+                                        "lon": 137.4299935
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 5
+                            },
+                            {
+                                "id": "qde4",
+                                "name": "C/S 83",
+                                "description": [
+                                    "direct spt from now to 1000hrs",
+                                    "5 HE and 3 WP"
+                                ],
+                                "subType": null,
+                                "type": "billboard",
+                                "color": null,
+                                "label": null,
+                                "image": "./media/mil/mortar.png",
+                                "positions": [
+                                    {
+                                        "lat": -32.79815462836,
+                                        "lon": 137.64353494804595
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 5
+                            }
+                        ]
+                    }
+                }
+            },
+            "report": {
+                "type": "fireplan",
+                "data": []
+            },
+            "debriefEnabled": true,
+            "duration": 15
+        }
+    ]
+}

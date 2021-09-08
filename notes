@@ -1,0 +1,42 @@
+Classes/Objects
+
+Event, Tewt, Qde, Map, MapItem, Cesium, MapItems
+
+
+
+
+Map
+- Polylines to create lines and arrows (material : new Cesium.PolylineArrowMaterialProperty(Cesium.Color.BLUE) for arrows
+- measuring - compass, ruler angle
+- categorised items e.g the main addItems menu has categories - bluefor, opfor, mv which when clicked on takes the user to a sub menu   
+    - i.e click on bluefor, then opens a menu with, infantry, mortars, engineers etc
+- export map
+
+
+
+Admin Page
+- create event,
+- create Qde
+- create Tewt
+- start event
+- view results
+    - by person
+    - overall event
+- mark answers
+
+map
+	- create line creation tool
+		- arrow
+		- dotted
+		- solid line
+		- draw line
+			- mousestart/touchstart create array add first position
+			- mousemove/touchmove - while
+
+
+storage
+- client storage
+	- users
+	- tewts
+	- results
+	- currentTewt

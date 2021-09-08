@@ -1,0 +1,24 @@
+{
+    "admin": {
+        "fname": "Administrator",
+        "level": "admin",
+        "password": "$2b$10$e1IcD1ujbGknOWhspjCItuOb551kIeTLM60dMiTxFqi.6pWQ0jyXW",
+        "lname": " ",
+        "uname": "admin",
+        "authKey": "h7m0wpfw068rfow8ioi6up"
+    },
+    "daym":{
+        "fname": "Mitchell",
+        "level": "admin",
+        "password": "$2b$10$8EkgrVkVRMH7ezSImf0InOoDqf4IguaQvZBOMNYNMQ98tLLqeLS92",
+        "lname": "Day",
+        "authKey": "1qlcmvq6fmly3ztudltzqs"
+    },
+    "sissy":{
+        "fname": "1111",
+        "level": "user",
+        "password": "$2b$10$iLcIir.iLmFLaJcOuFqem.SN.94nO7AH1O.KuujARlzn5cKcqAqyi",
+        "lname": "1111",
+        "authKey": "53awcy0gjcn98c1yj9strk"
+    }
+}

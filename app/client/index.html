@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="description" content="Cubics TEWT tool">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="theme-color" content="#333333" />
+	<title>TEWT</title>
+	<link rel="shortcut icon" href="media/icon.png" sizes="64x64" type="image/png">
+	<link rel="apple-touch-icon" href="media/apple_icon.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="stylesheet" href="cesium/Widgets/widgets.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="./css/mainstyles.css?v1.3">
+	<link rel="stylesheet" type="text/css" href="./css/fireplan.css?v1.1">
+	<link rel="stylesheet" type="text/css" href="./css/swal2.css?v1.1">
+	<link rel="stylesheet" type="text/css" href="./css/nouislider.min.css">
+	<script src="scripts/storage.js"></script>
+	<script src="scripts/socket.io/socket.io.js"></script>
+	<script src="scripts/utmMgrsLl.js"></script>
+	<script src="scripts/sweetalert2.all.js" type="text/javascript"></script>
+	<script src="cesium/Cesium.js"></script>
+	
+
+	<script>
+		let serverIp = "";
+	</script>
+</head>
+
+<body>
+	<div id="app">
+
+		<!--Title bar for application-->
+		<div id="appTitleBar">
+			<p><span id="pagetitle"></span><span id="maintitle">TEWT</span></p>
+		</div>
+		<img id="settingsButton" src="media/settings.svg" onclick="openSettings()" />
+
+		<!--LOGIN PAGE-->
+		<div class="pages" id="loginPage">
+			<div>
+				<h4 onclick="userLoginBox('login')" id="loginTab">ACCOUNT<br>LOGIN</h4>
+				<h4 onclick="userLoginBox('create')" id="createTab">CREATE<br>ACCOUNT</h4>
+				<div id="loginUserDiv">
+					<form name="loginForm" id="loginForm" autocomplete="off" action="/login" method="post"
+						onsubmit="return false">
+						<h2>USER LOGIN</h2><br>
+						<h4>USERNAME:</h4>
+						<input id="loginUsername" type="text" autocomplete="off" required><br>
+						<h4>PASSWORD:</h4>
+						<input id="loginPassword" type="password" autocomplete="off" required><br>
+						<input type="submit" value="LOGIN" class="hightlight" onclick='login();'><br><br>
+						<li class="local-file" onclick="disconnectServer()"><img class="listImage"
+								src="media/barrow.svg" alt="">DISCONNECT</li>
+					</form>
+				</div>
+				<div id="createUserDiv">
+					<form name="loginForm" id="createForm" autocomplete="off" action="/user" method="post"
+						onsubmit="return false">
+						<h2>CREATE USER</h2><br>
+						<h4>USERNAME:</h4>
+						<input id="createUsername" type="text" autocomplete="off"><br>
+						<h4>PASSWORD:</h4>
+						<input id="createPassword" type="password" autocomplete="off"><br>
+						<h4>FIRST NAME:</h4>
+						<input id="createFirstname" type="text" autocomplete="off"><br>
+						<h4>LAST NAME:</h4>
+						<input id="createLastname" type="text" autocomplete="off"><br>
+						<input type="submit" class="hightlight" value="CREATE" onclick='createUser();'><br><br>
+						<li class="local-file" onclick="disconnectServer()"><img class="listImage"
+								src="media/barrow.svg" alt="">DISCONNECT</li>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<!--MAIN Page-->
+		<div id="mainPage" class="pages">
+			<div id="main-icon" class="container menu-icon" onclick="toggleMainMenu()">
+				<div class="menub1"></div>
+				<div class="menub2"></div>
+				<div class="menub3"></div>
+			</div>
+
+			<div id="mainMenu" class="menu closedMenu">
+				<ul>
+					<h2>MENU</h2>
+					<li onclick="changeMainPage('tewtSelection', this)">TEWTS</li>
+					<li onclick="changeMainPage('settingsPage', this)">SETTINGS</li>
+					<li class="admin" id="adminBtn" onclick="adminPage()">ADMIN</li><br>
+					<li onclick="logout()"><img class="listImage" src="media/barrow.svg" alt="">LOGOUT</li>
+					<li class="local-file" onclick="disconnectServer()"><img class="listImage" src="media/barrow.svg"
+							alt="">DISCONNECT</li>
+				</ul>
+			</div>
+
+
+			<!--<button onclick="setPage('tewtPage')">TEWT</button>-->
+
+			<div id="tewtSelection" class="mainPage">
+				<h2>Tactical Ex w/o Troops<br>
+					Select an Exercise below</h2>
+				<div class="content"></div>
+			</div>
+
+			<div id="settingsPage" class="mainPage">
+				<h2>Settings</h2>
+				<div class="content"></div>
+			</div>
+
+
+			<p></p>
+		</div>
+
+
+
+
+
+		<!--TEWT PAGE-->
+		<div id="tewtPage" class="pages">
+			<div id="tewt-icon" class="container menu-icon" onclick="toggleTewtMenu()">
+				<div class="menub1"></div>
+				<div class="menub2"></div>
+				<div class="menub3"></div>
+			</div>
+
+			<div id="tewtMenu" class="menu closedMenu">
+				<ul>
+					<h2>RESOURCES</h2>
+					<li id="infoMenuOption" onclick="changeTewtPage('tewtOrdersPage', this)">ORDERS</li>
+					<li onclick="changeTewtPage('tewtMapPage', this)">MAP</li>
+					<li id="uavMenuOption" onclick="changeTewtPage('tewtUavPage', this)">UAV</li>
+					<li id="debriefMenuOption" onclick="changeTewtPage('tewtDebriefPage', this)">DEBRIEF</li>
+					<li id="reportMenuBtn" onclick="changeTewtPage('tewtReportPage', this)">REPORT</li><br>
+					<li onclick="exitTewt()"><img class="listImage" src="media/barrow.svg" alt=""> EXIT TEWT</li>
+				</ul>
+			</div>
+
+			<!-- Intro Video Page -->
+			<div id="tewtIntroPage" class="tewtPage" style="display: block;">
+				<video id="tewtIntroVideo" src="" width="99%" type="video/mp4" controls>
+				</video>
+			</div>
+
+			<!-- Orders Page -->
+			<div id="tewtOrdersPage" class="tewtPage">
+				<h2>ORDERS</h2>
+				<div class="content"></div>
+			</div>
+
+
+
+			<!-- Map Page -->
+			<div id="tewtMapPage" class="tewtPage">
+				<select class="mapSelect" onchange="viewChange();" id="selections"></select>
+				<select class="mapSelect" onchange="entitySelect();" id="entitySelect"></select>
+				<button class="" onclick="mapEntities.editLayers();" id="layerSelectBtn">LAYERS</button>
+
+				<div id="cesiumMap" ondragenter="return map.dragEnter(event)" name="ondrop=return map.dragDrop(event)"
+					ondragover="return map.dragOver(event)"></div>
+					<div class="toolbar-left">
+						<button onclick="alert('You clicked!');">Click me!</button>
+					</div>
+
+				 <!-- <div id="mapItems" class="mapMenus">
+					<div class="mapMenuIcon" onclick="openMapMenu('bluefor')">
+						<img draggable="false" src="media/mil/infantry.png" alt="Infantry">
+					</div>
+					<div class="mapMenuIcon" onclick="openMapMenu('enemy')">
+						<img draggable="false" src="media/mil/opfor.png" alt="EN">
+					</div>
+					<div class="mapMenuIcon" onclick="openMapMenu('tasks')">
+						<img draggable="false" src="media/mil/abf.png" alt="ABF">
+					</div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/target.png" alt="TgT"></div>
+					<div class="mapMenuIcon" onclick="mapEntities.Line.start()">
+						<img draggable="false" value="MV" src="media/mil/arrow.png" alt="arrow">
+					</div>
+					<div class="mapMenuIcon" onclick="mapEntities.Ruler.start()">
+						<img draggable="false" value="EN" src="media/mil/ruler.png" alt="ruler">
+					</div>
+				</div>
+
+
+				<div id="bluefor" class="mapMenus">
+					<div class="mapMenuIcon">
+						<p>Bluefor<br>Units</p>
+					</div>
+					<div class="mapMenuIcon" onclick="openMapMenu('mapItems')"><img src="media/barrow.svg" alt="BACK">
+					</div>
+					<div class="mapMenuIcon"><img class="dragImg" type="billboard" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/infantry.png" alt="Infantry"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="billboard" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/engineers.png" alt="Engineers"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="billboard" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/uav.png" alt="UAV"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="billboard" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/artillery.png" alt="Artillery"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="billboard" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/mortars.png" alt="Mortars"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="billboard" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/op.png" alt="OP"></div>
+				</div>
+
+
+				<div id="enemy" class="mapMenus">
+					<div class="mapMenuIcon">
+						<p>Enemy<br>Units</p>
+					</div>
+					<div class="mapMenuIcon" onclick="openMapMenu('mapItems')"><img src="media/barrow.svg" alt="BACK">
+					</div>
+					<div class="mapMenuIcon"><img class="dragImg" type="billboard" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/opfor.png" alt="EN"></div>
+				</div>
+
+
+				<div id="tasks" class="mapMenus">
+					<div class="mapMenuIcon">
+						<p>TASKS</p>
+					</div>
+					<div class="mapMenuIcon" onclick="openMapMenu('mapItems')"><img src="media/barrow.svg" alt="BACK">
+					</div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/lz.png" alt="LZ"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/fup.png" alt="FUP"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="billboard" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/POI.png" alt="POI"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/abf.png" alt="ABF"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/sbf.png" alt="SBF"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/ambush.png" alt="Ambush"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/clear.png" alt="Clear"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/penetrate.png" alt="Penetrate"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/block.png" alt="Block"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/bypass.png" alt="Bypass"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/aosa.png" alt="AoSA"></div>
+					<div class="mapMenuIcon"><img class="dragImg" type="rectangle" ondragstart="dragStart(event)"
+							draggable="true" src="media/mil/view.png" alt="Sight"></div>
+				</div> -->
+
+
+				<div id="itemsEdit" class="mapMenus">
+					<div class="mapMenuIcon" onclick="mapEntities.rotate('left')"><img src="media/rotL.svg" alt="ROT L">
+					</div>
+					<div class="mapMenuIcon" onclick="mapEntities.rotate('right')"><img src="media/rotR.svg"
+							alt="ROT R">
+					</div>
+					<div class="mapMenuIcon" onclick="mapEntities.translate('left')"><img src="media/moveL.svg"
+							alt="MOVE L">
+					</div>
+					<div class="mapMenuIcon" onclick="mapEntities.translate('right')"><img src="media/moveR.svg"
+							alt="MOVE R">
+					</div>
+					<div class="mapMenuIcon" onclick="mapEntities.translate('up')"><img src="media/moveU.svg"
+							alt="MOVE U">
+					</div>
+					<div class="mapMenuIcon" onclick="mapEntities.translate('down')"><img src="media/moveD.svg"
+							alt="MOVE D">
+					</div>
+					<div class="mapMenuIcon" onclick="mapEntities.scale('up')"><img src="media/scaleU.svg"
+							alt="SCALE +">
+					</div>
+					<div class="mapMenuIcon" onclick="mapEntities.scale('down')"><img src="media/scaleD.svg"
+							alt="SCALE -">
+					</div>
+					<div class="mapMenuIcon" onclick="mapEntities.editInfo()">
+						<p>EDIT<br>INFO</p>
+					</div>
+					<div class="mapMenuIcon" onclick="mapEntities.removeCurrent()"><img src="media/del.svg"
+							alt="REMOVE">
+						</div>
+				</div>
+			</div>
+
+			<!-- UAV Video Page -->
+			<div id="tewtUavPage" class="tewtPage">
+				<div id="videoDiv" class="video content media">
+					<video id="uavVideo" src="" width="100%" type="video/mp4" controls>
+					</video>
+				</div>
+			</div>
+
+
+			<!-- Video Debrief Page -->
+			<div id="tewtDebriefPage" class="tewtPage">
+				<div class="content media">
+					<h2>DEBRIEF</h2><div id="debrief_time">01:00<br>WAITING</div>
+					
+					<video src="" id="debrief_camera" class="debrief_video" type="video/webm" muted>
+						<source src="" type="video/webm">
+						<source src="" type="video/mp4">
+					</video>
+
+					<video src="" id="debrief_playback" controls="controls" class="debrief_video" type="video/webm">
+						<source src="" type="video/webm">
+						<source src="" type="video/mp4">
+					</video>
+
+					<div id="deb_con_record" class="debrief_controls">
+						<button id="debrief_record">RECORD<br>START</button>
+						<button id="debrief_stop">RECORD<br>STOP</button>
+					</div>
+					<div id="deb_con_playback" class="debrief_controls">
+						<button id="debrief_save">SAVE<br>DEBRIEF</button>
+						<button id="debrief_delete">DELETE/<br>TRY AGAIN</button>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Orders Page -->
+			<div id="tewtReportPage" class="tewtPage">
+				<!--<h2>SCENARIO REPORT</h2>-->
+				<div class="content">
+					<form name="reportForm" id="reportForm" autocomplete="off" action="/user" method="post"
+						onsubmit="return false"></form>
+					<div id="fireplan">
+					</div>
+
+					<!--<input type="submit" value="SUBMIT QDE" class="highlight" onclick="submitQde()">-->
+
+				</div>
+			</div>
+
+			<!-- Popup window for line tool in maps -->
+			<div id="lineFinishPopup">
+				<button class="highlight" onclick="mapEntities.Line.finish()">FINISH LINE</button>
+			</div>
+
+			<!-- Popup window for line tool in maps -->
+			<div id="areaFinishPopup" class="popupBottom">
+				<button class="highlight" onclick="mapEntities.Area.finish()">FINISH AREA</button>
+			</div>
+		</div>
+
+
+
+
+
+
+		<!--The Settings/Options page-->
+		<div id="settingsPage" class="pages admin">
+		</div>
+
+		<div id="followMenu">
+			<span class="closeButton" onclick="closeMenu('followMenu')">x</span>
+			<h4>Menu</h4>
+			<div></div>
+		</div>
+
+		<div id="loginPopup">
+			<span class="closeButton" onclick="closeMenu('loginPopup')">x</span>
+			<h2>Menu</h2>
+			<li onclick="logout()">LOGOUT</li>
+			<li onclick="setPage('loginPage'); closeMenu('loginPopup')">LOGIN PAGE</li>
+			<li onclick="setPage('mainPage'); closeMenu('loginPopup')">MAIN PAGE</li>
+		</div>
+
+
+		<!--All the pop up divs: loading, group select, edit groups-->
+		<div id="loadingpage">
+			<div>
+				<img src="media/loading2.gif" />
+			</div>
+		</div>
+
+
+
+
+
+		<div id="footer">
+			<span id="proj">
+				<select id="proj-type" onchange="map.setProj()">
+					<option value="mgrs">MGRS</option>
+					<option value="latlon">LatLon</option>
+					<option value="utm">UTM</option>
+				</select>
+				<span id="map-position">0,0</span>
+			</span>
+			<span id="serverinfo" style="color: red"></span>
+			<span id="userdetails">Logged Out</span>
+		</div>
+	</div>
+
+	<script src="scripts/map_data.js"></script>
+	<script src="data/map_icons.js"></script>
+	<script src="scripts/fireplan.js"></script>
+	<script src="scripts/map.js" type="text/javascript"></script>
+	<script src="scripts/nouislider.min.js"></script>
+	<!-- <script src="scripts/mainCesium.js"></script> -->
+	<script src="scripts/entity.js" type="text/javascript"></script>
+	<script src="scripts/editDom.js" type="text/javascript"></script>
+	<script src="scripts/auth.js" type="text/javascript"></script>
+	<script src="scripts/video_record.js" type="text/javascript"></script>
+	<script src="scripts/tewtClient.js" type="text/javascript"></script>
+	<script src="scripts/main.js" type="text/javascript"></script>
+	<script src="scripts/socket.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+(c) Copyright 2020 Cubic Defence Australia, all rights reserved.
+
+Uses Libraries with below licensing:
+
+MIT:
+* NodeJS
+* Directory-Tree
+* Express
+* Node-Gyp
+* Electron
+* Socket.IO
+* SweetAlert2
+* bcrypt
+* opn
+* crypto
+* electron-build
+* noUISlider
+* proj4js/mgrs
+
+Apache 2.0:
+* CesiumJS
+
+BSD 2-Clause "Simplified" License
+* Electron-Packager

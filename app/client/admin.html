@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, target-density-dpi=device-dpi, user-scalable=0">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="theme-color" content="#333333" />
+	<title>TEWT-Admin</title>
+	<link rel="shortcut icon" href="media/icon.png" sizes="64x64" type="image/png">
+	<link rel="apple-touch-icon" href="media/apple_icon.png">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" href="cesium/Widgets/widgets.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/mainstyles.css?v1.3">
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
+	<link rel="stylesheet" type="text/css" href="css/fireplan.css?v1.1">
+	<link rel="stylesheet" type="text/css" href="css/swal2.css?v1.1">
+	<link rel="stylesheet" type="text/css" href="css/nouislider.min.css">
+	<script src="scripts/socket.io/socket.io.js"></script>
+	<script src="scripts/utmMgrsLl.js"></script>
+	<script src="scripts/sweetalert2.all.js" type="text/javascript"></script>
+	<script src="cesium/Cesium.js"></script>
+	<script>
+		let serverIp = "";
+	</script>
+</head>
+
+<body>
+	<div id="app">
+
+
+		<!--Title bar for application-->
+		<div id="appTitleBar">
+			<p><span id="pagetitle"></span><span id="maintitle">TEWT</span></p>
+		</div>
+
+
+		<div id="main-icon" class="container menu-icon admin-icon" onclick="toggleMainMenu()">
+			<div class="menub1"></div>
+			<div class="menub2"></div>
+			<div class="menub3"></div>
+		</div>
+
+
+		<div id="mainMenu" class="menu admin-menu closedMenu">
+			<ul>
+				<h2>MENU</h2>
+				<li onclick="changeMainPage('mainPage', this)">RESULTS</li>
+				<!-- <li onclick="changeMainPage('markingPage', this)">SUBMISSIONS</li> -->
+				<li onclick="userPage()">USER</li><br>
+				<li onclick="logout()"><img class="listImage" src="media/barrow.svg" alt="">LOGOUT</li>
+				<li class="local-file" onclick="disconnectServer()"><img class="listImage" src="media/barrow.svg"
+					alt="">DISCONNECT</li>
+			</ul>
+		</div>
+
+
+		<!--LOGIN PAGE-->
+		<div class="pages" id="loginPage">
+			<div>
+				<h4 onclick="userLoginBox('login')" id="loginTab">ACCOUNT<br>LOGIN</h4>
+				<h4 onclick="userLoginBox('create')" id="createTab">CREATE<br>ACCOUNT</h4>
+				<div id="loginUserDiv">
+					<form name="loginForm" id="loginForm" autocomplete="off" action="/login" method="post"
+						onsubmit="return false">
+						<h2>USER LOGIN</h2><br>
+						<h4>USERNAME:</h4>
+						<input id="loginUsername" type="text" autocomplete="off" required><br>
+						<h4>PASSWORD:</h4>
+						<input id="loginPassword" type="password" autocomplete="off" required><br>
+						<input type="submit" value="LOGIN" class="hightlight" onclick='login("admin");'><br><br>
+						<li class="local-file" onclick="disconnectServer()"><img class="listImage"
+							src="media/barrow.svg" alt="">DISCONNECT</li>
+					</form>
+				</div>
+				<div id="createUserDiv">
+					<form name="loginForm" id="createForm" autocomplete="off" action="/user" method="post"
+						onsubmit="return false">
+						<h2>CREATE USER</h2><br>
+						<h4>USERNAME:</h4>
+						<input id="createUsername" type="text" autocomplete="off"><br>
+						<h4>PASSWORD:</h4>
+						<input id="createPassword" type="password" autocomplete="off"><br>
+						<h4>FIRST NAME:</h4>
+						<input id="createFirstname" type="text" autocomplete="off"><br>
+						<h4>LAST NAME:</h4>
+						<input id="createLastname" type="text" autocomplete="off"><br>
+						<input type="submit" class="hightlight" value="CREATE" onclick='createUser();'><br><br>
+						<li class="local-file" onclick="disconnectServer()"><img class="listImage"
+							src="media/barrow.svg" alt="">DISCONNECT</li>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+		<!--MAIN Page-->
+		<div id="mainPage" class="pages">
+			<h2>Results - Choose TEWT</h2>
+			<div class="content"></div>
+
+			<p></p>
+		</div>
+
+
+		<!-- Submissions  -->
+		<div id="markingPage" class="pages">
+			<div class="content">
+				<h2>TEWT Submissions</h2><span id="resultsTitle"></span>
+				<div id="tewtResultsInfo"></div>
+				<div id="tewtResultsCont"></div>
+			</div>
+
+		</div>
+
+
+		<!--The Settings/Options page-->
+		<div id="settingsPage" class="pages admin">
+		</div>
+
+
+		<div id="loginPopup">
+			<span class="closeButton" onclick="closeMenu('loginPopup')">x</span>
+			<h2>Menu</h2>
+			<li onclick="logout()">LOGOUT</li>
+			<li onclick="setPage('loginPage'); closeMenu('loginPopup')">LOGIN PAGE</li>
+			<li onclick="setPage('mainPage'); closeMenu('loginPopup')">MAIN PAGE</li>
+		</div>
+
+
+		<!--All the pop up divs: loading, group select, edit groups-->
+		<div id="loadingpage">
+			<div>
+				<img src="media/loading.gif" />
+				<h2>LOADING.......</h2>
+			</div>
+		</div>
+
+
+		<!-- Popup for map -->
+		<div id="map-popup" class="result-popup">
+			<span class="closeButton" onclick="closeWindow('map-popup')">x</span>
+			<!-- <div class="content"> -->
+			<div id="cesiumMap"></div>
+			<select class="mapSelect" onchange="viewChange();" id="selections"></select>
+			<select class="mapSelect" onchange="entitySelect();" id="entitySelect"></select>
+			<button class="" onclick="mapEntities.editLayers();" id="layerSelectBtn">LAYERS</button>
+		</div>
+
+		<!-- Popup for fireplan -->
+		<div id="fp-popup" class="result-popup center">
+			<span class="closeButton" onclick="closeWindow('fp-popup')">x</span>
+			<div class="content"></div>
+		</div>
+
+
+		<!-- Popup for report -->
+		<div id="report-popup" class="result-popup center">
+			<span class="closeButton" onclick="closeWindow('report-popup')">x</span>
+			<div class="content"></div>
+		</div>
+
+		<!-- Popup for debrief -->
+		<div id="debrief-popup" class="result-popup center">
+			<span class="closeButton" onclick="closeWindow('debrief-popup')">x</span>
+			<div class="content">
+				<video controls class="debrief_video" id="debrief_video" src=""></video>
+			</div>
+		</div>
+
+
+		<!-- The footer container -->
+		<div id="footer">
+			<span id="proj">
+				<select id="proj-type" onchange="map.setProj()">
+					<option value="mgrs">MGRS</option>
+					<option value="latlon">LatLon</option>
+					<option value="utm">UTM</option>
+				</select>
+				<span id="map-position">0,0</span>
+			</span>
+			<span id="serverinfo" style="color: red"></span>
+			<span id="userdetails">Logged Out</span>
+		</div>
+	</div>
+
+
+	<script src="scripts/map_data.js"></script>
+	<script src="scripts/fireplan_admin.js"></script>
+	<script src="scripts/map.js" type="text/javascript"></script>
+	<script src="scripts/nouislider.min.js"></script>
+	<script src="scripts/entity.js" type="text/javascript"></script>
+	<script src="scripts/editDomAdmin.js" type="text/javascript"></script>
+	<script src="scripts/auth.js" type="text/javascript"></script>
+	<script src="scripts/admin_tewt.js" type="text/javascript"></script>
+	<script src="scripts/admin.js" type="text/javascript"></script>
+	<script src="scripts/socket.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+.swal2-popup {
+    background-color: #333333 !important;
+    border-radius: 3px !important;
+    color: #fff !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+.swal2-title {
+    color: #fff !important;
+    margin: 0 !important;
+    padding: 5px !important;
+}
+
+.swal2-styled {
+    /*padding: 10px !important;*/
+    min-width: 40px !important;
+    width: fit-content !important;
+    height: auto !important;
+    /*background-color: #0047a3 !important;*/
+    border: none !important;
+}
+
+.swal2-header {
+    background-color: black;
+    margin-bottom: 0px !important;
+}
+
+.swal2-content {
+    color: white !important;
+    margin: 10px !important;
+}
+
+.swal2-input {
+    margin: 8px 0 14px 0 !important;
+    height: 30px !important;
+}
+
+.swal2-content select {
+    width: 90% !important;
+    display: inline-table;
+    vertical-align: middle;
+}
+
+.swal2-content input[type=color] {
+    width: 10% !important;
+    height: 35px !important;
+    display: inline-table;
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.line-input-pos {
+    width: 90% !important;
+}

@@ -1,0 +1,12 @@
+Thank you for installing the Tactical Exercise Without Troops (TEWT).
+To use the software, click the start menu, scroll to the "Cubic" folder
+and click on the "TEWT Server" software, then either:
+
+1. Open a browser window (preferably Chrome), 
+   and type "http://<ipaddress>:7010" in the address bar
+   where <ipaddress> the address of your system OR localhost when the server
+   is on the same computer
+
+Regards,
+
+Mitchell Day

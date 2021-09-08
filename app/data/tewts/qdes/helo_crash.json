@@ -1,0 +1,37 @@
+{
+    "name": "Helo Crash",
+    "orders": {
+        "videoUrl": false,
+        "text": [
+            "You are in command of 2 PL, A Coy, 1st BN. Having cleared enemy and secured the LZ you are awaiting the arrival of helo (C/S DUST OFF) in order to backload captured pers and proceed back to the BN Assembly Area. 5 minutes after receiving wheels up en route to your location from BN, DUST OFF raises your C/S and reports:",
+            "\"This is DUST OFF currently tracking 3km East of the LZ, have sighted what appears to be 10-15 enemy on MSR PREDATOR moving west by foot. Be aware this C/S has ammunition resupply for you\"",
+            "15 seconds later…………..",
+            "\"This is DUST OFF this callsign is taking fire………….MAYDAY MAYDAY\"",
+            "You see a large plume of black smoke to your South East (at GR 945 309) and can no longer raise DUST OFF. You provide CHQ with a SITREP and the OC informs you to “secure the crash site and await SAR”. When you request additional support you are informed that “You have 1 Gun, C/S G61B (155mm M777 @ GR 986 395) in direct support to your C/S from now with 20 HE, 5 SMK and 5 Illum.",
+            "You have under command one sniper pair who have joined your platoon for the move back to the BN AA.",
+            "2 PLs current position is the designated LZ at GR 9439 3140. The time now is 1320hrs.",
+            "<h4>ASSUMPTIONS</h4>",
+            "You can assume that all small arms ammunition on board DUST OFF survived the crash and can still be employed. This ammunition resupply is enough first line of 5.56 and 7.62 for the PL and attachments.",
+            "<h4>PROBLEM</h4>",
+            "As Comd 2 Pl, show the steps which enabled you to arrive at your plan, and be prepared to give your plan in a back brief."
+        ]
+    },
+    "uavVideoUrl": "waiouru.mp4",
+    "map": {
+        "model": "nz.gltf",
+        "img": "waiouru_map.jpg",
+        "pos": {
+            "lat": "-39.461303",
+            "lon": 175.775301,
+            "height": 4000
+        }
+    },
+    "report": [
+        "What is the situation and how does it affect me?",
+        "What have I been told to do and why?",
+        "What effects do I need to achieve and what direction must I give to develop my plan?",
+        "Where can I best accomplish each action or effect?",
+        "What resources do I need to accomplish each action or effect"
+    ],
+    "duration": 15
+}

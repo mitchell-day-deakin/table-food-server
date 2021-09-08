@@ -1,0 +1,163 @@
+#fireplan {
+    width: 100%;
+    color: white;
+}
+
+#fireplan td {
+    width: 40px;
+    height: 80px;
+}
+
+#fireplan input {
+    width: 100%;
+    /*height: 30px;*/
+    margin-bottom: 0;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.remarks {
+    margin: 0 !important;
+    height: 100% !important;
+    width: 200px !important;
+}
+
+#fireplan table {
+    width: 100%;
+}
+
+.fireplan-submit {
+    height: 30px !important;
+    width: 150px !important;
+}
+
+.fireplan-input-cont {
+    display: inline-block;
+    height: 60px;
+    width: 110px;
+}
+
+.fireplan-input-cont input {
+    height: calc(100% - 25px) !important;
+}
+
+.large-cont {
+    width: 150px;
+}
+
+#fp-target-info tr td:first-child,
+#fp-target-info tr th:first-child {
+    width: 60px;
+
+}
+
+.fp-targetinfo input,
+#fp-info input{
+    margin: 0 5px 0 5px;
+    padding: 0 5px 0 5px;
+}
+
+.timings-slider-td {
+    min-width: 300px !important;
+}
+
+.noUi-base {
+    width: 100%;
+}
+
+.cell {
+    vertical-align: bottom;
+    width: 80px;
+    display: inline-table;
+    height: 30px;
+    padding: 12px 0 8px 0;
+}
+
+.fp-schedule .cell {
+    height: 80px;
+}
+
+#fp-schedule-1 {
+    width: 100%;
+}
+
+.timings-slider {
+    width: 550px !important;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+#slider_1{
+    display: block;
+}
+
+.fp-targetinfo,
+.fp-schedule {
+    margin-bottom: 2px;
+    background-color: #004f74;
+}
+
+.fp-line {
+    width: 20px;
+}
+
+#fireplan h3,
+#fireplan h4 {
+    color: black;
+}
+
+#fireplan h2 {
+    background-color: rgb(82, 82, 82);
+}
+
+.slider-text {
+    display: block;
+    position: absolute;
+    border: 1px solid #D9D9D9;
+    border-radius: 3px;
+    background: #fff;
+    color: #000;
+    padding: 5px;
+    text-align: center;
+    white-space: nowrap;
+    transform: translate(-90%,0);
+    left: 0%;
+    bottom: 120%;
+    width: 60px !important;
+}
+
+
+/*override noUISlider styles*/
+.noUi-pips-horizontal{
+    height: 40px !important;
+    top: 0px !important;
+}
+
+.noUi-handle {
+    width: 10px !important;
+    height: 23px !important;
+    right: -5px !important;
+    top: -4px !important;
+    background-color: #333333 !important;
+    box-shadow: none !important;
+}
+
+.noUi-handle:after,
+.noUi-handle:before {
+    display: none !important;
+}
+
+.noUi-connect {
+    background-color: #0183677e !important;
+}
+
+.noUi-tooltip{
+    bottom: -140% !important;
+}
+
+@media only screen and (max-width:550px){
+    .timings-slider {
+        width: 100% !important;
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "name": "Cubic TEWT",
+    "version": "1.1.3",
+    "network": [
+        {
+            "name": "VirtualBox Host-Only Network",
+            "address": "192.168.56.1",
+            "subnet": "192.168.56"
+        },
+        {
+            "name": "Local Area Connection* 2",
+            "address": "192.168.137.1",
+            "subnet": "192.168.137"
+        },
+        {
+            "name": "Wi-Fi",
+            "address": "192.168.0.195",
+            "subnet": "192.168.0"
+        }
+    ],
+    "id": "9a5a_05e9_06f6_a0d6",
+    "platform": "win32",
+    "hostname": "Day-Laptop",
+    "type": "tewtserver",
+    "deviceName": "Day-Laptop",
+    "accessIds": [
+        {
+            "id": "cubic_system",
+            "expiry": null
+        },
+        {
+            "id": "lobc",
+            "expiry": "2021-09-11"
+        },
+        {
+            "id": "test",
+            "expiry": "2021-08-31"
+        },
+        {
+            "id": "wed",
+            "expiry": "2021-09-02"
+        }
+    ]
+}

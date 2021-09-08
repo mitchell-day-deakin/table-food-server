@@ -1,0 +1,167 @@
+{
+    "name": "Breach TEWT",
+    "id": "olkijknm444324oijdsafol",
+    "enabled": false,
+    "qdes": [
+        {
+            "name": "Breach TEWT",
+            "orders": {
+                "name": "DOCUMENTS",
+                "videoUrl": false,
+                "type": "images",
+                "images": [
+                    "instructions_1.jpg",
+                    "instructions_2.jpg",
+                    "",
+                    "opord_1.jpg",
+                    "opord_2.jpg",
+                    "opord_3.jpg",
+                    "opord_4.jpg",
+                    "opord_5.jpg",
+                    "opord_6.jpg",
+                    "opord_7.jpg",
+                    "opord_8.jpg",
+                    "opord_9.jpg",
+                    "",
+                    "eng_recon_report_1.jpg",
+                    "eng_recon_report_2.jpg",
+                    "",
+                    "recon_report_1.jpg",
+                    "recon_report_2.jpg",
+                    "",
+                    "breach_1.jpg",
+                    "breach_2.jpg"
+                    
+                    
+                ]
+            },
+            "uavVideoUrl": "",
+            "map": {
+                "model": "nz.gltf",
+                "img": [
+                    {
+                        "url": "tfta_4m.jpg",
+                        "pos": [
+                            146.1453092575395942,
+                            -19.6716221336064336,
+                            146.4166417518089247,
+                            -19.4251150344497034
+                        ]
+                    },
+                    {
+                        "url":"tfta_topo_2.jpg",
+                        "pos":[146.2625694721918705,-19.6209555938670270, 146.3565098409022767,-19.5391231826880514]
+                    }
+                ],
+                "camera": {
+                    "lat": -19.581073683676507,
+                    "lon": 146.31465429731335,
+                    "height": 7500
+                },
+                "layers": {
+                    "eng": {
+                        "name": "ENG",
+                        "entities": [
+                            {
+                                "name": "Tetrahedron Line",
+                                "description": [
+                                    "1m side length",
+                                    "1.2m high",
+                                    "GR 27715 34822 to GR 27955 34601"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/green_tetraline.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.5813365517328,
+                                        "lon": 146.31192656341213
+                                    }
+                                ],
+                                "rotation": -0.7,
+                                "scale": 5.945935651130859,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_7"
+                            },
+                            {
+                                "name": "AT MINES",
+                                "description": [
+                                    "250m wide",
+                                    "100m deep",
+                                    "Pressure Fuses",
+                                    "Buried and Surface laid"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/minefield.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.580409,
+                                        "lon": 146.313416
+                                    }
+                                ],
+                                "rotation": 2.400000000000001,
+                                "scale": 4,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_66"
+                            },
+                            {
+                                "name": "Wire CAT 2",
+                                "description": [
+                                    " GR 27708 34667 to GR 27809 34549"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/green_wire_cat2.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.582313739506112,
+                                        "lon": 146.31112396594935
+                                    }
+                                ],
+                                "rotation": -0.7999999999999999,
+                                "scale": 2.6006937637450616,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_10"
+                            }
+                        ]
+                    },
+                    "mcoo": {
+                        "name": "MCOO",
+                        "entities": []
+                    },
+                    "ops": {
+                        "name": "OPS",
+                        "entities": []
+                    },
+                    "enSitTemp": {
+                        "name": "EN SIT TEMP",
+                        "entities": []
+                    },
+                    "spare": {
+                        "name": "SPARE",
+                        "entities": []
+                    }
+                }
+            },
+            "report": {
+                "type": "questions",
+                "data": [
+                    "ASSUMPTIONS ",
+                    "Situation that differs from the S2 assessment",
+                    "MISSION:",
+                    "EXECUTION:<br>Commander's Intent: Purpose, Method, End State",
+                    "EXECUTION:<br>Concept of Operations: SoM, Main Effort",
+                    "EXECUTION:<br>Supporting BOS Concepts: ISR, Offensive Support (Give Task, Purpose, Trigger and POFS for each Ph)",
+                    "EXECUTION:<br>Supporting BOS Concepts: M/S (Give MS Asset and Effect, Purpose, PoS for each Ph), CSS",
+                    "EXECUTION:<br>Key Timings"
+                ]
+            },
+            "debriefEnabled": false,
+            "duration": 15
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+[
+    {
+        "fname": "Administrator",
+        "level": "admin",
+        "password": "$2b$10$e1IcD1ujbGknOWhspjCItuOb551kIeTLM60dMiTxFqi.6pWQ0jyXW",
+        "lname": " ",
+        "uname": "admin",
+        "authKey": "h7m0wpfw068rfow8ioi6up"
+    },
+    {
+        "fname": "Mitchell",
+        "level": "admin",
+        "password": "$2b$10$8EkgrVkVRMH7ezSImf0InOoDqf4IguaQvZBOMNYNMQ98tLLqeLS92",
+        "lname": "Day",
+        "uname": "daym",
+        "authKey": "1qlcmvq6fmly3ztudltzqs"
+    }
+]

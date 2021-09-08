@@ -1,0 +1,26 @@
+[
+    {
+        "fname": "Mitchell",
+        "level": "user",
+        "password": "U2FsdGVkX18sl9BLw5CYbK8qiUaD4/l3WR6TelKNO7o=",
+        "lname": "Day",
+        "uname": "daym",
+        "authKey": "tao326ufz3qujk6lbuslga"
+    },
+    {
+        "fname": "admin",
+        "level": "admin",
+        "password": "U2FsdGVkX19NJ4qQsJVsNkR2PZEHcZwgi/8MfWuLIaI=",
+        "lname": "user",
+        "uname": "admin",
+        "authKey": "w0sxdolxt4weykjkl0ior"
+    },
+    {
+        "fname": "devil",
+        "level": "user",
+        "password": "U2FsdGVkX19Vf3dbHewn0AlNt7QA1BFcoSr2vo91o6k=",
+        "lname": "the",
+        "uname": "devil",
+        "authKey": "cfpjgqherxmmmhjqvfb6ic"
+    }
+]

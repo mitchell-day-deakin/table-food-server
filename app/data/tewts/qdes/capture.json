@@ -1,0 +1,39 @@
+{
+    "name": "Capture",
+    "orders": {
+        "videoUrl": "orders.mp4",
+        "text": [
+            "<h4>Narrative</h4>",
+            "You are in command of 2 PL, A Coy, 1st BN.",
+            "You have recently completed a task to destroy a small group of enemy in VIC GR 9458 3132. This Enemy group was planning an attack on a local government check point.",
+            "Subsequently you have received orders to move by foot to the BN assembly area which is 10km to the North for further tasking.",
+            "As your PL (in 1 up 2 back formation) makes its way through a clearing, the forward section (B Section) challenges and captures two armed individuals. The section commander informs you that he recognises one of the men as Movsar Barayev, a regional enemy commander and high value target.",
+            "Moments after relaying this information B section is engaged by small arms fire from its direct front and C section, the left flanking section is engaged by a MMG from its front left.",
+            "Attached to your PL you have one sniper pair who have joined your patrol for the move back to the BN AA.",
+            "A UAS asset is currently returning to base. On its transit it conducts a fly over and identifies two potential firing locations and 3-6 fighters.",
+            "CHQ advises that there are no OS assets available to support your C/S as B Coy is in a large engagement to the north.",
+            "However, given the HVT you have apprehended a helo has been sent to your location to backload the captured individuals. This asset will arrive at 1315hrs and will land at a known LZ @ GR 9439 3140.",
+            "2 PL current disposition is shown on your map. The time now is 1207hrs.",
+            "<h4>Problem</h4>",
+            "As Comd 2 Pl, show the steps which enabled you to arrive at your plan, and be prepared to give your plan in a back brief."
+        ]
+    },
+    "uavVideoUrl": "uav_flyover.mp4",
+    "map": {
+        "model": "nz.gltf",
+        "img": "waiouru_hvt_helo.jpg",
+        "pos": {
+            "lat": "-39.461303",
+            "lon": "175.775301",
+            "height": 4000
+        }
+    },
+    "report": [
+        "What is the situation and how does it affect me?",
+        "What have I been told to do and why?",
+        "What effects do I need to achieve and what direction must I give to develop my plan?",
+        "Where can I best accomplish each action or effect?",
+        "What resources do I need to accomplish each action or effect"
+    ],
+    "duration": 15
+}

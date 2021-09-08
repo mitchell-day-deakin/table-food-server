@@ -1,0 +1,58 @@
+{
+  "name": "tewtserver",
+  "productName": "Tewt Server",
+  "version": "1.1.2",
+  "description": "TEWT Server",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron app.js",
+    "bcrypt_win": "install bcrypt",
+    "bcrypt_linux": "wsl sudo install bcrypt",
+    "buildwin": "electron-packager . TEWT_Server --overwrite --platform=win32 --arch=x64 --icon=data/media/server.png --prune=true --out=../builds",
+    "buildlinux": "electron-packager . tewtserver --overwrite --platform=linux --arch=x64 --icon=data/media/server.png --prune=true --out=../builds",
+    "buildmac": "electron-packager . TEWT_Server --overwrite --platform=darwin --icon=data/media/server.ico --prune=true --out=../builds",
+    "buildall": "electron-packager . TEWT_Server --overwrite --platform=all --icon=data/media/server.ico --prune=true --out=../builds",
+    "deb64_wsl": "wsl sudo electron-installer-debian --src ../builds/tewtserver-linux-x64/ --arch amd64 --config debian.json",
+    "deb64": "electron-installer-debian --src ../builds/tewtserver-linux-x64/ --arch amd64 --config debian.json",
+    "linuxBuildAndPackage": "npm run buildlinux && npm run deb64_wsl"
+  },
+  "keywords": [
+    "tewt",
+    "server",
+    "exercise",
+    "simulation"
+  ],
+  "author": "Mitchell Day",
+  "license": "ISC",
+  "pkg": {
+    "scripts": "scripts/*.js",
+    "assets": [
+      "data/**/*",
+      "client/**/*"
+    ]
+  },
+  "bin": {
+    "tewtserver": "index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "child-process": "^1.0.2",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.0.0",
+    "directory-tree": "^2.2.5",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "net": "^1.0.2",
+    "node-gyp": "^3.8.0",
+    "opn": "^6.0.0",
+    "socket.io": "^2.3.0",
+    "sweetalert2": "^8.19.0"
+  },
+  "devDependencies": {
+    "electron": "^10.1.3",
+    "electron-builder": "^22.8.1",
+    "electron-packager": "^13.1.1",
+    "electron-rebuild": "^1.11.0"
+  }
+}

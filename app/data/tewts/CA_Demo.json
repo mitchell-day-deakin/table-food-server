@@ -1,0 +1,1807 @@
+{
+    "name": "CA Demo",
+    "id": "olkijknasdasgtyghsdf45",
+    "enabled": true,
+    "qdes": [
+        {
+            "name": "Breach TEWT",
+            "orders": {
+                "name": "DOCUMENTS",
+                "videoUrl": false,
+                "type": "images",
+                "images": [
+                    "instructions_1.jpg",
+                    "instructions_2.jpg",
+                    "",
+                    "opord_1.jpg",
+                    "opord_2.jpg",
+                    "opord_3.jpg",
+                    "opord_4.jpg",
+                    "opord_5.jpg",
+                    "opord_6.jpg",
+                    "opord_7.jpg",
+                    "opord_8.jpg",
+                    "opord_9.jpg",
+                    "",
+                    "eng_recon_report_1.jpg",
+                    "eng_recon_report_2.jpg",
+                    "",
+                    "recon_report_1.jpg",
+                    "recon_report_2.jpg",
+                    "",
+                    "breach_1.jpg",
+                    "breach_2.jpg"
+                    
+                     
+                ]
+            },
+            "uavVideoUrl": "",
+            "map": {
+                "model": "nz.gltf",
+                "img": [
+                    {
+                        "url": "tfta_4m.jpg",
+                        "pos": [
+                            146.1453092575395942,
+                            -19.6716221336064336,
+                            146.4166417518089247,
+                            -19.4251150344497034
+                        ]
+                    },
+                    {
+                        "url":"tfta_topo_2.jpg",
+                        "pos":[146.2625694721918705,-19.6209555938670270, 146.3565098409022767,-19.5391231826880514]
+                    }
+                ],
+                "camera": {
+                    "lat": -19.581073683676507,
+                    "lon": 146.31465429731335,
+                    "height": 7500
+                },
+                "layers": {
+                    "eng": {
+                        "name": "ENG",
+                        "entities": [
+                            {
+                                "name": "Tetrahedron Line",
+                                "description": [
+                                    "1m side length",
+                                    "1.2m high",
+                                    "GR 27715 34822 to GR 27955 34601"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/green_tetraline.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.5813365517328,
+                                        "lon": 146.31192656341213
+                                    }
+                                ],
+                                "rotation": -0.7,
+                                "scale": 5.945935651130859,
+                                "label": false,
+                                "showPos": false,
+                                "id": "system_9"
+                            },
+                            {
+                                "name": "AT MINES",
+                                "description": [
+                                    "250m wide",
+                                    "100m deep",
+                                    "Pressure Fuses",
+                                    "Buried and Surface laid"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/minefield.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.580409,
+                                        "lon": 146.313416
+                                    }
+                                ],
+                                "rotation": 2.400000000000001,
+                                "scale": 4,
+                                "label": false,
+                                "showPos": false,
+                                "id": "system_10"
+                            },
+                            {
+                                "name": "Wire CAT 2",
+                                "description": [
+                                    " GR 27708 34667 to GR 27809 34549"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/green_wire_cat2.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.582313739506112,
+                                        "lon": 146.31112396594935
+                                    }
+                                ],
+                                "rotation": -0.7999999999999999,
+                                "scale": 2.6006937637450616,
+                                "label": false,
+                                "showPos": false,
+                                "id": "system_11"
+                            }
+                        ]
+                    },
+                    "mcoo": {
+                        "name": "MCOO",
+                        "entities": []
+                    },
+                    "ops": {
+                        "name": "OPS",
+                        "entities": [
+                            {
+                                "name": "AA KEATING",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/bluefor_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.556740592756196,
+                                        "lon": 146.33166396745625
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 9.434258183167469,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_83"
+                            },
+                            {
+                                "name": "Axis of Attack - Support",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/blue_aoas.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.55930435223985,
+                                        "lon": 146.32009527715056
+                                    }
+                                ],
+                                "rotation": 2.0000000000000004,
+                                "scale": 11.467399785753704,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_84"
+                            },
+                            {
+                                "name": "Main Attack",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/blue_main.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.56443540592764,
+                                        "lon": 146.33007005001605
+                                    }
+                                ],
+                                "rotation": -3.600000000000002,
+                                "scale": 13.938696110832291,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_85"
+                            }
+                        ]
+                    },
+                    "enSitTemp": {
+                        "name": "EN SIT TEMP",
+                        "entities": [
+                            {
+                                "name": "ABF",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_abf.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.58488625124607,
+                                        "lon": 146.31468130121226
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 2.1828745883819374,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_12"
+                            },
+                            {
+                                "name": "EA WHITE LION",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "solid",
+                                "positions": [
+                                    {
+                                        "lat": -19.579412940360335,
+                                        "lon": 146.3126097928417
+                                    },
+                                    {
+                                        "lat": -19.58131044298622,
+                                        "lon": 146.31493854280913
+                                    },
+                                    {
+                                        "lat": -19.581002406346748,
+                                        "lon": 146.31739050953
+                                    },
+                                    {
+                                        "lat": -19.576371434734966,
+                                        "lon": 146.31484095252495
+                                    },
+                                    {
+                                        "lat": -19.577973222119287,
+                                        "lon": 146.31140326998622
+                                    },
+                                    {
+                                        "lat": -19.579451794551062,
+                                        "lon": 146.3126230925756
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#080808",
+                                "id": "user_13"
+                            },
+                            {
+                                "name": "Def psn for ABF",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.58646328831324,
+                                        "lon": 146.31493426784462
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 2.2920183178010345,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_14"
+                            },
+                            {
+                                "name": "Movement Route to ABF",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "dashed",
+                                "positions": [
+                                    {
+                                        "lat": -19.58621806125856,
+                                        "lon": 146.31426003198987
+                                    },
+                                    {
+                                        "lat": -19.585893110845564,
+                                        "lon": 146.31391515015827
+                                    },
+                                    {
+                                        "lat": -19.58547771973346,
+                                        "lon": 146.31414233632466
+                                    },
+                                    {
+                                        "lat": -19.58492253666164,
+                                        "lon": 146.31420739447435
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#ff0000",
+                                "id": "user_15"
+                            },
+                            {
+                                "name": "EA YELLOW DRAGON",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "solid",
+                                "positions": [
+                                    {
+                                        "lat": -19.57393142327058,
+                                        "lon": 146.30611045759485
+                                    },
+                                    {
+                                        "lat": -19.57768181595888,
+                                        "lon": 146.31136203860308
+                                    },
+                                    {
+                                        "lat": -19.57186431247587,
+                                        "lon": 146.31535073488652
+                                    },
+                                    {
+                                        "lat": -19.56940398390628,
+                                        "lon": 146.30548509463952
+                                    },
+                                    {
+                                        "lat": -19.573869948419738,
+                                        "lon": 146.30612825483414
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#050505",
+                                "id": "user_17",
+                                "showPos": false
+                            },
+                            {
+                                "name": "Alt Psn",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_abf.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.585232850339487,
+                                        "lon": 146.3155733578322
+                                    }
+                                ],
+                                "rotation": -0.7,
+                                "scale": 1.8856491423232367,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_18"
+                            },
+                            {
+                                "name": "SBF",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_sbf.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.576474216669723,
+                                        "lon": 146.30622947142794
+                                    }
+                                ],
+                                "rotation": -0.7,
+                                "scale": 2.406619233691086,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_20"
+                            },
+                            {
+                                "name": "Defensive position for SBF",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.578100165812653,
+                                        "lon": 146.30358302904557
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 2.3648179530413893,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_21"
+                            },
+                            {
+                                "name": "Route to SBF",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "dashed",
+                                "positions": [
+                                    {
+                                        "lat": -19.57873284415924,
+                                        "lon": 146.30405414931994
+                                    },
+                                    {
+                                        "lat": -19.579038823082875,
+                                        "lon": 146.30519227268994
+                                    },
+                                    {
+                                        "lat": -19.57868712272672,
+                                        "lon": 146.30576439909893
+                                    },
+                                    {
+                                        "lat": -19.5776414933877,
+                                        "lon": 146.30605144019086
+                                    },
+                                    {
+                                        "lat": -19.577005527623687,
+                                        "lon": 146.30607486931993
+                                    },
+                                    {
+                                        "lat": -19.5765674745023,
+                                        "lon": 146.3060047295309
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#ff0000",
+                                "id": "user_22"
+                            },
+                            {
+                                "name": "TgT 1",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/target.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.580179485343947,
+                                        "lon": 146.31166120148112
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_27"
+                            },
+                            {
+                                "name": "TgT 2",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/target.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.581248779811126,
+                                        "lon": 146.31107698008225
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_28"
+                            },
+                            {
+                                "name": "PL EA - EA BLACK PANTHER",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "solid",
+                                "positions": [
+                                    {
+                                        "lat": -19.57961394801037,
+                                        "lon": 146.31251778768055
+                                    },
+                                    {
+                                        "lat": -19.580540724409335,
+                                        "lon": 146.30950575967773
+                                    },
+                                    {
+                                        "lat": -19.581721299784977,
+                                        "lon": 146.3036238938789
+                                    },
+                                    {
+                                        "lat": -19.58600307220931,
+                                        "lon": 146.30620535068036
+                                    },
+                                    {
+                                        "lat": -19.581324486554028,
+                                        "lon": 146.3148299112819
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#0a0a0a",
+                                "id": "user_29"
+                            },
+                            {
+                                "name": "SECTOR 1",
+                                "description": [
+                                    "EA BLACK PANTHER"
+                                ],
+                                "type": "line",
+                                "subType": "solid",
+                                "positions": [
+                                    {
+                                        "lat": -19.580611624761325,
+                                        "lon": 146.30986089701378
+                                    },
+                                    {
+                                        "lat": -19.58265982001134,
+                                        "lon": 146.3119900207784
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#0d0d0d",
+                                "id": "user_30"
+                            },
+                            {
+                                "name": "FFL/Sector 2",
+                                "description": [
+                                    "Platoon Free Fire Line",
+                                    " Sector 2"
+                                ],
+                                "type": "line",
+                                "subType": "solid",
+                                "positions": [
+                                    {
+                                        "lat": -19.581415686736165,
+                                        "lon": 146.30431084351167
+                                    },
+                                    {
+                                        "lat": -19.585019418970347,
+                                        "lon": 146.30751940539187
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#0a0a0a",
+                                "id": "user_31",
+                                "showPos": false
+                            },
+                            {
+                                "name": "1 Section",
+                                "description": [
+                                    "Forward Slope Defence position"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.58678101190938,
+                                        "lon": 146.30586919359482
+                                    }
+                                ],
+                                "rotation": -0.5,
+                                "scale": 2.1828745883819374,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_32"
+                            },
+                            {
+                                "name": "Ruler",
+                                "description": [
+                                    "Start Loc: 55KDU 27190 34128",
+                                    "End Loc: 55KDU 27190 34128",
+                                    "Distance(m): 0",
+                                    "Angle (mils): NaN",
+                                    "Angle (deg): NaN"
+                                ],
+                                "type": "ruler",
+                                "subType": "arrow",
+                                "positions": [
+                                    {
+                                        "utm": {
+                                            "northing": 7834128,
+                                            "easting": 427190,
+                                            "zoneNumber": 55,
+                                            "zoneLetter": "K"
+                                        },
+                                        "mgrs": {
+                                            "zoneNumber": 55,
+                                            "zoneLetter": "K",
+                                            "id100k": "DU",
+                                            "easting": "27190",
+                                            "northing": "34128",
+                                            "mgrsString": "55KDU 27190 34128"
+                                        },
+                                        "lat": -19.586492658967178,
+                                        "lon": 146.3057628035989
+                                    },
+                                    {
+                                        "utm": {
+                                            "northing": 7834128,
+                                            "easting": 427190,
+                                            "zoneNumber": 55,
+                                            "zoneLetter": "K"
+                                        },
+                                        "mgrs": {
+                                            "zoneNumber": 55,
+                                            "zoneLetter": "K",
+                                            "id100k": "DU",
+                                            "easting": "27190",
+                                            "northing": "34128",
+                                            "mgrsString": "55KDU 27190 34128"
+                                        },
+                                        "lat": -19.586492658967178,
+                                        "lon": 146.3057628035989
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#000000",
+                                "id": "user_33"
+                            },
+                            {
+                                "name": "2 Section",
+                                "description": [
+                                    "Primary Task: DESTROY",
+                                    " EA BLACK PANTHER SECTOR 1"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.579679976430565,
+                                        "lon": 146.30564720969576
+                                    }
+                                ],
+                                "rotation": -1.4000000000000001,
+                                "scale": 2.1828745883819374,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_35"
+                            },
+                            {
+                                "name": "OP",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_op.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.588123858906638,
+                                        "lon": 146.30808071674798
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_37"
+                            },
+                            {
+                                "name": "2 Section",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_inf_squad.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.579657025537706,
+                                        "lon": 146.30562517728674
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_40"
+                            },
+                            {
+                                "name": "1 Section ",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_inf_squad.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.586724293450473,
+                                        "lon": 146.30586932607585
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_42"
+                            },
+                            {
+                                "name": "3 Section Def Psn",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.581738158057494,
+                                        "lon": 146.30284856737222
+                                    }
+                                ],
+                                "rotation": -1.5000000000000002,
+                                "scale": 2.406619233691086,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_43"
+                            },
+                            {
+                                "name": "3 Section ",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_inf_squad.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.58162888728349,
+                                        "lon": 146.30290345164016
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_44"
+                            },
+                            {
+                                "name": "Anti Armour Sect",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_anti_armour_sect.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.58646984022124,
+                                        "lon": 146.31484032156945
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1.1576250000000001,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_45"
+                            },
+                            {
+                                "name": "Medium Weapons Squad",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_med_weap_squad.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.578108016415545,
+                                        "lon": 146.30363753147776
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1.1025,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_46"
+                            },
+                            {
+                                "name": "EA GOLD FISH",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "solid",
+                                "positions": [
+                                    {
+                                        "lat": -19.577715121140095,
+                                        "lon": 146.30637518516207
+                                    },
+                                    {
+                                        "lat": -19.58113798467145,
+                                        "lon": 146.30627862351847
+                                    },
+                                    {
+                                        "lat": -19.58032654682033,
+                                        "lon": 146.31004543084646
+                                    },
+                                    {
+                                        "lat": -19.577444614642243,
+                                        "lon": 146.30937880598822
+                                    },
+                                    {
+                                        "lat": -19.577667023237883,
+                                        "lon": 146.30636710757136
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#050505",
+                                "id": "user_47"
+                            },
+                            {
+                                "name": "HQ Def Psn",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.58303627325964,
+                                        "lon": 146.30212947979493
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_48"
+                            },
+                            {
+                                "name": "Infantry Pl HQ",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_inf_pl_hq.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.583014743740314,
+                                        "lon": 146.30212704668224
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_49"
+                            },
+                            {
+                                "name": "Objective",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.59504079206933,
+                                        "lon": 146.2974952126449
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 3.071523755917813,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_50"
+                            },
+                            {
+                                "name": "Mortars Sect - Medium",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_mortars_med_sect.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.60107221930888,
+                                        "lon": 146.29621852804735
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 2.2920183178010345,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_51"
+                            },
+                            {
+                                "name": "2 PL",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.58089418492186,
+                                        "lon": 146.29592321140285
+                                    }
+                                ],
+                                "rotation": 0.5,
+                                "scale": 13.938696110832291,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_52"
+                            },
+                            {
+                                "name": "2 Pl",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_inf_pl.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.580842921608404,
+                                        "lon": 146.29567400480386
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 4.116135595381588,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_54"
+                            },
+                            {
+                                "name": "Infantry Company HQ",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_inf_comp_hq.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.594836415190873,
+                                        "lon": 146.29754847446026
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1.4071004226562505,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_55"
+                            },
+                            {
+                                "name": "3 PL",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.588417077792126,
+                                        "lon": 146.2886455789158
+                                    }
+                                ],
+                                "rotation": 1.0999999999999999,
+                                "scale": 12.64280826379346,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_56"
+                            },
+                            {
+                                "name": "3 PL",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_inf_pl.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.588492986662445,
+                                        "lon": 146.28881307862827
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 4.116135595381588,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_57"
+                            },
+                            {
+                                "name": "1 PL Secondary Psn",
+                                "description": [
+                                    "Withdrawal Position 1"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.592477688413293,
+                                        "lon": 146.30057538772417
+                                    }
+                                ],
+                                "rotation": -0.6,
+                                "scale": 12.04076977504139,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_58"
+                            },
+                            {
+                                "name": "Line",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "dashed",
+                                "positions": [
+                                    {
+                                        "lat": -19.58693113460831,
+                                        "lon": 146.3052696907078
+                                    },
+                                    {
+                                        "lat": -19.587832251043086,
+                                        "lon": 146.304517108788
+                                    },
+                                    {
+                                        "lat": -19.58923780729538,
+                                        "lon": 146.30436530728943
+                                    },
+                                    {
+                                        "lat": -19.589944387753615,
+                                        "lon": 146.3041098205268
+                                    },
+                                    {
+                                        "lat": -19.59166701297857,
+                                        "lon": 146.30380633027912
+                                    },
+                                    {
+                                        "lat": -19.59310785272485,
+                                        "lon": 146.30354568682012
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#ff0000",
+                                "id": "user_59"
+                            },
+                            {
+                                "name": "Line",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "dashed",
+                                "positions": [
+                                    {
+                                        "lat": -19.58319277164756,
+                                        "lon": 146.3021547175936
+                                    },
+                                    {
+                                        "lat": -19.583939491703752,
+                                        "lon": 146.30127496863813
+                                    },
+                                    {
+                                        "lat": -19.585244665882502,
+                                        "lon": 146.30066873162787
+                                    },
+                                    {
+                                        "lat": -19.5870714978117,
+                                        "lon": 146.30072600479755
+                                    },
+                                    {
+                                        "lat": -19.588380679488278,
+                                        "lon": 146.2998386490187
+                                    },
+                                    {
+                                        "lat": -19.58938889490615,
+                                        "lon": 146.29924379939607
+                                    },
+                                    {
+                                        "lat": -19.589706368370113,
+                                        "lon": 146.29888904309678
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#ff0000",
+                                "id": "user_60"
+                            },
+                            {
+                                "name": "Line",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "dashed",
+                                "positions": [
+                                    {
+                                        "lat": -19.579839646324775,
+                                        "lon": 146.305277981496
+                                    },
+                                    {
+                                        "lat": -19.580572044917826,
+                                        "lon": 146.3032108385941
+                                    },
+                                    {
+                                        "lat": -19.581375632409443,
+                                        "lon": 146.3016289573909
+                                    },
+                                    {
+                                        "lat": -19.582953208707508,
+                                        "lon": 146.30054235300523
+                                    },
+                                    {
+                                        "lat": -19.584012099270996,
+                                        "lon": 146.3007761359629
+                                    },
+                                    {
+                                        "lat": -19.584605574661822,
+                                        "lon": 146.30078459317318
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#ff0000",
+                                "id": "user_61"
+                            },
+                            {
+                                "name": "Line",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "dashed",
+                                "positions": [
+                                    {
+                                        "lat": -19.58199010645187,
+                                        "lon": 146.30235627854262
+                                    },
+                                    {
+                                        "lat": -19.58286180736143,
+                                        "lon": 146.3025717738679
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#ff0000",
+                                "id": "user_62"
+                            },
+                            {
+                                "name": "Alt psn AARMD",
+                                "description": [
+                                    "Withdrawal position 1 for AARMD"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.598029461509462,
+                                        "lon": 146.29734661427108
+                                    }
+                                ],
+                                "rotation": -1.8000000000000005,
+                                "scale": 2.785962590401644,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_63"
+                            },
+                            {
+                                "name": "Anti Armour Sect",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_anti_armour_sect.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.59812477324823,
+                                        "lon": 146.2973479724816
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1.79585632602213,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_64"
+                            },
+                            {
+                                "name": "Withdrawal Route AARMD",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "dashed",
+                                "positions": [
+                                    {
+                                        "lat": -19.586641578707372,
+                                        "lon": 146.314232954767
+                                    },
+                                    {
+                                        "lat": -19.586689332242216,
+                                        "lon": 146.3129786732496
+                                    },
+                                    {
+                                        "lat": -19.586026495519942,
+                                        "lon": 146.31126606230828
+                                    },
+                                    {
+                                        "lat": -19.586233318409427,
+                                        "lon": 146.31073116799388
+                                    },
+                                    {
+                                        "lat": -19.58698556149593,
+                                        "lon": 146.31036340707732
+                                    },
+                                    {
+                                        "lat": -19.58771819642508,
+                                        "lon": 146.31067264784758
+                                    },
+                                    {
+                                        "lat": -19.58902724991727,
+                                        "lon": 146.31075760078818
+                                    },
+                                    {
+                                        "lat": -19.589762440346924,
+                                        "lon": 146.31088759786533
+                                    },
+                                    {
+                                        "lat": -19.590502794658946,
+                                        "lon": 146.31088818851885
+                                    },
+                                    {
+                                        "lat": -19.59135007652475,
+                                        "lon": 146.31084050156116
+                                    },
+                                    {
+                                        "lat": -19.5919022836539,
+                                        "lon": 146.3098324483232
+                                    },
+                                    {
+                                        "lat": -19.5918194476393,
+                                        "lon": 146.3086559845451
+                                    },
+                                    {
+                                        "lat": -19.59233766461416,
+                                        "lon": 146.307936285524
+                                    },
+                                    {
+                                        "lat": -19.59291449504905,
+                                        "lon": 146.30729710540697
+                                    },
+                                    {
+                                        "lat": -19.59383607132984,
+                                        "lon": 146.30630427401567
+                                    },
+                                    {
+                                        "lat": -19.594604798535833,
+                                        "lon": 146.3054785863349
+                                    },
+                                    {
+                                        "lat": -19.595525144404313,
+                                        "lon": 146.3037984955352
+                                    },
+                                    {
+                                        "lat": -19.59596781218581,
+                                        "lon": 146.3027888813429
+                                    },
+                                    {
+                                        "lat": -19.59630006680966,
+                                        "lon": 146.30114025134557
+                                    },
+                                    {
+                                        "lat": -19.596403455154714,
+                                        "lon": 146.30017560183973
+                                    },
+                                    {
+                                        "lat": -19.59722662881472,
+                                        "lon": 146.2986113790601
+                                    },
+                                    {
+                                        "lat": -19.59746630775917,
+                                        "lon": 146.2978677920947
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#ff0000",
+                                "id": "user_65",
+                                "showPos": false
+                            },
+                            {
+                                "name": "Ruler",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "ruler",
+                                "subType": "arrow",
+                                "positions": [
+                                    {
+                                        "utm": {
+                                            "northing": 7834147,
+                                            "easting": 427206,
+                                            "zoneNumber": 55,
+                                            "zoneLetter": "K"
+                                        },
+                                        "mgrs": {
+                                            "zoneNumber": 55,
+                                            "zoneLetter": "K",
+                                            "id100k": "DU",
+                                            "easting": "27206",
+                                            "northing": "34147",
+                                            "mgrsString": "55KDU 27206 34147"
+                                        },
+                                        "lat": -19.586320885329616,
+                                        "lon": 146.30592328609853
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#000000",
+                                "id": "user_66"
+                            },
+                            {
+                                "name": "Ruler",
+                                "description": [
+                                    "Start Loc: 55KDU 27204 34153",
+                                    "End Loc: 55KDU 27241 34310",
+                                    "Distance(m): 161",
+                                    "Angle (mils): 236",
+                                    "Angle (deg): 13"
+                                ],
+                                "type": "ruler",
+                                "subType": "arrow",
+                                "positions": [
+                                    {
+                                        "utm": {
+                                            "northing": 7834153,
+                                            "easting": 427204,
+                                            "zoneNumber": 55,
+                                            "zoneLetter": "K"
+                                        },
+                                        "mgrs": {
+                                            "zoneNumber": 55,
+                                            "zoneLetter": "K",
+                                            "id100k": "DU",
+                                            "easting": "27204",
+                                            "northing": "34153",
+                                            "mgrsString": "55KDU 27204 34153"
+                                        },
+                                        "lat": -19.58626522350885,
+                                        "lon": 146.30590150344625
+                                    },
+                                    {
+                                        "utm": {
+                                            "northing": 7834310,
+                                            "easting": 427241,
+                                            "zoneNumber": 55,
+                                            "zoneLetter": "K"
+                                        },
+                                        "mgrs": {
+                                            "zoneNumber": 55,
+                                            "zoneLetter": "K",
+                                            "id100k": "DU",
+                                            "easting": "27241",
+                                            "northing": "34310",
+                                            "mgrsString": "55KDU 27241 34310"
+                                        },
+                                        "lat": -19.584853818818967,
+                                        "lon": 146.3062592050303
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#000000",
+                                "id": "user_67"
+                            },
+                            {
+                                "name": "PL secondary position",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.596216006062804,
+                                        "lon": 146.28767926417672
+                                    }
+                                ],
+                                "rotation": 0.7,
+                                "scale": 12.04076977504139,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_68"
+                            },
+                            {
+                                "name": "2 Pl",
+                                "description": [
+                                    "Secondary position "
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_inf_pl.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.59584856280509,
+                                        "lon": 146.2873261140586
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 2.6532977051444226,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_69"
+                            },
+                            {
+                                "name": "Withdrawal route for 2 PL",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "dashed",
+                                "positions": [
+                                    {
+                                        "lat": -19.583697943682967,
+                                        "lon": 146.29574372448548
+                                    },
+                                    {
+                                        "lat": -19.586240754180476,
+                                        "lon": 146.29452059872173
+                                    },
+                                    {
+                                        "lat": -19.588043252597586,
+                                        "lon": 146.2935227858323
+                                    },
+                                    {
+                                        "lat": -19.589513372145003,
+                                        "lon": 146.29381459101288
+                                    },
+                                    {
+                                        "lat": -19.591187119229783,
+                                        "lon": 146.29281678216492
+                                    },
+                                    {
+                                        "lat": -19.593182742672905,
+                                        "lon": 146.29236615234436
+                                    },
+                                    {
+                                        "lat": -19.59411617765697,
+                                        "lon": 146.29133615773736
+                                    },
+                                    {
+                                        "lat": -19.594920865342566,
+                                        "lon": 146.2903383449267
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#ff0000",
+                                "id": "user_70"
+                            },
+                            {
+                                "name": "3 PL secondary position",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_obj.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.602641784971958,
+                                        "lon": 146.29062107977842
+                                    }
+                                ],
+                                "rotation": -1.4000000000000001,
+                                "scale": 11.467399785753704,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_71"
+                            },
+                            {
+                                "name": "3 PL",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/en_inf_pl.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.60224953458974,
+                                        "lon": 146.29053062394394
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 3.7334563223415764,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_72"
+                            },
+                            {
+                                "name": "Withdrawal Route 3 PL",
+                                "description": [
+                                    ""
+                                ],
+                                "type": "line",
+                                "subType": "dashed",
+                                "positions": [
+                                    {
+                                        "lat": -19.589613149164542,
+                                        "lon": 146.29102935906454
+                                    },
+                                    {
+                                        "lat": -19.59187552020909,
+                                        "lon": 146.29257449018093
+                                    },
+                                    {
+                                        "lat": -19.594746132364715,
+                                        "lon": 146.29331800997628
+                                    },
+                                    {
+                                        "lat": -19.596506177677693,
+                                        "lon": 146.29356419137065
+                                    },
+                                    {
+                                        "lat": -19.59909498016966,
+                                        "lon": 146.29312476729308
+                                    },
+                                    {
+                                        "lat": -19.600703986486558,
+                                        "lon": 146.2924810838734
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#ff0000",
+                                "id": "user_74"
+                            }
+                        ]
+                    },
+                    "spare": {
+                        "name": "SPARE",
+                        "entities": [
+                            {
+                                "name": "NAI 0001",
+                                "description": [
+                                    "Task for RSS to confirm layout of Obstacles including depth and composition"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/aoi.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.581071902673873,
+                                        "lon": 146.3123117493572
+                                    }
+                                ],
+                                "rotation": -0.7999999999999999,
+                                "scale": 9.434258183167469,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_75"
+                            },
+                            {
+                                "name": "VT0001",
+                                "description": [
+                                    "T: Destroy",
+                                    " P: Support"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/target.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.584929774378438,
+                                        "lon": 146.31465798679275
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 2.785962590401644,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_76"
+                            },
+                            {
+                                "name": "Linear Fire Mission",
+                                "description": [
+                                    "Obscure approach to Obstacle "
+                                ],
+                                "type": "line",
+                                "subType": "solid",
+                                "positions": [
+                                    {
+                                        "lat": -19.574800333802575,
+                                        "lon": 146.30584680809145
+                                    },
+                                    {
+                                        "lat": -19.57652852909808,
+                                        "lon": 146.30809660620613
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#0a0a0a",
+                                "id": "user_77"
+                            },
+                            {
+                                "name": "Linear Fire Mission",
+                                "description": [
+                                    "T: Obscure",
+                                    " P: Obscure obstacle emplacement during Engr Breach"
+                                ],
+                                "type": "line",
+                                "subType": "solid",
+                                "positions": [
+                                    {
+                                        "lat": -19.579064510262686,
+                                        "lon": 146.31253374010922
+                                    },
+                                    {
+                                        "lat": -19.58503986254761,
+                                        "lon": 146.31783432903046
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#030303",
+                                "id": "user_78"
+                            },
+                            {
+                                "name": "VT0002",
+                                "description": [
+                                    "HE",
+                                    "T: Destroy",
+                                    " P: Likely en JFT/OP location"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/target.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.58816378691274,
+                                        "lon": 146.30809625789485
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 1.7103393581163142,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_79"
+                            },
+                            {
+                                "name": "VT0003",
+                                "description": [
+                                    "Linear Fire mission",
+                                    " T: Disrupt",
+                                    " T: En withdrawal"
+                                ],
+                                "type": "line",
+                                "subType": "solid",
+                                "positions": [
+                                    {
+                                        "lat": -19.58612288523334,
+                                        "lon": 146.30034066447215
+                                    },
+                                    {
+                                        "lat": -19.58951019729008,
+                                        "lon": 146.30479995930918
+                                    }
+                                ],
+                                "label": false,
+                                "image": null,
+                                "rotation": 0,
+                                "scale": 3,
+                                "color": "#080808",
+                                "id": "user_80"
+                            },
+                            {
+                                "name": "NAI0002",
+                                "description": [
+                                    "Confirm location of heavy weapons"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/aoi.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.578030078756846,
+                                        "lon": 146.3037492809168
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 3.5556726879443583,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_81"
+                            },
+                            {
+                                "name": "NAI0003",
+                                "description": [
+                                    "Confirm location/existance of JFT OP"
+                                ],
+                                "type": "rectangle",
+                                "subType": null,
+                                "image": "media/mil/aoi.png",
+                                "positions": [
+                                    {
+                                        "lat": -19.588040987302946,
+                                        "lon": 146.30804418381408
+                                    }
+                                ],
+                                "rotation": 0,
+                                "scale": 2.6532977051444226,
+                                "label": false,
+                                "showPos": false,
+                                "id": "user_82"
+                            }
+                        ]
+                    }
+                }
+            },
+            "report": {
+                "type": "questions",
+                "data": [
+                    "ASSUMPTIONS ",
+                    "Situation that differs from the S2 assessment",
+                    "MISSION:",
+                    "EXECUTION:<br>Commander's Intent: Purpose, Method, End State",
+                    "EXECUTION:<br>Concept of Operations: SoM, Main Effort",
+                    "EXECUTION:<br>Supporting BOS Concepts: ISR, Offensive Support (Give Task, Purpose, Trigger and POFS for each Ph)",
+                    "EXECUTION:<br>Supporting BOS Concepts: M/S (Give MS Asset and Effect, Purpose, PoS for each Ph), CSS",
+                    "EXECUTION:<br>Key Timings"
+                ]
+            },
+            "debriefEnabled": false,
+            "duration": 15
+        }
+    ]
+}

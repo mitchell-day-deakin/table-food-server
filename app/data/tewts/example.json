@@ -1,0 +1,199 @@
+{
+    "name": "Example Tewt",
+    "id": "b49wz9qwshnkoduzyjpehb",
+    "enabled": false,
+    "qdes": [
+        {
+            "name": "First QDE",
+            "orders": {
+                "videoUrl": "orders_1.mp4",
+                "text": [
+                    "<h4>ORDERS PAGE</h4>",
+                    "This will contain any written orders that the trainee will use to complete the QDE.",
+                    "It would include information from the orders video (If applicable)",
+                    "<h4>ASSETS</h4>",
+                    "Click the menu icon on the left to go to the other assets used to complete this task including:",
+                    "- UAV Video, Map and Report",
+                    "When the map is complete and report is done, click the \"Submit\" button in the report menu to move on to the next QDE, or finish"
+                ]
+            },
+            "uavVideoUrl": "waiouru.mp4",
+            "map": {
+                "model": "nz.gltf",
+                "img": {
+                    "url": "waiouru_hvt_helo.jpg",
+                    "pos": [
+                        175.751986013,
+                        -39.467712552,
+                        175.807460058,
+                        -39.450492547
+                    ]
+                },
+                "camera": {
+                    "lat": -39.461303,
+                    "lon": 175.775301,
+                    "height": 4000
+                },
+                "layers": {
+                    "base": {
+                        "name": "Base",
+                        "entities": [
+                            {
+                                "id": "let1",
+                                "name": "Bluefor",
+                                "description": [
+                                    "3 x pers",
+                                    "4x donkeys"
+                                ],
+                                "subType": null,
+                                "type": "billboard",
+                                "color": null,
+                                "label": null,
+                                "image": "./media/mil/abf.png",
+                                "positions": [
+                                    {
+                                        "lat": -32.835752,
+                                        "lon": 137.615792
+                                    }
+                                ],
+                                "rotation": 0
+                            },
+                            {
+                                "id": "let2",
+                                "name": "Line",
+                                "description": [
+                                    "MV to Fac",
+                                    "4x donkeys"
+                                ],
+                                "type": "line",
+                                "subType": "arrow",
+                                "color": "#443344",
+                                "label": null,
+                                "image": null,
+                                "positions": [
+                                    {
+                                        "lat": -32.865752,
+                                        "lon": 137.612792
+                                    },
+                                    {
+                                        "lat": -32.855752,
+                                        "lon": 137.622792
+                                    }
+                                ],
+                                "rotation": 0
+                            }
+                        ]
+                    }
+                }
+            },
+            "report": {
+                "type": "questions",
+                "data": [
+                    "What is the situation and how does it affect me?",
+                    "What have I been told to do and why?",
+                    "What effects do I need to achieve and what direction must I give to develop my plan?",
+                    "Where can I best accomplish each action or effect?",
+                    "What resources do I need to accomplish each action or effect"
+                ]
+            },
+            "debriefEnabled": false,
+            "duration": 15
+        },
+        {
+            "name": "Second QDE",
+            "orders": {
+                "videoUrl": false,
+                "text": [
+                    "<h4>ORDERS PAGE</h4>",
+                    "This will contain any written orders that the trainee will use to complete the QDE.",
+                    "It would include information from the orders video (If applicable)",
+                    "<h4>ASSETS</h4>",
+                    "Click the menu icon on the left to go to the other assets used to complete this task including:",
+                    "- UAV Video, Map and Report",
+                    "When the map is complete and report is done, click the \"Submit\" button in the report menu to move on to the next QDE, or finish"
+                ]
+            },
+            "uavVideoUrl": "waiouru.mp4",
+            "map": {
+                "model": "nz.gltf",
+                "img": {
+                    "url": "waiouru_hvt_helo.jpg",
+                    "pos": [
+                        175.751986013,
+                        -39.467712552,
+                        175.807460058,
+                        -39.450492547
+                    ]
+                },
+                "camera": {
+                    "lat": -39.461303,
+                    "lon": 175.775301,
+                    "height": 4000
+                },
+                "layers": {
+                    "base": {
+                        "name": "Base",
+                        "entitites": [
+                            {
+                                "id": "let1",
+                                "name": "Bluefor",
+                                "description": [
+                                    "3 x pers",
+                                    "4x donkeys"
+                                ],
+                                "subType": null,
+                                "type": "billboard",
+                                "color": null,
+                                "label": null,
+                                "image": "./media/mil/abf.png",
+                                "positions": [
+                                    {
+                                        "lat": -32.835752,
+                                        "lon": 137.615792
+                                    }
+                                ],
+                                "rotation": 0
+                            },
+                            {
+                                "id": "let2",
+                                "name": "Line",
+                                "description": [
+                                    "MV to Fac",
+                                    "4x donkeys"
+                                ],
+                                "type": "line",
+                                "subType": "arrow",
+                                "color": "#443344",
+                                "label": null,
+                                "image": null,
+                                "positions": [
+                                    {
+                                        "lat": -32.865752,
+                                        "lon": 137.612792
+                                    },
+                                    {
+                                        "lat": -32.855752,
+                                        "lon": 137.622792
+                                    }
+                                ],
+                                "rotation": 0
+                            }
+                        ]
+                    }
+                }
+            },
+            "report": {
+                "type": "questions",
+                "data": [
+                    "What is the situation and how does it affect me?",
+                    "What have I been told to do and why?",
+                    "What effects do I need to achieve and what direction must I give to develop my plan?",
+                    "Where can I best accomplish each action or effect?",
+                    "What resources do I need to accomplish each action or effect"
+                ]
+            },
+            "debriefEnabled": false,
+            "duration": 15
+        }
+    ]
+}

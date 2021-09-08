@@ -1,0 +1,297 @@
+{
+    "name": "Waiouru - 1PL",
+    "id": "4yqrnrm85eb4ymc70032jh",
+    "enabled": false,
+    "qdes": [
+        {
+            "name": "QDE 1 - Capture",
+            "orders": {
+                "videoUrl": "orders.mp4",
+                "text": [
+                    "<h4>Narrative</h4>",
+                    "You are in command of 2 PL, A Coy, 1st BN.",
+                    "You have recently completed a task to destroy a small group of enemy in VIC GR 9458 3132. This Enemy group was planning an attack on a local government check point.",
+                    "Subsequently you have received orders to move by foot to the BN assembly area which is 10km to the North for further tasking.",
+                    "As your PL (in 1 up 2 back formation) makes its way through a clearing, the forward section (B Section) challenges and captures two armed individuals. The section commander informs you that he recognises one of the men as Movsar Barayev, a regional enemy commander and high value target.",
+                    "Moments after relaying this information B section is engaged by small arms fire from its direct front and C section, the left flanking section is engaged by a MMG from its front left.",
+                    "Attached to your PL you have one sniper pair who have joined your patrol for the move back to the BN AA.",
+                    "A UAS asset is currently returning to base. On its transit it conducts a fly over and identifies two potential firing locations and 3-6 fighters.",
+                    "CHQ advises that there are no OS assets available to support your C/S as B Coy is in a large engagement to the north.",
+                    "However, given the HVT you have apprehended a helo has been sent to your location to backload the captured individuals. This asset will arrive at 1315hrs and will land at a known LZ @ GR 9439 3140.",
+                    "2 PL current disposition is shown on your map. The time now is 1207hrs.",
+                    "<h4>Problem</h4>",
+                    "As Comd 2 Pl, show the steps which enabled you to arrive at your plan, and be prepared to give your plan in a back brief."
+                ]
+            },
+            "uavVideoUrl": "uav_flyover.mp4",
+            "map": {
+                "model": "nz.gltf",
+                "img": {
+                    "url": "waiouru.jpg",
+                    "pos": [
+                        175.751986013,
+                        -39.467712552,
+                        175.80860058,
+                        -39.44800
+                    ]
+                },
+                "camera": {
+                    "lat": -39.461303,
+                    "lon": 175.775301,
+                    "height": 4000
+                },
+                "entities": {
+                    "base": [
+                        {
+                            "name": "C",
+                            "description": [
+                                "C section"
+                            ],
+                            "type": "rectangle",
+                            "subType": null,
+                            "image": "./media/mil/infantry.png",
+                            "positions": [
+                                {
+                                    "utm": {
+                                        "northing": 5631529,
+                                        "easting": 394492,
+                                        "zoneNumber": 60,
+                                        "zoneLetter": "H"
+                                    },
+                                    "mgrs": {
+                                        "zoneNumber": 60,
+                                        "zoneLetter": "H",
+                                        "id100k": "UB",
+                                        "easting": "94492",
+                                        "northing": "31529",
+                                        "mgrsString": "60HUB9449231529"
+                                    },
+                                    "lat": -39.45934446377009,
+                                    "lon": 175.77359837917078
+                                }
+                            ],
+                            "rotation": -0.6000000000000001,
+                            "scale": 3,
+                            "label": true,
+                            "showPos": true,
+                            "id": "c_sect"
+                        },
+                        {
+                            "name": "A",
+                            "description": [
+                                "A Section"
+                            ],
+                            "type": "rectangle",
+                            "subType": null,
+                            "image": "./media/mil/infantry.png",
+                            "positions": [
+                                {
+                                    "utm": {
+                                        "northing": 5631329,
+                                        "easting": 394699,
+                                        "zoneNumber": 60,
+                                        "zoneLetter": "H"
+                                    },
+                                    "mgrs": {
+                                        "zoneNumber": 60,
+                                        "zoneLetter": "H",
+                                        "id100k": "UB",
+                                        "easting": "94699",
+                                        "northing": "31329",
+                                        "mgrsString": "60HUB9469931329"
+                                    },
+                                    "lat": -39.46117243091801,
+                                    "lon": 175.77597995922633
+                                }
+                            ],
+                            "rotation": -0.6000000000000001,
+                            "scale": 3,
+                            "label": true,
+                            "showPos": true,
+                            "id": "a_Sect"
+                        },
+                        {
+                            "name": "B",
+                            "description": [
+                                "B section"
+                            ],
+                            "type": "rectangle",
+                            "subType": null,
+                            "image": "./media/mil/infantry.png",
+                            "positions": [
+                                {
+                                    "utm": {
+                                        "northing": 5631537,
+                                        "easting": 394737,
+                                        "zoneNumber": 60,
+                                        "zoneLetter": "H"
+                                    },
+                                    "mgrs": {
+                                        "zoneNumber": 60,
+                                        "zoneLetter": "H",
+                                        "id100k": "UB",
+                                        "easting": "94737",
+                                        "northing": "31537",
+                                        "mgrsString": "60HUB9473731537"
+                                    },
+                                    "lat": -39.459304227555954,
+                                    "lon": 175.77644704137663
+                                }
+                            ],
+                            "rotation": -0.6000000000000001,
+                            "scale": 3,
+                            "label": true,
+                            "showPos": true,
+                            "id": "b_sect"
+                        },
+                        {
+                            "name": "LZ",
+                            "description": [
+                                ""
+                            ],
+                            "type": "rectangle",
+                            "subType": null,
+                            "image": "./media/mil/lz.png",
+                            "positions": [
+                                {
+                                    "utm": {
+                                        "northing": 5631259,
+                                        "easting": 394257,
+                                        "zoneNumber": 60,
+                                        "zoneLetter": "H"
+                                    },
+                                    "mgrs": {
+                                        "zoneNumber": 60,
+                                        "zoneLetter": "H",
+                                        "id100k": "UB",
+                                        "easting": "94257",
+                                        "northing": "31259",
+                                        "mgrsString": "60HUB9425731259"
+                                    },
+                                    "lat": -39.461748480770886,
+                                    "lon": 175.770823017288
+                                }
+                            ],
+                            "rotation": 0,
+                            "scale": 3,
+                            "label": false,
+                            "showPos": true,
+                            "id": "lz"
+                        }
+                    ],
+                    "layers": []
+                }
+            },
+            "report": {
+                "type": "questions",
+                "data": [
+                    "What is the situation and how does it affect me?",
+                    "What have I been told to do and why?",
+                    "What effects do I need to achieve and what direction must I give to develop my plan?",
+                    "Where can I best accomplish each action or effect?",
+                    "What resources do I need to accomplish each action or effect"
+                ]
+            },
+            "debriefEnabled": false,
+            "duration": 15
+        },
+        {
+            "name": "QDE 2 - Helo Crash",
+            "orders": {
+                "videoUrl": false,
+                "text": [
+                    "You are in command of 2 PL, A Coy, 1st BN. Having cleared enemy and secured the LZ you are awaiting the arrival of helo (C/S DUST OFF) in order to backload captured pers and proceed back to the BN Assembly Area. 5 minutes after receiving wheels up en route to your location from BN, DUST OFF raises your C/S and reports:",
+                    "\"This is DUST OFF currently tracking 3km East of the LZ, have sighted what appears to be 10-15 enemy on MSR PREDATOR moving west by foot. Be aware this C/S has ammunition resupply for you\"",
+                    "15 seconds later…………..",
+                    "\"This is DUST OFF this callsign is taking fire………….MAYDAY MAYDAY\"",
+                    "You see a large plume of black smoke to your South East (at GR 945 309) and can no longer raise DUST OFF. You provide CHQ with a SITREP and the OC informs you to “secure the crash site and await SAR”. When you request additional support you are informed that “You have 1 Gun, C/S G61B (155mm M777 @ GR 986 395) in direct support to your C/S from now with 20 HE, 5 SMK and 5 Illum.",
+                    "You have under command one sniper pair who have joined your platoon for the move back to the BN AA.",
+                    "2 PLs current position is the designated LZ at GR 9439 3140. The time now is 1320hrs.",
+                    "<h4>ASSUMPTIONS</h4>",
+                    "You can assume that all small arms ammunition on board DUST OFF survived the crash and can still be employed. This ammunition resupply is enough first line of 5.56 and 7.62 for the PL and attachments.",
+                    "<h4>PROBLEM</h4>",
+                    "As Comd 2 Pl, show the steps which enabled you to arrive at your plan, and be prepared to give your plan in a back brief."
+                ]
+            },
+            "uavVideoUrl": "waiouru.mp4",
+            "map": {
+                "model": "nz.gltf",
+                "img": {
+                    "url": "waiouru_hvt_helo.jpg",
+                    "pos": [
+                        175.751986013,
+                        -39.467712552,
+                        175.80860058,
+                        -39.44800
+                    ]
+                },
+                "camera": {
+                    "lat": -39.461303,
+                    "lon": 175.775301,
+                    "height": 4000
+                },
+                "entities": {
+                    "base": [
+                        {
+                            "id": "let1",
+                            "name": "Bluefor",
+                            "description": [
+                                "3 x pers",
+                                "4x donkeys"
+                            ],
+                            "subType": null,
+                            "type": "billboard",
+                            "color": null,
+                            "label": null,
+                            "image": "./media/mil/abf.png",
+                            "positions": [
+                                {
+                                    "lat": -32.835752,
+                                    "lon": 137.615792
+                                }
+                            ],
+                            "rotation": 0.2
+                        },
+                        {
+                            "id": "let2",
+                            "name": "Line",
+                            "description": [
+                                "MV to Fac",
+                                "4x donkeys"
+                            ],
+                            "type": "line",
+                            "subType": "arrow",
+                            "color": "#443344",
+                            "label": null,
+                            "image": null,
+                            "positions": [
+                                {
+                                    "lat": -32.865752,
+                                    "lon": 137.612792
+                                },
+                                {
+                                    "lat": -32.855752,
+                                    "lon": 137.622792
+                                }
+                            ],
+                            "rotation": 0
+                        }
+                    ]
+                },
+                "layers": []
+            },
+            "report": {
+                "type": "questions",
+                "data": [
+                    "What is the situation and how does it affect me?",
+                    "What have I been told to do and why?",
+                    "What effects do I need to achieve and what direction must I give to develop my plan?",
+                    "Where can I best accomplish each action or effect?",
+                    "What resources do I need to accomplish each action or effect"
+                ]
+            },
+            "debrief": false,
+            "duration": 15
+        }
+    ]
+}

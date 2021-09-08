@@ -1,0 +1,28 @@
+
+
+LOGIN
+
+- Need a portable db that contains user credentials
+- create a proper form that posts the user data to the server, the server then returns an object 
+    - {error: false, data: {string: "Successfully logged in", serverAuthToken: dfdsdsgfffffffffgfds"}
+    - static auth token 
+
+
+Code Cleanup
+- Split all the code into set modules that are for each component.
+
+- System
+    - Config -> load(read), save Config
+    - User -> login, logout, getAuth, changePassword
+
+- Devices
+    - findAllDevices, findDevices, add, remove, edit
+    - 
+
+- nx-witness
+    - Server needs to do all commands to nx
+        - server will need to do basic/digest authentication and save cookies
+
+
+- network
+    - 

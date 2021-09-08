@@ -1,0 +1,9 @@
+.range-slider {
+    height: 40px;
+    background-color: black;
+    border: red;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    width: 100%;
+}

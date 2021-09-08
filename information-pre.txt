@@ -1,0 +1,6 @@
+Please follow the steps to install the TEWT Server software.
+
+If you already have a Tewt Server installed, make sure you quit it from the Tray menu Icon
+(Right click > Quit)
+
+Mitchell Day

@@ -1,0 +1,15 @@
+(c) Copyright 2018 Cubic Defence Australia, all rights reserved.
+
+Uses Node Packages/Libraries with below licensing
+
+MIT:
+* Directory-Tree
+* Express
+* Local-Network-Scanner
+* Md5-Hex
+* Node-Gyp
+* Play
+* Serialport
+
+Apache 2.0:
+* Request

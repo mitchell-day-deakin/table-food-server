@@ -1,0 +1,7 @@
+{
+    "dest": "../builds/installers/",
+    "icon": "data/media/server.png",
+    "lintianOverrides":[
+        "changelog-file-missing-in-native-package"
+    ]
+}

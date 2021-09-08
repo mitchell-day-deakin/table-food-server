@@ -1,4 +1,4 @@
-<h2 align="center">project_title</h2>
+<h2 align="center">TEWT TOOL (Proto)</h2>
 
 <h3>SETUP</h3>
 
@@ -18,3 +18,25 @@ to the "app" directory and type in:
 ```sh
  npm start
  ```
+
+ <h3>BUILD</h3>
+
+ To build the software use one of the below methods.
+ To create a windows installer from the built files, you will need to have <a href="https://jrsoftware.org/isinfo.php">Inno Setup</a>.
+ <ol>
+ <li>Windows:
+ ```sh
+ npm run buildwin
+ ```
+ </li>
+<li>MacOS:
+ ```sh
+ npm run buildmac
+ ```
+</li>
+<li>Linux: (requires wsl installed on system)
+ ```sh
+ npm run buildlinux
+ npm run deb64_wsl
+ ```
+</li>

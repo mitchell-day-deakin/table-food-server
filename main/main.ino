@@ -64,9 +64,10 @@ void testDistStop(){
     }
 }
 
+
 void testBluetooth(){
   bluetooth.receive();
-  Serial.println(bluetooth.message);
+  
   if (bluetooth.message == "forward")
     {
       car.brake();
@@ -93,7 +94,6 @@ void testBluetooth(){
 void loop()
 {
   testBluetooth();
-    
   //testCar();
   testDistStop();
   //car.forward();

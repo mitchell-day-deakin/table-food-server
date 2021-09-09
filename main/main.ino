@@ -6,13 +6,13 @@
 #include <SoftwareSerial.h>
 
 
-Car car(4,5,6,7,9,10);
+Car car(7,6,5,4,9,10);
 AudioCapture aCapture(A0, A1, A2);
 DistMonitor distMonitor(2,3, 10);
 Bluetooth bluetooth(13, 12);
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(19200);
   bluetooth.begin();
 }
 
@@ -66,7 +66,7 @@ void testDistStop(){
 
 void testBluetooth(){
   bluetooth.receive();
-  
+  Serial.println(bluetooth.message);
   if (bluetooth.message == "forward")
     {
       car.brake();
@@ -92,7 +92,7 @@ void testBluetooth(){
 // put your main code here, to run repeatedly:
 void loop()
 {
-  //testBluetooth();
+  testBluetooth();
     
   //testCar();
   testDistStop();

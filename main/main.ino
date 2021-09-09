@@ -92,10 +92,10 @@ void testBluetooth(){
 // put your main code here, to run repeatedly:
 void loop()
 {
-  testBluetooth();
+  //testBluetooth();
     
   //testCar();
-  //testDistStop();
+  testDistStop();
   //car.forward();
   
 }

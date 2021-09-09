@@ -10,9 +10,10 @@ private:
   Motor lMotor;
   float degPerMs = 0.24;
   bool forwardEnabled;
+  bool wasStop;
 
 public:
-  Car(int forR, int revR, int forL, int revL);
+  Car(int forR, int revR, int forL, int revL, int enR, int enL);
   void init();
 
   void forward();

@@ -16,8 +16,9 @@ void DistMonitor::init(){
 
 };
 
-bool DistMonitor::checkDist(int distance)
+bool DistMonitor::checkDist()
 {
+    int distance = getCurDist();
     return distance < _distThreshold;
 };
 
@@ -32,16 +33,13 @@ int DistMonitor::getCurDist()
     digitalWrite(_trigPin, LOW);
     // Reads the echoPin, returns the sound wave travel time in microseconds
     duration = pulseIn(_echoPin, HIGH);
-    //Serial.print(duration);
+    //Serial.print("Time: ");
+    //Serial.println(duration);
     // Calculating the distance
     curDist = duration * 0.034 / 2; // Speed of sound wave divided by 2 (go and back)
     // Displays the distance on the Serial Monitor
-    if (curDist > _distThreshold)
-    {
-        Serial.print("Distance: ");
-        Serial.print(curDist);
-        Serial.println(" cm");
-    }
-
+    /* Serial.print("Distance: ");
+    Serial.print(curDist);
+    Serial.println(" cm"); */
     return curDist;
 };

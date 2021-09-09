@@ -3,6 +3,8 @@
 #include "src/Car/Motor.h"
 #include "src/AudioCapture/AudioCapture.h"
 #include "src/DistMonitor/DistMonitor.h"
+#include "src/Bluetooth/Bluetooth.h"
+#include <SoftwareSerial.h>
 
 #define CUSTOM_SETTINGS
 #define INCLUDE_GAMEPAD_MODULE
@@ -98,21 +100,59 @@ void remoteServerControl(){
   }
 }
 
-//check bluetooth board;
 
 //test distance monitor
 void testDistMonitor()
 {
   int distance = distMonitor.getCurDist();
+  //Serial.print("Main: ");
+  //Serial.println(distance);
 }
 
+void testDistStop(){
+    if (!distMonitor.checkDist()) {
+        car.brake();
+        car.disableForward();
+    }
+    else {
+        car.enableForward();
+        car.forward();
+    }
+}
+
+
+void testBluetooth(){
+  bluetooth.receive();
+  
+  if (bluetooth.message == "forward")
+    {
+      car.brake();
+      car.forward();
+
+    }
+  else if(bluetooth.message == "backward") {
+      car.reverse();
+
+    }
+  else if(bluetooth.message == "left") {
+      car.turn(-90);
+
+  }
+  else if(bluetooth.message == "right") {
+      car.turn(90);
+
+  }
+  else{
+    car.brake();
+  }
+}
 // put your main code here, to run repeatedly:
 void loop()
 {
-  testCar();
-  //testDistMonitor();
-  //audioTest();
-  //gamePadProcess();
-  //remoteServerControl();
-  //Serial.println("From arduino\n");
+  testBluetooth();
+  //testCar();
+  testDistStop();
+  //car.forward();
+  remoteServerControl();
+  
 }

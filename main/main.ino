@@ -45,6 +45,20 @@ void testAudio(){
 
 }
 
+//read serial and pass to bluetooth
+void remoteServerControl(){
+  if(Serial.available()>0){
+    String value = Serial.readString();
+    bluetooth.send(value);
+    if(value == "f"){
+      car.forward();
+    }
+    if(value == "r"){
+      car.reverse();
+    }
+  }
+}
+
 
 //test distance monitor
 void testDistMonitor(){
@@ -97,5 +111,6 @@ void loop()
   //testCar();
   testDistStop();
   //car.forward();
+  remoteServerControl();
   
 }

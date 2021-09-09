@@ -19,8 +19,8 @@ public:
     Bluetooth(int tx, int rx);
 
     void begin();
-
     void receive();
+    void send(String msg);
 
 
 };

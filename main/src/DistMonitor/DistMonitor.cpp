@@ -38,8 +38,8 @@ int DistMonitor::getCurDist()
     // Calculating the distance
     curDist = duration * 0.034 / 2; // Speed of sound wave divided by 2 (go and back)
     // Displays the distance on the Serial Monitor
-    Serial.print("Distance: ");
+    /* Serial.print("Distance: ");
     Serial.print(curDist);
-    Serial.println(" cm");
+    Serial.println(" cm"); */
     return curDist;
 };

@@ -43,10 +43,10 @@ int Car::turn(int angle)
 {
 
     float onTime = abs(angle) / degPerMs;
-    Serial.print("Time");
-    Serial.println(onTime);
-    Serial.print("Angle:");
-    Serial.println(angle);
+    //Serial.print("Time");
+    //Serial.println(onTime);
+    //Serial.print("Angle:");
+    //Serial.println(angle);
 
     if (angle < 0)
     {

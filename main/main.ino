@@ -1,3 +1,4 @@
+
 #include "src/Car/Car.h"
 #include "src/Car/Motor.h"
 #include "src/AudioCapture/AudioCapture.h"
@@ -5,15 +6,20 @@
 #include "src/Bluetooth/Bluetooth.h"
 #include <SoftwareSerial.h>
 
+#define CUSTOM_SETTINGS
+#define INCLUDE_GAMEPAD_MODULE
+#include <Dabble.h>
 
-Car car(7,6,5,4,9,10);
+
+Car car(6,7,4,5);
 AudioCapture aCapture(A0, A1, A2);
-DistMonitor distMonitor(2,3, 10);
-Bluetooth bluetooth(13, 12);
+DistMonitor distMonitor(8, 9, 16);
+
 void setup()
 {
-  Serial.begin(19200);
-  bluetooth.begin();
+  Serial.begin(9600);
+  Dabble.begin(9600);
+  //pinMode(txPin, OUTPUT);
 }
 
 //test the audio system
@@ -21,7 +27,7 @@ void audioTest()
 {
   //test the audio system
   bool isTriggered = aCapture.readMics();
-  //delay(1000);
+  delay(1000);
   if (isTriggered)
   {
     int degrees = aCapture.getAudioDirection();
@@ -29,31 +35,66 @@ void audioTest()
   }
 }
 
-
 //test car dive, reverse, turn functionality
-void testCar(){
+void testCar()
+{
+  Serial.println("f");
   car.forward();
   delay(1000);
-  car.turn(90);
+  Serial.println("r");
+  car.turn(120);
+  Serial.println("b");
   car.reverse();
   delay(1000);
+  Serial.println("l");
   car.turn(-120);
+  
 }
 
 //test the audio functionality
-void testAudio(){
-
+void testAudio()
+{
 }
 
-//read serial and pass to bluetooth
+//bluetooth process
+void gamePadProcess()
+{
+  Dabble.processInput();
+  if (GamePad.isUpPressed())
+  {
+    Serial.print("Up pressed");
+    car.forward();
+  }
+  if (GamePad.isDownPressed())
+  {
+    Serial.print("Down pressed");
+    car.reverse();
+  }
+  if (GamePad.isLeftPressed())
+  {
+    Serial.print("Down pressed");
+    car.turn(-180);
+  }
+  if (GamePad.isRightPressed())
+  {
+    Serial.print("Down pressed");
+    car.turn(180);
+  }
+  if (GamePad.isCrossPressed())
+  {
+    Serial.print("Down pressed");
+    car.brake();
+  }
+}
+
 void remoteServerControl(){
   if(Serial.available()>0){
-    String value = Serial.readString();
-    bluetooth.send(value);
+    char value = Serial.read();
+    Serial.println(value);
     if(value == "f"){
       car.forward();
     }
-    if(value == "r"){
+    if(value == "b"){
       car.reverse();
     }
   }
@@ -61,7 +102,8 @@ void remoteServerControl(){
 
 
 //test distance monitor
-void testDistMonitor(){
+void testDistMonitor()
+{
   int distance = distMonitor.getCurDist();
   //Serial.print("Main: ");
   //Serial.println(distance);

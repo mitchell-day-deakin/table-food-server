@@ -22,7 +22,7 @@ to the "app" directory and type in:
 <h3>BUILD</h3>
 
  To build the software use one of the below methods.
- To create a windows installer from the built files, you will need to have <a href="https://jrsoftware.org/isinfo.php">Inno Setup</a>.
+ To create a windows installer from the built files, you will need to have <a href="https://jrsoftware.org/isinfo.php" target="_blank">Inno Setup</a>.
 
 
 1. Windows:

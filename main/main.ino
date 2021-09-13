@@ -13,7 +13,7 @@ DistMonitor distMonitor(2,3, 10);
 Bluetooth bluetooth(13, 12);
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(19200);
   bluetooth.begin();
 }
 
@@ -113,6 +113,7 @@ void testDistStop(){
 
 void testBluetooth(){
   bluetooth.receive();
+  Serial.println(bluetooth.message);
   
   if (bluetooth.message == "forward")
     {
@@ -130,7 +131,9 @@ void testBluetooth(){
   }
   else if(bluetooth.message == "right") {
       car.turn(90);
-
+  }
+  else if(bluetooth.message == "stop") {
+      car.brake()
   }
   else{
     car.brake();

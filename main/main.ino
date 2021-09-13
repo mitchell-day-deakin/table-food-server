@@ -140,7 +140,9 @@ void testBluetooth(){
   }
   else if(bluetooth.message == "right") {
       car.turn(90);
-
+  }
+  else if(bluetooth.message == "stop") {
+      car.brake();
   }
   else if(bluetooth.message=="stop"){
     car.brake();

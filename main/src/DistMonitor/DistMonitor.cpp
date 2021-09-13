@@ -33,12 +33,8 @@ int DistMonitor::getCurDist()
     digitalWrite(_trigPin, LOW);
     // Reads the echoPin, returns the sound wave travel time in microseconds
     duration = pulseIn(_echoPin, HIGH);
-<<<<<<< HEAD
-    //Serial.print(duration);
-=======
     //Serial.print("Time: ");
     //Serial.println(duration);
->>>>>>> origin/DistSensorModifications
     // Calculating the distance
     curDist = duration * 0.034 / 2; // Speed of sound wave divided by 2 (go and back)
     // Displays the distance on the Serial Monitor

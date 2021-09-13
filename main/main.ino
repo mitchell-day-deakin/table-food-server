@@ -47,7 +47,7 @@ void testAudio()
 }
 
 //bluetooth process
-void gamePadProcess()
+/* void gamePadProcess()
 {
   Dabble.processInput();
   if (GamePad.isUpPressed())
@@ -75,7 +75,7 @@ void gamePadProcess()
     Serial.print("Down pressed");
     car.brake();
   }
-}
+} */
 
 void remoteServerControl(){
   if(Serial.available()>0){
@@ -133,7 +133,7 @@ void testBluetooth(){
       car.turn(90);
   }
   else if(bluetooth.message == "stop") {
-      car.brake()
+      car.brake();
   }
   else{
     car.brake();

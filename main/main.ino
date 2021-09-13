@@ -6,23 +6,6 @@
 #include "src/Bluetooth/Bluetooth.h"
 #include <SoftwareSerial.h>
 
-<<<<<<< HEAD
-#define CUSTOM_SETTINGS
-#define INCLUDE_GAMEPAD_MODULE
-#include <Dabble.h>
-
-//mitchell dev branch
-
-Car car(6,7,4,5);
-AudioCapture aCapture(A0, A1, A2);
-DistMonitor distMonitor(8, 9, 16);
-
-void setup()
-{
-  Serial.begin(9600);
-  Dabble.begin(9600);
-  //pinMode(txPin, OUTPUT);
-=======
 
 Car car(4,5,6,7,9,10);
 AudioCapture aCapture(A0, A1, A2);
@@ -32,7 +15,6 @@ void setup()
 {
   Serial.begin(9600);
   bluetooth.begin();
->>>>>>> origin/DistSensorModifications
 }
 
 //test the audio system
@@ -114,20 +96,6 @@ void remoteServerControl(){
 void testDistMonitor()
 {
   int distance = distMonitor.getCurDist();
-<<<<<<< HEAD
-}
-
-
-// put your main code here, to run repeatedly:
-void loop()
-{
-  //testCar();
-  //testDistMonitor();
-  //audioTest();
-  //gamePadProcess();
-  remoteServerControl();
-  //Serial.println("From arduino\n");
-=======
   //Serial.print("Main: ");
   //Serial.println(distance);
 }
@@ -177,5 +145,4 @@ void loop()
   //testDistStop();
   //car.forward();
   
->>>>>>> origin/DistSensorModifications
 }

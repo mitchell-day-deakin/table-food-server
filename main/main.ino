@@ -8,17 +8,16 @@
 
 #define CUSTOM_SETTINGS
 #define INCLUDE_GAMEPAD_MODULE
-#include <Dabble.h>
 
 
 Car car(6,7,4,5);
 AudioCapture aCapture(A0, A1, A2);
 DistMonitor distMonitor(8, 9, 16);
+Bluetooth bluetooth()
 
 void setup()
 {
-  Serial.begin(9600);
-  Dabble.begin(9600);
+  Serial.begin(19200);
   //pinMode(txPin, OUTPUT);
 }
 
@@ -123,6 +122,7 @@ void testDistStop(){
 
 void testBluetooth(){
   bluetooth.receive();
+  Serial.println(bluetooth.message);
   
   if (bluetooth.message == "forward")
     {
@@ -141,6 +141,9 @@ void testBluetooth(){
   else if(bluetooth.message == "right") {
       car.turn(90);
 
+  }
+  else if(bluetooth.message=="stop"){
+    car.brake();
   }
   else{
     car.brake();

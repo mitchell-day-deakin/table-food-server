@@ -7,7 +7,7 @@
 #include <SoftwareSerial.h>
 
 
-Car car(4,5,6,7,9,10);
+Car car(5,4,7,6,9, 10);
 AudioCapture aCapture(A0, A1, A2);
 DistMonitor distMonitor(2,3, 10);
 Bluetooth bluetooth(13, 12);

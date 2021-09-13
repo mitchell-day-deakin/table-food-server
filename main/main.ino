@@ -1,4 +1,3 @@
-
 #include "src/Car/Car.h"
 #include "src/Car/Motor.h"
 #include "src/AudioCapture/AudioCapture.h"
@@ -6,19 +5,15 @@
 #include "src/Bluetooth/Bluetooth.h"
 #include <SoftwareSerial.h>
 
-#define CUSTOM_SETTINGS
-#define INCLUDE_GAMEPAD_MODULE
 
-
-Car car(6,7,4,5);
+Car car(7,6,5,4,9,10);
 AudioCapture aCapture(A0, A1, A2);
-DistMonitor distMonitor(8, 9, 16);
-Bluetooth bluetooth()
-
+DistMonitor distMonitor(2,3, 10);
+Bluetooth bluetooth(13, 12);
 void setup()
 {
   Serial.begin(19200);
-  //pinMode(txPin, OUTPUT);
+  bluetooth.begin();
 }
 
 //test the audio system
@@ -26,7 +21,7 @@ void audioTest()
 {
   //test the audio system
   bool isTriggered = aCapture.readMics();
-  delay(1000);
+  //delay(1000);
   if (isTriggered)
   {
     int degrees = aCapture.getAudioDirection();
@@ -34,66 +29,31 @@ void audioTest()
   }
 }
 
+
 //test car dive, reverse, turn functionality
-void testCar()
-{
-  Serial.println("f");
+void testCar(){
   car.forward();
   delay(1000);
-  Serial.println("r");
-  car.turn(120);
-  Serial.println("b");
+  car.turn(90);
   car.reverse();
   delay(1000);
-  Serial.println("l");
   car.turn(-120);
-  
 }
 
 //test the audio functionality
-void testAudio()
-{
+void testAudio(){
+
 }
 
-//bluetooth process
-void gamePadProcess()
-{
-  Dabble.processInput();
-  if (GamePad.isUpPressed())
-  {
-    Serial.print("Up pressed");
-    car.forward();
-  }
-  if (GamePad.isDownPressed())
-  {
-    Serial.print("Down pressed");
-    car.reverse();
-  }
-  if (GamePad.isLeftPressed())
-  {
-    Serial.print("Down pressed");
-    car.turn(-180);
-  }
-  if (GamePad.isRightPressed())
-  {
-    Serial.print("Down pressed");
-    car.turn(180);
-  }
-  if (GamePad.isCrossPressed())
-  {
-    Serial.print("Down pressed");
-    car.brake();
-  }
-}
-
+//read serial and pass to bluetooth
 void remoteServerControl(){
   if(Serial.available()>0){
-    char value = Serial.read();
-    Serial.println(value);
+    String value = Serial.readString();
+    bluetooth.send(value);
     if(value == "f"){
       car.forward();
     }
-    if(value == "b"){
+    if(value == "r"){
       car.reverse();
     }
   }
@@ -101,8 +61,7 @@ void remoteServerControl(){
 
 
 //test distance monitor
-void testDistMonitor()
-{
+void testDistMonitor(){
   int distance = distMonitor.getCurDist();
   //Serial.print("Main: ");
   //Serial.println(distance);
@@ -143,9 +102,6 @@ void testBluetooth(){
   }
   else if(bluetooth.message == "stop") {
       car.brake();
-  }
-  else if(bluetooth.message=="stop"){
-    car.brake();
   }
   else{
     car.brake();

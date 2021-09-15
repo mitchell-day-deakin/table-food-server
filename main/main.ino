@@ -25,6 +25,8 @@ void audioTest()
   if (isTriggered)
   {
     int degrees = aCapture.getAudioDirection();
+    Serial.print("Degrees: ");
+    Serial.print(degrees);
     int time = car.turn(degrees);
   }
 }
@@ -40,10 +42,6 @@ void testCar(){
   car.turn(-120);
 }
 
-//test the audio functionality
-void testAudio(){
-
-}
 
 //read serial and pass to bluetooth
 void remoteServerControl(){
@@ -110,10 +108,11 @@ void testBluetooth(){
 // put your main code here, to run repeatedly:
 void loop()
 {
-  testBluetooth();
+  //testBluetooth();
   //testCar();
-  testDistStop();
+  //testDistStop();
   //car.forward();
-  remoteServerControl();
+  //remoteServerControl();
+  audioTest();
   
 }

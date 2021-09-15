@@ -1,4 +1,5 @@
-
+#include "AlertSystem.h"
+#include "Arduino.h"
 
 AlertSystem::AlertSystem(){
 
@@ -8,4 +9,4 @@ AlertSystem::AlertSystem(){
 void AlertSystem::makeSound()
 {
     
-}
+};

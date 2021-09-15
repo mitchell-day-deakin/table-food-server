@@ -42,9 +42,12 @@ bool AudioCapture::readMics()
     bool isTriggered = calcTrigger();
     if (isTriggered)
     {
+        triggered = true;
         AUDIO_DIR = calcDirection();
+        return true;
     }
     Incr();
+    return false;
 };
 
 //returns the last triggered audio direction
@@ -57,21 +60,29 @@ bool AudioCapture::calcTrigger()
 {
     if (mic0Val > TRIG_VAL || mic0Val > TRIG_VAL || mic0Val > TRIG_VAL)
     {
+        Serial.println(mic0Val);
+        Serial.println(mic1Val);
+        Serial.println(mic2Val);
+        
         //if first clap is not set then set it and start the counter
         if (clap1 == false)
         {
             clap1 = true;
             counter = 0;
+            Serial.println("Clap 1 Recorded");
             return false;
         }
         //if first clap is set and second clap is less then 200 counts apart the return true and reset clap1 and counter
-        if (clap1 && counter < 200)
+        if (clap1 && counter < 300)
         {
             counter = 0;
             clap1 = false;
+            Serial.println("Clap 2 Recorded");
             return true;
         }
+        clap1 = false;
     }
+    
     return false;
 }
 

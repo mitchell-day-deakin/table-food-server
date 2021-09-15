@@ -24,3 +24,7 @@ void Bluetooth::begin() {
     _bluetooth.begin(9600);
 };
 
+void Bluetooth::send(String msg){
+    _bluetooth.println(msg);
+}
+

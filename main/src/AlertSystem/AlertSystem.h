@@ -6,7 +6,7 @@ class AlertSystem {
     
   public:
     AlertSystem();
-    void makeSound()
+    void makeSound();
   
 };
 

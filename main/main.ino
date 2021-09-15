@@ -1,4 +1,3 @@
-
 #include "src/Car/Car.h"
 #include "src/Car/Motor.h"
 #include "src/AudioCapture/AudioCapture.h"
@@ -23,17 +22,19 @@ void audioTest()
 {
   //test the audio system
   bool isTriggered = aCapture.readMics();
-  delay(1000);
+  //delay(1000);
   if (isTriggered)
   {
     int degrees = aCapture.getAudioDirection();
+    Serial.print("Degrees: ");
+    Serial.print(degrees);
     int time = car.turn(degrees);
   }
 }
 
+
 //test car dive, reverse, turn functionality
-void testCar()
-{
+void testCar(){
   car.forward();
   delay(1000);
   car.turn(90);
@@ -42,46 +43,12 @@ void testCar()
   car.turn(-120);
 }
 
-//test the audio functionality
-void testAudio()
-{
-}
 
-//bluetooth process
-/* void gamePadProcess()
-{
-  Dabble.processInput();
-  if (GamePad.isUpPressed())
-  {
-    Serial.print("Up pressed");
-    car.forward();
-  }
-  if (GamePad.isDownPressed())
-  {
-    Serial.print("Down pressed");
-    car.reverse();
-  }
-  if (GamePad.isLeftPressed())
-  {
-    Serial.print("Down pressed");
-    car.turn(-180);
-  }
-  if (GamePad.isRightPressed())
-  {
-    Serial.print("Down pressed");
-    car.turn(180);
-  }
-  if (GamePad.isCrossPressed())
-  {
-    Serial.print("Down pressed");
-    car.brake();
-  }
-} */
-
+//read serial and pass to bluetooth
 void remoteServerControl(){
   if(Serial.available()>0){
     String value = Serial.readString();
-    Serial.println(value);
+    bluetooth.send(value);
     if(value == "f"){
       car.forward();
     }
@@ -91,11 +58,9 @@ void remoteServerControl(){
   }
 }
 
-//check bluetooth board;
 
 //test distance monitor
-void testDistMonitor()
-{
+void testDistMonitor(){
   int distance = distMonitor.getCurDist();
   //Serial.print("Main: ");
   //Serial.println(distance);
@@ -111,6 +76,7 @@ void testDistStop(){
         car.forward();
     }
 }
+
 
 void testBluetooth(){
   bluetooth.receive();
@@ -143,10 +109,11 @@ void testBluetooth(){
 // put your main code here, to run repeatedly:
 void loop()
 {
-  testBluetooth();
-    
+  //testBluetooth();
   //testCar();
   //testDistStop();
   //car.forward();
+  //remoteServerControl();
+  audioTest();
   
 }

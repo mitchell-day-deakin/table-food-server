@@ -24,7 +24,8 @@ let mapMenuIcons = [
                                     text: 'Infantry Pl HQ',
                                     id: "infantry_pl_hq",
                                     type: 'billboard',
-                                    src: 'media/mil/infantry_pl_hq.png'
+                                    src: 'media/mil/infantry_pl_hq.png',
+                                    srcTwo: 'media/mil/target.png'
                                 },
                                 {
                                     text: 'Infantry Company HQ',
@@ -1985,12 +1986,14 @@ let mapMenuIcons = [
 
 function mergeImages(src1, src2) {
     let can = document.createElement('canvas');
+    can.width = 50;
+    can.height = 50;
     let ctx = can.getContext('2d');
     let img1 = new Image();
     let img2 = new Image();
     img1.src = src1;
-    ctx.drawImage(img1, 0, 0, 50, 50)
     img2.src = src2;
+    ctx.drawImage(img1, 0, 0, 50, 50)
     ctx.drawImage(img2, 0, 0, 50, 50);
     let img = can.toDataURL("image/png");
     return img

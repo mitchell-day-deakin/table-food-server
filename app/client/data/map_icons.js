@@ -24,8 +24,7 @@ let mapMenuIcons = [
                                     text: 'Infantry Pl HQ',
                                     id: "infantry_pl_hq",
                                     type: 'billboard',
-                                    src: 'media/mil/infantry_pl_hq.png',
-                                    srcTwo: 'media/mil/target.png'
+                                    src: 'media/mil/infantry_pl_hq.png'
                                 },
                                 {
                                     text: 'Infantry Company HQ',
@@ -1993,8 +1992,10 @@ function mergeImages(src1, src2) {
     let img2 = new Image();
     img1.src = src1;
     img2.src = src2;
-    ctx.drawImage(img1, 0, 0, 50, 50)
-    ctx.drawImage(img2, 0, 0, 50, 50);
+    //ctx.drawImage(img1, 0, 0, 50, 50)
+    //ctx.drawImage(img2, 0, 0, 50, 50);
+    ctx.drawImage(img1, 0, 0)
+    ctx.drawImage(img2, 0, 0);
     let img = can.toDataURL("image/png");
     return img
 }
@@ -2006,13 +2007,14 @@ function addMapMenus() {
     let createParentIcon = (icon) => {
         let src = icon.src;
         let div = document.createElement('div');
-        div.setAttribute('class', 'mapMenuIcon');
-        div.setAttribute('style', `background-size: 85% 100%; background-color: rgba(177,177,177,.9); background-image: url("${icon.src}")`)
-        div.setAttribute("onclick", `openMapMenu('${icon.id}')`);
         //div.setAttribute("style", `background-image: url("./${icon.src}")`)
         if (icon.srcTwo) {
             src = mergeImages(icon.src, icon.srcTwo)
         }
+
+        div.setAttribute('class', 'mapMenuIcon');
+        div.setAttribute('style', `background-size: 85% 100%; background-color: rgba(177,177,177,.9); background-image: url("${src}")`)
+        div.setAttribute("onclick", `openMapMenu('${icon.id}')`);
         //let img = `<img draggable="false" src="./media/darrow.svg" alt="${icon.text}"/>`
         let title = `<p>${icon.text.replace(" ", "<br>")}</p>`
         div.innerHTML = title//+img;

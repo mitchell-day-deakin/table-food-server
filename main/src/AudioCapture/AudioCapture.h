@@ -20,6 +20,8 @@ class AudioCapture {
         int micPin_1;
         int micPin_2;
 
+        int micVal[3];
+
         int mic0Val;
         int mic1Val;
         int mic2Val;

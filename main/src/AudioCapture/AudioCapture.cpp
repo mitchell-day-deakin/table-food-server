@@ -21,9 +21,9 @@ void AudioCapture::Incr()
 //reads mics and returns whether a successful trigger has occured.
 bool AudioCapture::readMics()
 {
-    mic0Val = analogRead(micPin_0);
-    mic1Val = analogRead(micPin_1);
-    mic2Val = analogRead(micPin_2);
+    micVal[0] = analogRead(micPin_0);
+    micVal[1] = analogRead(micPin_1);
+    micVal[2] = analogRead(micPin_2);
 
     //use this to see values coming in from microphones
     //comment out when testing is complete
@@ -42,6 +42,9 @@ bool AudioCapture::readMics()
     bool isTriggered = calcTrigger();
     if (isTriggered)
     {
+        mic0Val = micVal[0];
+        mic1Val = micVal[1];
+        mic2Val = micVal[2];
         triggered = true;
         AUDIO_DIR = calcDirection();
         return true;
@@ -58,14 +61,14 @@ int AudioCapture::getAudioDirection()
 
 bool AudioCapture::calcTrigger()
 {
-    if (mic0Val > TRIG_VAL || mic0Val > TRIG_VAL || mic0Val > TRIG_VAL)
+    if (micVal[0] > TRIG_VAL || micVal[1] > TRIG_VAL || micVal[2] > TRIG_VAL)
     {
         Serial.println(mic0Val);
         Serial.println(mic1Val);
         Serial.println(mic2Val);
         
         //if first clap is not set then set it and start the counter
-        if (clap1 == false)
+        if (clap1 == false || counter > 300)
         {
             clap1 = true;
             counter = 0;
@@ -91,54 +94,54 @@ bool AudioCapture::calcTrigger()
 int AudioCapture::calcDirection()
 {
     //this looks at if mic1 and mic2 are similar db
-    if ((abs(mic1Val - mic2Val)) < 6)
+    if ((abs(mic1Val - mic2Val)) < 30)
     {
 
         //checks if mic0 is 50 higher than the average of the other 2
-        if (mic0Val - 15 > (mic1Val - mic2Val) / 2)
+        if (mic0Val - 15 > (mic1Val + mic2Val) / 2)
         {
             return -60;
         };
 
         //checks if mic0 is 50 lower than the average of the other 2, returns angle between the two.
-        if (mic0Val + 15 < (mic1Val - mic2Val) / 2)
+        if (mic0Val + 15 < (mic1Val + mic2Val) / 2)
         {
             return 120;
         };
     };
 
     //this looks at if mic0 and mic2 are similar db
-    if ((abs(mic0Val - mic2Val)) < 6)
+    if ((abs(mic0Val - mic2Val)) < 30)
     {
         //checks if mic1 is 50 higher than the average of the other 2
-        if (mic1Val - 15 > (mic0Val - mic2Val) / 2)
+        if (mic1Val - 15 > (mic0Val + mic2Val) / 2)
         {
             return 60;
         };
 
         //checks if mic1 is 50 lower than the average of the other 2, returns angle between the two.
-        if (mic1Val + 15 > (mic0Val - mic2Val) / 2)
+        if (mic1Val + 15 > (mic0Val + mic2Val) / 2)
         {
             return -120;
         };
     };
 
     //this looks at if mic1 and mic0 are similar db
-    if ((abs(mic1Val - mic0Val)) < 6)
+    if ((abs(mic1Val - mic0Val)) < 30)
     {
 
         //checks if mic2 is 50 higher than the average of the other 2
-        if (mic2Val - 15 > (mic0Val - mic1Val) / 2)
+        if (mic2Val - 15 > (mic0Val + mic1Val) / 2)
         {
             return 180;
         };
 
         //checks if mic1 is 50 lower than the average of the other 2, returns angle between the two.
-        if (mic2Val + 15 > (mic0Val - mic1Val) / 2)
+        if (mic2Val + 15 > (mic0Val + mic1Val) / 2)
         {
             return 0;
         };
     };
 
-    return -1;
+    return 29;
 };

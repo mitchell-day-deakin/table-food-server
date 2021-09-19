@@ -3,10 +3,10 @@
 
 class AlertSystem {
   private:
-    
+    int _pin;
   public:
-    AlertSystem();
-    void makeSound();
+    AlertSystem(int pin);
+    void makeSound(int numSounds);
   
 };
 

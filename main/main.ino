@@ -13,6 +13,8 @@ AudioCapture aCapture(A0, A1, A2);
 DistMonitor distMonitor(2,3, 10);
 Bluetooth bluetooth(13, 12);
 AlertSystem alert(11);
+
+//arduino setup
 void setup()
 {
   Serial.begin(19200);
@@ -30,7 +32,8 @@ void audioTest()
   {
     int degrees = aCapture.getAudioDirection();
     Serial.print("Degrees: ");
-    Serial.print(degrees);
+    Serial.println(degrees);
+    alert.makeSound(1);
     int time = car.turn(degrees);
   }
 }

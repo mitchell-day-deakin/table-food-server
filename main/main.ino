@@ -1,6 +1,7 @@
 #include "src/Car/Car.h"
 #include "src/Car/Motor.h"
 #include "src/AudioCapture/AudioCapture.h"
+#include "src/AlertSystem/AlertSystem.h"
 #include "src/DistMonitor/DistMonitor.h"
 #include "src/Bluetooth/Bluetooth.h"
 #include <SoftwareSerial.h>
@@ -11,10 +12,12 @@ Car car(5,4,7,6,9, 10);
 AudioCapture aCapture(A0, A1, A2);
 DistMonitor distMonitor(2,3, 10);
 Bluetooth bluetooth(13, 12);
+AlertSystem alert(11);
 void setup()
 {
   Serial.begin(19200);
   bluetooth.begin();
+  alert.makeSound(2);
 }
 
 //test the audio system

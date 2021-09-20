@@ -19,7 +19,7 @@ void setup()
 {
   Serial.begin(19200);
   bluetooth.begin();
-  alert.makeSound(2);
+  alert.makeSound(1);
 }
 
 

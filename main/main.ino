@@ -22,8 +22,9 @@ void setup()
   alert.makeSound(2);
 }
 
-//test the audio system
-void audioTest()
+
+//Listen for audio triggers and drive car to location
+void audioListener()
 {
   //test the audio system
   bool isTriggered = aCapture.readMics();
@@ -34,9 +35,37 @@ void audioTest()
     Serial.print("Degrees: ");
     Serial.println(degrees);
     int time = car.turn(degrees);
+    car.forward();
   }
 }
 
+
+
+//Check if distance exceeds limit then stop robot
+void distSensorListener(){
+    if (!distMonitor.checkDist()) {
+        car.brake();
+        car.disableForward();
+    }
+    /* else {
+        car.enableForward();
+        car.forward();
+    } */
+}
+
+
+// put your main code here, to run repeatedly:
+void loop()
+{
+  distSensorListener();
+  audioListener();
+  
+}
+
+
+
+
+//Functions used for teting
 
 //test car dive, reverse, turn functionality
 void testCar(){
@@ -64,23 +93,6 @@ void remoteServerControl(){
 }
 
 
-//test distance monitor
-void testDistMonitor(){
-  int distance = distMonitor.getCurDist();
-  //Serial.print("Main: ");
-  //Serial.println(distance);
-}
-
-void testDistStop(){
-    if (!distMonitor.checkDist()) {
-        car.brake();
-        car.disableForward();
-    }
-    else {
-        car.enableForward();
-        car.forward();
-    }
-}
 
 
 void testBluetooth(){
@@ -110,15 +122,4 @@ void testBluetooth(){
   else{
     car.brake();
   }
-}
-// put your main code here, to run repeatedly:
-void loop()
-{
-  //testBluetooth();
-  //testCar();
-  //testDistStop();
-  //car.forward();
-  //remoteServerControl();
-  audioTest();
-  
 }

@@ -33,7 +33,6 @@ void audioTest()
     int degrees = aCapture.getAudioDirection();
     Serial.print("Degrees: ");
     Serial.println(degrees);
-    alert.makeSound(1);
     int time = car.turn(degrees);
   }
 }

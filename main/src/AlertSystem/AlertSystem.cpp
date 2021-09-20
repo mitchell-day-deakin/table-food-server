@@ -18,9 +18,9 @@ void AlertSystem::makeSound(int numSounds)
     //loop through requested number of times and sound short alarm 
     for(int i = 0; i < numSounds; i++){
         digitalWrite(_pin, HIGH);
-        delay(500);
+        delay(300);
         digitalWrite(_pin, LOW);
-        delay(500);
+        delay(100);
     }
 
     return;

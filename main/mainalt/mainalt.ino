@@ -1,25 +1,18 @@
 #include "src/Car/Car.h"
 #include "src/Car/Motor.h"
 #include "src/AudioCapture/AudioCapture.h"
-#include "src/AlertSystem/AlertSystem.h"
 #include "src/DistMonitor/DistMonitor.h"
 #include "src/Bluetooth/Bluetooth.h"
 #include <SoftwareSerial.h>
 
-//mitchell dev branch
-
-Car car(4,5,6,7,9, 10);
-AudioCapture aCapture(A0, A1, A2);
+Car car(4,16,17,5,18,19);
+//AudioCapture aCapture(A0, A1, A2);
 DistMonitor distMonitor(2,3, 10);
 Bluetooth bluetooth(13, 12);
-AlertSystem alert(11);
-
-//arduino setup
 void setup()
 {
   Serial.begin(19200);
   bluetooth.begin();
-  alert.makeSound(2);
 }
 
 //test the audio system
@@ -31,9 +24,6 @@ void audioTest()
   if (isTriggered)
   {
     int degrees = aCapture.getAudioDirection();
-    Serial.print("Degrees: ");
-    Serial.println(degrees);
-    alert.makeSound(1);
     int time = car.turn(degrees);
   }
 }
@@ -49,6 +39,10 @@ void testCar(){
   car.turn(-120);
 }
 
+//test the audio functionality
+void testAudio(){
+
+}
 
 //read serial and pass to bluetooth
 void remoteServerControl(){
@@ -118,8 +112,7 @@ void loop()
   //testBluetooth();
   //testCar();
   //testDistStop();
-  //car.forward();
+  car.forward();
   //remoteServerControl();
-  audioTest();
   
 }

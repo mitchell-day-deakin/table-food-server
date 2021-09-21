@@ -19,7 +19,6 @@ void setup()
 {
   Serial.begin(19200);
   bluetooth.begin();
-  alert.makeSound(1);
 }
 
 
@@ -35,6 +34,7 @@ void audioListener()
     Serial.print("Degrees: ");
     Serial.println(degrees);
     int time = car.turn(degrees);
+    car.enableForward();
     car.forward();
   }
 }
@@ -43,9 +43,13 @@ void audioListener()
 
 //Check if distance exceeds limit then stop robot
 void distSensorListener(){
-    if (!distMonitor.checkDist()) {
+    if (!distMonitor.checkDist() && car.isForwardEnabled()) {
         car.brake();
         car.disableForward();
+        car.reverse();
+        delay(200);
+        car.brake();
+        alert.makeSound(2);
     }
     /* else {
         car.enableForward();

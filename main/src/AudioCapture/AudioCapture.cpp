@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "AudioCapture.h"
 #include "../Car/Car.h"
+//#include "../AlertSystem/AlertSystem.h"
 
 AudioCapture::AudioCapture(int mic0, int mic1, int mic2)
 {
@@ -29,7 +30,7 @@ bool AudioCapture::readMics()
     //comment out when testing is complete
     /* if (mic0Val >= TRIG_VAL)
     { */
-        /* Serial.println("mic0");
+    /* Serial.println("mic0");
         Serial.println(mic0Val);
         Serial.println("mic1");
         Serial.println(mic1Val);
@@ -61,12 +62,17 @@ int AudioCapture::getAudioDirection()
 
 bool AudioCapture::calcTrigger()
 {
+   /*  if(micVal[0] > 580){
+        AlertSystem alert(11);
+        alert.makeSound(1);
+    } */
+
     if (micVal[0] > TRIG_VAL || micVal[1] > TRIG_VAL || micVal[2] > TRIG_VAL)
     {
-        Serial.println(mic0Val);
-        Serial.println(mic1Val);
-        Serial.println(mic2Val);
-        
+        Serial.println(micVal[0]);
+        Serial.println(micVal[1]);
+        Serial.println(micVal[2]);
+
         //if first clap is not set then set it and start the counter
         if (clap1 == false || counter > 300)
         {
@@ -76,7 +82,7 @@ bool AudioCapture::calcTrigger()
             return false;
         }
         //if first clap is set and second clap is less then 200 counts apart the return true and reset clap1 and counter
-        if (clap1 && counter < 300)
+        if (clap1 && counter < 800)
         {
             counter = 0;
             clap1 = false;
@@ -85,7 +91,7 @@ bool AudioCapture::calcTrigger()
         }
         clap1 = false;
     }
-    
+
     return false;
 }
 

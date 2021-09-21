@@ -24,7 +24,7 @@ void Car::forward()
             wasStop = false;
             rMotor.forward(255);
             lMotor.forward(255);
-            delay(1000);
+            delay(200);
         }
         Serial.println("Driving forward");
         rMotor.forward(150);
@@ -79,6 +79,13 @@ void Car::enableForward()
 {
     forwardEnabled = true;
 };
+
+
+//returns true if the cars forwardEnabled is true
+bool Car::isForwardEnabled(){
+    return forwardEnabled;
+}
+
 
 void Car::brake()
 {

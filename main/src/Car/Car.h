@@ -29,6 +29,9 @@ public:
   //distance sensor would enable forward when it doesnt detect edge
   void enableForward();
 
+  //returns true if the cars forwardEnabled is true
+  bool isForwardEnabled();
+
   void brake();
 };
 

@@ -27,8 +27,8 @@ void Car::forward()
             delay(200);
         }
         Serial.println("Driving forward");
-        rMotor.forward(150);
-        lMotor.forward(150);
+        rMotor.forward(190);
+        lMotor.forward(190);
     }
 };
 

@@ -8,7 +8,7 @@ class Car
 private:
   Motor rMotor;
   Motor lMotor;
-  float degPerMs = 0.24;
+  float degPerMs = 0.10;
   bool forwardEnabled;
   bool wasStop;
 

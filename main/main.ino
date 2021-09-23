@@ -34,6 +34,7 @@ void audioListener()
     Serial.print("Degrees: ");
     Serial.println(degrees);
     int time = car.turn(degrees);
+    //alert.makeSound(1);
     car.enableForward();
     car.forward();
   }
@@ -49,7 +50,7 @@ void distSensorListener(){
         car.reverse();
         delay(200);
         car.brake();
-        alert.makeSound(2);
+        alert.makeSound(1);
     }
     /* else {
         car.enableForward();

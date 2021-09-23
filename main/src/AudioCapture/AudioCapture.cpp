@@ -82,7 +82,7 @@ bool AudioCapture::calcTrigger()
             return false;
         }
         //if first clap is set and second clap is less then 200 counts apart the return true and reset clap1 and counter
-        if (clap1 && counter < 800)
+        if (clap1 && counter < 1000)
         {
             counter = 0;
             clap1 = false;

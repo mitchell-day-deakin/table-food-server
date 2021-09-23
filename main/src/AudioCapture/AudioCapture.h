@@ -9,7 +9,7 @@ And also the direction the audio came from.
 
 class AudioCapture {
     private:
-        int TRIG_VAL = 610; // the threshold for a successful clap
+        int TRIG_VAL = 570; // the threshold for a successful clap
         int AUDIO_DIR = -1; //this will store the audio direction heard from clap
         int counter = 0; //counts from first clap
         bool clap1;

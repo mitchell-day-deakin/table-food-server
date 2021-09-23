@@ -74,7 +74,7 @@ bool AudioCapture::calcTrigger()
         Serial.println(micVal[2]);
 
         //if first clap is not set then set it and start the counter
-        if (clap1 == false || counter > 300)
+        if (clap1 == false || counter > 1000)
         {
             clap1 = true;
             counter = 0;

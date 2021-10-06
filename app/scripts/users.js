@@ -72,11 +72,9 @@ async function getAllKeys(keys) {
 //check if username is already taken
 async function checkUserName(uname) {
     uname = uname.toLowerCase();
-    users.forEach(user => {
-        if (user.uname == uname) {
-            return true;
-        }
-    })
+    for(i=0; i<users.length; i++) {
+        if(users[i].uname == uname) return true;
+    };
     return false;
 }
 
@@ -86,6 +84,8 @@ async function checkUserName(uname) {
 async function create(fname, lname, password, level, userName) {
     let uname = userName.toLowerCase()
     let nameExists = await checkUserName(uname);
+    console.log(uname, nameExists);
+    console.log(users)
     if (nameExists) { return { error: true, msg: "Username Already Exists", data: null } };
     let user = createUser(fname, lname, password, level, uname);
     if (!users) { return { error: true, msg: "Error loading users", data: null } };

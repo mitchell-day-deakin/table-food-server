@@ -1983,33 +1983,37 @@ let mapMenuIcons = [
 
 ]
 
-function mergeImages(src1, src2) {
-    let can = document.createElement('canvas');
-    can.width = 50;
-    can.height = 50;
-    let ctx = can.getContext('2d');
-    let img1 = new Image();
-    let img2 = new Image();
-    img1.src = src1;
-    img2.src = src2;
-    //ctx.drawImage(img1, 0, 0, 50, 50)
-    //ctx.drawImage(img2, 0, 0, 50, 50);
-    ctx.drawImage(img1, 0, 0)
-    ctx.drawImage(img2, 0, 0);
-    let img = can.toDataURL("image/png");
-    return img
+function addImageProcess(src) {
+    return new Promise((resolve, reject) => {
+        let img = new Image()
+        img.onload = () => resolve(img)
+        img.onerror = reject
+        img.src = src
+    })
 }
 
-function addMapMenus() {
+async function mergeImages(src1, src2) {
+    let can = document.createElement('canvas');
+    let ctx = can.getContext('2d');
+    let img1 = await addImageProcess(src1);
+    let img2 = await addImageProcess(src2);
+
+    ctx.drawImage(img1, 0, 0, 50, 50)
+    ctx.drawImage(img2, 0, 0, 50, 50);
+    let img = can.toDataURL("image/png");
+    return img;
+}
+
+async function addMapMenus() {
     let cont = document.getElementById('tewtMapPage');
     let mainId = 'mapItems';
 
-    let createParentIcon = (icon) => {
+    let createParentIcon = async (icon) => {
         let src = icon.src;
         let div = document.createElement('div');
         //div.setAttribute("style", `background-image: url("./${icon.src}")`)
         if (icon.srcTwo) {
-            src = mergeImages(icon.src, icon.srcTwo)
+            src = await mergeImages(icon.src, icon.srcTwo)
         }
 
         div.setAttribute('class', 'mapMenuIcon');
@@ -2021,13 +2025,13 @@ function addMapMenus() {
         return div;
     }
 
-    let createDragIcon = (icon) => {
+    let createDragIcon = async (icon) => {
         let src = icon.src;
         let div = document.createElement('div');
         div.setAttribute('class', 'mapMenuIcon');
         let img = `<img class="dragImg" type="${icon.type}" ondragstart="dragStart(event)"`;
         if (icon.srcTwo) {
-            src = mergeImages(icon.src, icon.srcTwo)
+            src = await mergeImages(icon.src, icon.srcTwo)
         }
         img += `draggable="true" src="${src}" alt="${icon.text}"/>`;
         div.innerHTML = img;
@@ -2073,14 +2077,18 @@ function addMapMenus() {
             div.appendChild(back);
         }
 
-        iconArray.forEach(icon => {
+        //iconArray.forEach(icon => {
+        for (const icon of iconArray) {
+            console.log("icon",icon)
             if (icon.sub) {
-                div.appendChild(createParentIcon(icon))
+                let nIcon = await createParentIcon(icon)
+                div.appendChild(nIcon)
                 createMenu(menuId, icon.id, icon.text, icon.sub);
             } else {
-                div.appendChild(createDragIcon(icon))
+                let nIcon = await createDragIcon(icon)
+                div.appendChild(nIcon)
             }
-        })
+        }
         //adds the line and ruler tools to the main menu only
         if (menuId == mainId) div.innerHTML += createLineAndRulerIcon();
     }

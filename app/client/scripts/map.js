@@ -86,6 +86,7 @@ function Map(container, projContainer) {
     //handles the double click event on a widget/entity
     viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
     viewer.scene.globe.depthTestAgainstTerrain = true;
+    viewer.scene.globe.enableLighting = true;
 
     //returns viewer obj
     let getViewer = () => {

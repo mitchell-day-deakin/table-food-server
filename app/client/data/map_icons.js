@@ -13,6 +13,7 @@ let mapMenuIcons = [
                     id: 'infantry',
                     type: 'billboard',
                     src: 'media/mil/infantry.png',
+                    srcTwo: 'media/mil/blue_aa.png',
                     sub: [
                         {
                             text: 'Infantry HQ',
@@ -30,7 +31,8 @@ let mapMenuIcons = [
                                     text: 'Infantry Company HQ',
                                     id: "infantry_comp_hq",
                                     type: 'billboard',
-                                    src: 'media/mil/infantry_comp_hq.png'
+                                    src: 'media/mil/infantry_comp_hq.png',
+                                    srcTwo: 'media/mil/blue_aa.png',
                                 }
                             ]
                         },
@@ -1994,12 +1996,14 @@ function addImageProcess(src) {
 
 async function mergeImages(src1, src2) {
     let can = document.createElement('canvas');
+    can.width = 100;
+    can.height = 100;
     let ctx = can.getContext('2d');
     let img1 = await addImageProcess(src1);
     let img2 = await addImageProcess(src2);
 
-    ctx.drawImage(img1, 0, 0, 50, 50)
-    ctx.drawImage(img2, 0, 0, 50, 50);
+    ctx.drawImage(img1, 0, 0, 100, 100)
+    ctx.drawImage(img2, 0, 0, 100, 100);
     let img = can.toDataURL("image/png");
     return img;
 }
@@ -2078,8 +2082,9 @@ async function addMapMenus() {
         }
 
         //iconArray.forEach(icon => {
-        for (const icon of iconArray) {
-            console.log("icon",icon)
+        //console.log(iconArray)
+        for (const icon of iconArray) { 
+            console.log(icon)
             if (icon.sub) {
                 let nIcon = await createParentIcon(icon)
                 div.appendChild(nIcon)

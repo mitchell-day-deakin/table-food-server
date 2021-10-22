@@ -669,7 +669,6 @@ function MapEntities(map) {
         }
         layers[layerId].entities[entity.id] = viewer.entities.add(entity);
         createEntitySelector();
-        console.log(entity)
         return entity.id;
     }
 

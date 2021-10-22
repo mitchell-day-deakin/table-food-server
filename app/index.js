@@ -57,7 +57,7 @@ process.on('uncaughtException', function (err) {
     if (err.errno === 'EADDRINUSE') {
         logger.log("Server already running")
     } else {
-        logger.log(err);
+        logger.log(err, "ERROR");
         console.log(err)
     }
     server.close()
@@ -118,7 +118,6 @@ let startWebServer = () => {
         userName = userName ? userName.toLowerCase() : "";
         let authKey = req.query.authKey ? req.query.authKey : req.body.authKey;
         let validUser = await user.validate(userName, authKey)
-        logger.log(validUser)
         if (validUser) {
             next()
         } else {
@@ -172,7 +171,6 @@ let startWebServer = () => {
         let expiry = new Date(result.expiry);
 
         if (expiry.getTime() >= new Date(cT - cT.getTimezoneOffset()*60*1000) || result.expiry == null) {
-            console.log("Passed all checks")
             res.sendFile(`${__dirname}/client/index.html`);
             return;
         }
@@ -307,10 +305,10 @@ let startWebServer = () => {
             loginResult = { error: true, msg: "Need Elevated Permissions" }
         }
         if (loginResult.error) {
-            logger.log("Login Unsuccessful")
+            logger.log(`Login Unsuccessful: ${userName}`, "ERROR")
             res.status(401)
         } else {
-            logger.log("Login Successful")
+            logger.log(`Login Successful: ${userName}`, "LOG")
         }
         res.json(loginResult)
     })

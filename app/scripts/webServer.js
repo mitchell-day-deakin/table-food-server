@@ -6,7 +6,6 @@ let startWebServer = () => {
         userName = userName ? userName.toLowerCase() : "";
         let authKey = req.query.authKey ? req.query.authKey : req.body.authKey;
         let validUser = await user.validate(userName, authKey)
-        logger.log(validUser)
         if (validUser) {
             next()
         } else {

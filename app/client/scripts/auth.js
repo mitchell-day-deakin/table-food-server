@@ -37,7 +37,7 @@ function loadUserStorage() {
     let user = {}
     try {
         //user = JSON.parse(localStorage['user']);
-        user = JSON.parse(sessionStorage['user']);
+        user = JSON.parse(localStorage['user']);
     } catch (error) {}
     return user;
 }
@@ -45,7 +45,7 @@ function loadUserStorage() {
 //removes all user data from storage, then loads storage values into user
 function removeUser() {
     //config = {};
-    sessionStorage['user'] = "";
+    localStorage['user'] = "";
     //localStorage["user"] = ""
     user = {};
 }

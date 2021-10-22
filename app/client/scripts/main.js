@@ -24,8 +24,6 @@ function loadingPage(display) {
 }
 
 
-
-
 //gets the json data file with all nodes and config
 async function getConfig() {
     var url = `${serverIp}/api/getconfig?${authReqString()}`;
@@ -126,6 +124,7 @@ function disconnectServer() {
 
 async function checkUser() {
     let error;
+    console.log(user)
     if (user.uname && localStorage["client"] == clientString) {
         let validUser = await checkUserValid();
         if (validUser.body.error) {

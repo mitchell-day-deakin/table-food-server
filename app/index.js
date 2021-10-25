@@ -6,6 +6,7 @@ const express = require('express');
 const app = express();
 app.disable("etag").disable("x-powered-by");
 const https = require('https');
+const http = require("http");
 const server = https.createServer({
     key: fs.readFileSync(path.join(__dirname, './key.pem')),
     cert: fs.readFileSync(path.join(__dirname, './cert.pem')),
@@ -46,7 +47,7 @@ async function loadTewtData() {
 
 //stopEvent()
 
-let serverPort = 7010 //port for server to run on
+let serverPort = 443 //port for server to run on
 let version = "1.1.2";
 logger.log(`Server is running on ${platform}`);
 
@@ -170,11 +171,11 @@ let startWebServer = () => {
 
         let expiry = new Date(result.expiry);
 
-        if (expiry.getTime() >= new Date(cT - cT.getTimezoneOffset()*60*1000) || result.expiry == null) {
+        if (expiry.getTime() >= new Date(cT - cT.getTimezoneOffset() * 60 * 1000) || result.expiry == null) {
             res.sendFile(`${__dirname}/client/index.html`);
             return;
         }
-        
+
         res.send("Time Expired");
 
     })
@@ -260,9 +261,9 @@ let startWebServer = () => {
     //SUBMITTING RECORDED VIDEOS
     app.post("/api/file", upload.single('video'), (req, res, next) => {
         console.log('receiving video');
+        console.log(req.query)
         let reply = { error: false, msg: "file uploaded" }
         res.json(reply)
-
     })
 
 
@@ -355,9 +356,17 @@ let startWebServer = () => {
 
     // start the server!
     server.listen(serverPort, function () {
-        console.log(`Tactical Scenario Server, listening on port ${serverPort}.`)
-        logger.log(`Tactical Scenario Server, listening on port ${serverPort}.`)
+        console.log(`Tactical Scenario Server, listening on port ${serverPort}.`);
+        logger.log(`Tactical Scenario Server, listening on port ${serverPort}.`);
     })
+
+    // Redirect from http port 
+    http.createServer(function (req, res) {
+        res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+        console.log(`HTTP redirection server listening on port 80.`);
+        logger.log(`HTTP redirection server listening on port 80.`);
+        res.end();
+    }).listen(80);
 }
 
 async function startApp(eConfig) {

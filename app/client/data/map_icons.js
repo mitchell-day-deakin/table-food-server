@@ -2084,7 +2084,6 @@ async function addMapMenus() {
         //iconArray.forEach(icon => {
         //console.log(iconArray)
         for (const icon of iconArray) { 
-            console.log(icon)
             if (icon.sub) {
                 let nIcon = await createParentIcon(icon)
                 div.appendChild(nIcon)

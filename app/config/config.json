@@ -8,11 +8,6 @@
             "subnet": "192.168.56"
         },
         {
-            "name": "Local Area Connection* 2",
-            "address": "192.168.137.1",
-            "subnet": "192.168.137"
-        },
-        {
             "name": "Wi-Fi",
             "address": "192.168.0.195",
             "subnet": "192.168.0"

@@ -18,9 +18,7 @@ async function loadUsers() {
         return;
     };
     let admin = createUser('admin', '', Crypto.AES.encrypt('admin@tewt', Crypto.phrase).toString(Crypto.enc.Utf8), 'admin', 'admin');
-    console.log(admin)
     users.push(admin);
-    console.log(users)
     saveUsers();
 }
 
@@ -165,16 +163,21 @@ async function validate(uname, authKey) {
     return validUser;
 }
 
-
+//checks uname and password of user
+//if the user has reset=true, then the users password will be updated
 async function login(uname, password) {
     let data = {}
     for (i = 0; i < users.length; i++) {
         if (users[i].uname == uname.toLowerCase()) {
+            //this handles new password from user
             if (!users[i].password) {
-                users[i].password = encryptPassword(password);
+                let result = encryptPassword(password);
+                users[i].password = result.password;
             }
             let correctPassword = await checkPassword(password, users[i].password);
             if (!correctPassword) return { error: true, msg: "Incorrect Password", data }
+            users[i].authKey = createAuthKey();
+            saveUsers();
             data = {
                 level: users[i].level,
                 uname: users[i].uname,

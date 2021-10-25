@@ -16,7 +16,7 @@ let debrief = {
 }
 
 let debriefDelBtn = document.getElementById("debrief_delete");
-const debrifSaveBtn = document.getElementById('debrief_save');
+const debriefSaveBtn = document.getElementById('debrief_save');
 const recordBtn = document.getElementById("debrief_record");
 const stopBtn = document.getElementById("debrief_stop");
 
@@ -25,7 +25,7 @@ debriefDelBtn.onclick = (e) => {
     startCameraVideo();
 }
 
-debrifSaveBtn.onclick = (e)=>{
+debriefSaveBtn.onclick = (e)=>{
     console.log(debrief.recorded)
     let {name, blob, url} = debrief.recorded;
     name = current.tewt.startTime+"_"+user.uname+"_"+current.qde+".webm";

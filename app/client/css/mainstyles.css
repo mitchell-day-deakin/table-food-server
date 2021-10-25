@@ -80,7 +80,7 @@ body {
 }
 
 #userButton {
-    color: #547faa;
+    color: #6ec6e9;
 }
 
 #userButton:hover {
@@ -142,6 +142,15 @@ input[type=radio],
 input[type=checkbox]{
     width: 18px;
     height: 18px;
+}
+
+.input-icon {
+    cursor: pointer;
+    display:block;
+    background-size: contain;
+    height: 14px;
+    width: 17px;
+    float: right;
 }
 
 option {

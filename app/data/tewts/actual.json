@@ -47,7 +47,7 @@
                             "description": [
                                 "C section"
                             ],
-                            "type": "rectangle",
+                            "type": "billboard",
                             "subType": null,
                             "image": "./media/mil/infantry.png",
                             "positions": [
@@ -81,7 +81,7 @@
                             "description": [
                                 "A Section"
                             ],
-                            "type": "rectangle",
+                            "type": "billboard",
                             "subType": null,
                             "image": "./media/mil/infantry.png",
                             "positions": [
@@ -115,7 +115,7 @@
                             "description": [
                                 "B section"
                             ],
-                            "type": "rectangle",
+                            "type": "billboard",
                             "subType": null,
                             "image": "./media/mil/infantry.png",
                             "positions": [

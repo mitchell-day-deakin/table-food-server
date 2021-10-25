@@ -71,7 +71,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "./media/mil/mot_inf_pl.png",
                                 "positions": [
@@ -91,7 +91,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "./media/mil/mot_inf_comp.png",
                                 "positions": [
@@ -111,7 +111,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "./media/mil/mot_inf_pl.png",
                                 "positions": [
@@ -131,7 +131,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "./media/mil/mot_inf_pl.png",
                                 "positions": [
@@ -151,7 +151,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "./media/mil/tank_sect.png",
                                 "positions": [
@@ -171,7 +171,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "./media/mil/eng_sect.png",
                                 "positions": [
@@ -191,7 +191,7 @@
                                 "description": [
                                     "- DFSW"
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "./media/mil/mot_inf_sect.png",
                                 "positions": [
@@ -211,7 +211,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "./media/mil/med_det.png",
                                 "positions": [
@@ -490,7 +490,7 @@
                                     " 2 x RPK variant LMG",
                                     " 2 x Claymore-style APERS mines"
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "./media/mil/en_inf_pl_hq.png",
                                 "positions": [

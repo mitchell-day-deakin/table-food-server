@@ -221,6 +221,26 @@ function toggleMainMenu() {
     }
 }
 
+function togglePassword(id){
+    let pwrdCont = document.getElementById(id);
+    let type = pwrdCont.getAttribute('type') == "password" ? 'text' : "password";
+    pwrdCont.setAttribute("type", type);
+}
+
+//these are the little eye icons that allow the user to see or hide their password.
+//this one is for the login screen
+document.getElementById("togglePassword").onclick = _=>{
+    let pwrdCont = document.getElementById("loginPassword");
+    let type = pwrdCont.getAttribute('type') == "password" ? 'text' : "password";
+    pwrdCont.setAttribute("type", type);
+}
+
+//this one is for the create user screen
+document.getElementById("togglePwrdCreate").onclick = _=>{
+    let pwrdCont = document.getElementById("createPassword");
+    let type = pwrdCont.getAttribute('type') == "password" ? 'text' : "password";
+    pwrdCont.setAttribute("type", type);
+}
 
 let adminPage = async () => {
     window.location.href = `./admin.html?id=${accessId}`;

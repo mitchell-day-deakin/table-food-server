@@ -105,6 +105,9 @@ async function startTewt(name, id) {
         mapSpace();
     } else {
         Swal.fire(body.msg)
+        if(body.msg == "User Invalid"){
+            logout();
+        }
     }
     return submission
 }

@@ -98,17 +98,20 @@ function loadCurrentServer() {
  */
 async function connectToServer(addr) {
     let address = addr ? addr : document.getElementById("serverip").value;
-    let url = `https://${address}:7010/api/getinfo`
+    //let url = `https://${address}:7010/api/getinfo`
+    let url = `https://${address}/api/getinfo`
     let { body, error } = await xhrRequest(url, "GET", null);
     if (error || body.type != "tewtserver") {
         document.getElementById("status").innerHTML = "Error connecting to Server";
         return
     }
     saveServer(body, address);
-    localStorage["serverIp"] = `https://${address}:7010`;
+    //localStorage["serverIp"] = `https://${address}:7010`;
+    localStorage["serverIp"] = `https://${address}`;
     localStorage["deviceType"] = "client";
     localStorage["user"] = "";
-    window.location.href = `./index.html?ip=https://${address}:7010`;
+    //window.location.href = `./index.html?ip=https://${address}:7010`;
+    window.location.href = `./index.html?ip=https://${address}`;
 }
 
 //runs on page load

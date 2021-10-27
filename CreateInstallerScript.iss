@@ -7,8 +7,8 @@
 
 AppId={{5DE04153-CD8C-4136-9018-D681A87B19E5}}
 AppName=TEWT Server
-AppVersion=1.1.3
-;AppVerName=TEWT Server 1.1.3
+AppVersion=1.1.4
+;AppVerName=TEWT Server 1.1.4
 AppPublisher=Mitchell Day
 AppPublisherURL=http://darcdesign.ddns.net
 AppSupportURL=http://darcdesign.ddns.net
@@ -21,7 +21,7 @@ LicenseFile=.\LICENSE
 InfoBeforeFile=.\information-pre.txt
 InfoAfterFile=.\Information-post.txt
 OutputDir=.\builds\installers\
-OutputBaseFilename=TEWT_Server_Setup-1.1.3_build_3.10
+OutputBaseFilename=TEWT_Server_Setup-1.1.4_build_1.00
 Compression=lzma
 SolidCompression=yes
 PrivilegesRequired=admin

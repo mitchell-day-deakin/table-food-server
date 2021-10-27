@@ -59,7 +59,10 @@ function run(version, port) {
             label: `V${version}`
         },
         {
-            label: `Port: ${port}`
+            label: `HTTPS Port: ${port}`
+        },
+        {
+            label: `HTTP Port: 80 (Redirect)`
         },
         {
             type: "separator"
@@ -70,12 +73,12 @@ function run(version, port) {
                 showInfo()
             }
         },
-        {
+        /* {
             label: "Settings",
             click: function () {
                 //openSettings()
             }
-        },
+        }, */
         {
             label: "Open Window",
             click: function () {
@@ -229,7 +232,7 @@ app.on('ready', () => {
 async function start() {
     await loadConfig();
     main.start(config);
-    run(config.version, 7010)
+    run(config.version, 443)
 }
 
 module.exports = {

@@ -48,7 +48,7 @@ async function loadTewtData() {
 //stopEvent()
 
 let serverPort = 443 //port for server to run on
-let version = "1.1.2";
+let version = "1.1.4";
 logger.log(`Server is running on ${platform}`);
 
 let error = false;

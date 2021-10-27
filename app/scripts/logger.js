@@ -11,7 +11,7 @@ function log(data, type){
     const time = date.toLocaleTimeString();
     let day = `${date.getFullYear()}_${date.getMonth()+1}_${date.getDate()}`;
     const logUrl = `${logDir}${day}-stdout.log`;
-    let logMessage = type ? `${type}: ${data}` : `log: ${data}`
+    let logMessage = type ? `${type.toUpperCase()}: ${data}` : `LOG: ${data}`
     fs.writeFile(logUrl, `${time} ${logMessage}\n`, { flag: "a+" }, (err)=>{});
 };
 

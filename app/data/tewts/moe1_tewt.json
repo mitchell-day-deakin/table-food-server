@@ -1149,7 +1149,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/tank_sect.png",
                                 "positions": [
@@ -1169,7 +1169,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/mot_inf_pl.png",
                                 "positions": [
@@ -1251,7 +1251,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/art_sect.png",
                                 "positions": [
@@ -1271,7 +1271,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/mot_inf_det.png",
                                 "positions": [
@@ -1291,7 +1291,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/mot_inf_det.png",
                                 "positions": [
@@ -1549,7 +1549,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/mot_inf_pl.png",
                                 "positions": [
@@ -1570,7 +1570,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/tank_sect.png",
                                 "positions": [
@@ -1845,7 +1845,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/mot_inf_pl.png",
                                 "positions": [
@@ -1866,7 +1866,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/tank_sect.png",
                                 "positions": [
@@ -2078,7 +2078,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/mot_inf_pl.png",
                                 "positions": [
@@ -2099,7 +2099,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/tank_sect.png",
                                 "positions": [
@@ -2120,7 +2120,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/mot_inf_sect.png",
                                 "positions": [
@@ -2167,7 +2167,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/mot_inf_comp.png",
                                 "positions": [
@@ -2188,7 +2188,7 @@
                                 "description": [
                                     ""
                                 ],
-                                "type": "rectangle",
+                                "type": "billboard",
                                 "subType": null,
                                 "image": "media/mil/med_det.png",
                                 "positions": [

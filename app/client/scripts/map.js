@@ -409,7 +409,7 @@ function Map(container, projContainer) {
 
     function updateTerrain(){
         let height = undefined;
-        let heightReference = Cesium.HeightReference.CLAMP_TO_GROUND;
+        let heightReference = Cesium.HeightReference.RELATIVE_TO_GROUND;
         //let clampGround = true;
         //if(viewer.baseLayerPicker.viewModel.selectedTerrain.name == "Cesium World Terrain" && viewer.scene.mode == Cesium.SceneMode.SCENE3D){
         //if(viewer.baseLayerPicker.viewModel.selectedTerrain.name == "WGS84 Ellipsoid" && viewer.scene.mode == Cesium.SceneMode.SCENE2D){

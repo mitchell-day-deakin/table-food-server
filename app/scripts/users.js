@@ -8,6 +8,7 @@ const logger = require(path.join(__dirname, "./logger.js"))
 const usersUrl = path.join(__dirname, "../config/users.json");
 //let usersUrl = "../data/config/users.json";
 let users = [];
+let tokenPeriod = 7; // days for token to remain valid
 
 //this loads all users {fname, lname, uname, password, authToken, level};
 //so other functions can compare, edit, remove, add
@@ -44,7 +45,7 @@ let checkPassword = async (password, encryptedPwrd) => {
 function createUser(fname, lname, password, level, uname) {
     let authKey = createAuthKey();
     reply = encryptPassword(password);
-    return { fname, level, password: reply.password, lname, uname, authKey }
+    return { fname, level, password: reply.password, lname, uname, authKey, issuedAt: new Date() }
 }
 
 //creates a random string authKey
@@ -70,8 +71,8 @@ async function getAllKeys(keys) {
 //check if username is already taken
 async function checkUserName(uname) {
     uname = uname.toLowerCase();
-    for(i=0; i<users.length; i++) {
-        if(users[i].uname == uname) return true;
+    for (i = 0; i < users.length; i++) {
+        if (users[i].uname == uname) return true;
     };
     return false;
 }
@@ -82,8 +83,6 @@ async function checkUserName(uname) {
 async function create(fname, lname, password, level, userName) {
     let uname = userName.toLowerCase()
     let nameExists = await checkUserName(uname);
-    console.log(uname, nameExists);
-    console.log(users)
     if (nameExists) { return { error: true, msg: "Username Already Exists", data: null } };
     let user = createUser(fname, lname, password, level, uname);
     if (!users) { return { error: true, msg: "Error loading users", data: null } };
@@ -127,7 +126,7 @@ async function resetPassword(adminUname, adminPwrd, uname) {
 }
 
 function deleteUser(user) {
-    for(i = 0; i < users.length; i++) {
+    for (i = 0; i < users.length; i++) {
         if (users[i].uname == user.uname) {
             users.splice(i, 1);
             return;
@@ -137,9 +136,9 @@ function deleteUser(user) {
 
 
 
-function remove(adminUname, adminPwrd, uname ) {
-    for(i=0; i<users; i++){
-        if(adminUser == users[i] && users[i].level == "admin"){
+function remove(adminUname, adminPwrd, uname) {
+    for (i = 0; i < users; i++) {
+        if (adminUser == users[i] && users[i].level == "admin") {
             deleteUser(user);
         }
     }
@@ -155,12 +154,24 @@ function remove(adminUname, adminPwrd, uname ) {
 async function validate(uname, authKey) {
     let validUser = false;
     //let reply = await getAll(["uname", "authKey"]);
-    users.forEach(user => {
+    for (const user of users) {
         if (user.uname == uname && user.authKey == authKey) {
-            validUser = true;
+            return tokenTimeValid(user);
         }
-    })
-    return validUser;
+    };
+    return false;
+}
+
+//checks if the user token time has run out
+function tokenTimeValid(user) {
+    let date = new Date();
+    let issuedDate = new Date(user.issuedAt);
+    let daysDiff = (date.getTime() - issuedDate.getTime()) / (1000 * 3600 * 24);
+    if (daysDiff > tokenPeriod) {
+        //user.issuedAt = null;
+        return false;
+    }
+    return true;
 }
 
 //checks uname and password of user
@@ -173,10 +184,13 @@ async function login(uname, password) {
             if (!users[i].password) {
                 let result = encryptPassword(password);
                 users[i].password = result.password;
+                users[i].authKey = createAuthKey();
             }
             let correctPassword = await checkPassword(password, users[i].password);
             if (!correctPassword) return { error: true, msg: "Incorrect Password", data }
-            users[i].authKey = createAuthKey();
+            if(!tokenTimeValid(users[i])){
+                users[i].issuedAt = new Date();
+            }
             saveUsers();
             data = {
                 level: users[i].level,

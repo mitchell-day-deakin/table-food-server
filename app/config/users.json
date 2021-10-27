@@ -5,7 +5,8 @@
         "lname": "Day",
         "uname": "daym",
         "password": "U2FsdGVkX1+EqVTOsC7SGrpKclBskZLjsK17gpYwrgU=",
-        "authKey": "gu7aaw4l14wz962uziq5el"
+        "authKey": "gu7aaw4l14wz962uziq5el",
+        "issuedAt": "2021-10-25T01:01:53.393Z"
     },
     {
         "fname": "admin",
@@ -13,7 +14,8 @@
         "password": "U2FsdGVkX19NJ4qQsJVsNkR2PZEHcZwgi/8MfWuLIaI=",
         "lname": "user",
         "uname": "admin",
-        "authKey": "w0sxdolxt4weykjkl0ior"
+        "authKey": "w0sxdolxt4weykjkl0ior",
+        "issuedAt": "2021-10-26T22:41:25.845Z"
     },
     {
         "fname": "devil",
@@ -21,6 +23,16 @@
         "password": "U2FsdGVkX19Vf3dbHewn0AlNt7QA1BFcoSr2vo91o6k=",
         "lname": "the",
         "uname": "devil",
-        "authKey": "cfpjgqherxmmmhjqvfb6ic"
+        "authKey": "cfpjgqherxmmmhjqvfb6ic",
+        "issuedAt": "2021-10-26T22:41:25.845Z"
+    },
+    {
+        "fname": "test",
+        "level": "user",
+        "password": "U2FsdGVkX19UTTrwUyK+55N0R5olR8w4Y6mNrBijZr0=",
+        "lname": "test",
+        "uname": "test",
+        "authKey": "cgrj0wm9fzege275lhj8yr",
+        "issuedAt": "2021-10-26T22:41:25.845Z"
     }
 ]

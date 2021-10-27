@@ -50,7 +50,7 @@ let loadConfig = async () => {
 
 function run(version, port) {
     //set tray icon and functionality
-    let url = `https://localhost:${port}?id=cubic_system`
+    let url = `https://localhost?id=cubic_system`
     //win.loadURL(url);
     appIcon = new Tray(`${path.join(__dirname, "/data/media/server.png")}`)
 

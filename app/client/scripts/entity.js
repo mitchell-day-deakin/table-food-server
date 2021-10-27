@@ -608,11 +608,11 @@ function MapEntities(map) {
                 item.type = TYPE.BILLBOARD; //force billboard types to become rectangle types
                 entity.billboard = {
                     image: item.image,
-                    //height: 500,
+                    //height: 100,
                     scale: 0.1,
                     pixelOffset: new Cesium.Cartesian2(0, 0),
                     //heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
-                    //heightReference: Cesium.HeightReference.RELATIVE_TO_GROUND
+                    heightReference: Cesium.HeightReference.RELATIVE_TO_GROUND,
                     disableDepthTestDistance: Number.POSITIVE_INFINITY
                 }
                 break;

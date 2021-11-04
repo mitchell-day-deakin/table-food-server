@@ -124,7 +124,6 @@ function disconnectServer() {
 
 async function checkUser() {
     let error;
-    console.log(user)
     if (user.uname && localStorage["client"] == clientString) {
         let validUser = await checkUserValid();
         if (validUser.body.error) {
@@ -139,6 +138,7 @@ async function checkUser() {
     }
     return error;
 }
+
 
 
 
@@ -221,25 +221,24 @@ function toggleMainMenu() {
     }
 }
 
-function togglePassword(id){
-    let pwrdCont = document.getElementById(id);
+function togglePassword(inputId, eyeImgId){
+    let pwrdCont = document.getElementById(inputId);
+    let eyeImage = document.getElementById(eyeImgId);
     let type = pwrdCont.getAttribute('type') == "password" ? 'text' : "password";
+    let url = type == "password" ? "media/pwrd_eye.png" : "media/pwrd_eye_off.png";
+    eyeImage.src = url;
     pwrdCont.setAttribute("type", type);
 }
 
 //these are the little eye icons that allow the user to see or hide their password.
 //this one is for the login screen
 document.getElementById("togglePassword").onclick = _=>{
-    let pwrdCont = document.getElementById("loginPassword");
-    let type = pwrdCont.getAttribute('type') == "password" ? 'text' : "password";
-    pwrdCont.setAttribute("type", type);
+    togglePassword('loginPassword', 'togglePassword');
 }
 
 //this one is for the create user screen
 document.getElementById("togglePwrdCreate").onclick = _=>{
-    let pwrdCont = document.getElementById("createPassword");
-    let type = pwrdCont.getAttribute('type') == "password" ? 'text' : "password";
-    pwrdCont.setAttribute("type", type);
+    togglePassword("createPassword", "togglePwrdCreate");
 }
 
 let adminPage = async () => {

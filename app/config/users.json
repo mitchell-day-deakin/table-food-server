@@ -1,38 +1,32 @@
 [
     {
         "fname": "Mitchell",
-        "level": "user",
+        "level": "admin",
         "lname": "Day",
         "uname": "daym",
-        "password": "U2FsdGVkX1+EqVTOsC7SGrpKclBskZLjsK17gpYwrgU=",
-        "authKey": "gu7aaw4l14wz962uziq5el",
-        "issuedAt": "2021-10-25T01:01:53.393Z"
+        "password": "U2FsdGVkX1+q00OujvIBlX8ousxVswqDLG7Zumd6//s=",
+        "authKey": "5cm2ckxe2vfpk42ktgtbcg",
+        "issuedAt": "2021-11-02T22:28:57.468Z",
+        "passwordResetRequested": false
     },
     {
         "fname": "admin",
         "level": "admin",
         "password": "U2FsdGVkX19NJ4qQsJVsNkR2PZEHcZwgi/8MfWuLIaI=",
-        "lname": "user",
+        "lname": "",
         "uname": "admin",
         "authKey": "w0sxdolxt4weykjkl0ior",
-        "issuedAt": "2021-10-26T22:41:25.845Z"
-    },
-    {
-        "fname": "devil",
-        "level": "user",
-        "password": "U2FsdGVkX19Vf3dbHewn0AlNt7QA1BFcoSr2vo91o6k=",
-        "lname": "the",
-        "uname": "devil",
-        "authKey": "cfpjgqherxmmmhjqvfb6ic",
-        "issuedAt": "2021-10-26T22:41:25.845Z"
+        "issuedAt": "2021-11-02T22:54:13.690Z",
+        "passwordResetRequested": false
     },
     {
         "fname": "test",
         "level": "user",
-        "password": "U2FsdGVkX19UTTrwUyK+55N0R5olR8w4Y6mNrBijZr0=",
+        "password": "U2FsdGVkX19B93mi1tFkD9XJSA8Qkl9xuStwFQrUQmA=",
         "lname": "test",
         "uname": "test",
-        "authKey": "cgrj0wm9fzege275lhj8yr",
-        "issuedAt": "2021-10-26T22:41:25.845Z"
+        "authKey": "84d6wagdzn5lbg83ju34wi",
+        "issuedAt": "2021-10-28T02:07:33.462Z",
+        "passwordResetRequested": false
     }
 ]

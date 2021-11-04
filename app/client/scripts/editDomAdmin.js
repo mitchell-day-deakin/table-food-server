@@ -23,6 +23,30 @@ function updateMenus() {
     userDetails.innerHTML = user.uname ? `Logged In: <span onclick="showMenu('loginPopup')" id="userButton">${user.fname.toUpperCase()}</span>` : 'Logged Out';
 }
 
+async function updateUsersList(){
+    let reply = await getUserList();
+    if(reply.error) return;
+    let cont = document.getElementById("admin-user-list");
+    let text = `<table id='user-table'><tr><th style="background-color: #999">USER NAME</th><th>NAME</th><th style="background-color: #999">LEVEL</th><th>PASSWORD</th></tr>`;
+    for(const user of reply.body.data){
+        let opt1 = "";
+        let opt2 = "selected";
+        let resetOpt1 = "";
+        let resetButString = "RESET";
+        text+= `<tr><td style="background-color: #999">${user.uname}</td><td>${user.fname+' '+user.lname}</td>`
+        if(user.level == "admin") { opt1 = "selected"; opt2 = " "; }
+        if(user.uname == "admin"){
+            text+=`<td style="background-color: #999"><p>admin</p></td>`
+        } else {
+            text+=`<td style="background-color: #999"><select onchange="changeUserLevel('${user.uname}', this)" name="user-level" id="user-level-select"><option ${opt1} value="admin">admin</option><option ${opt2} value="user">user</option></select></td>`
+
+        }
+        if(user.passwordResetRequested) {resetButString = "REQUESTED" }
+        text+=`<td><button style="height: 30px; witdth: fit-content" class="tewtBtns" onclick="resetPassword('${user.uname}')">${resetButString}</button></td></tr>`;
+    }
+    cont.innerHTML = text;
+}
+
 
 function updateTewt() {
     if (current.tewt != null) {

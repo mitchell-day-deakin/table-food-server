@@ -24,7 +24,7 @@ function encryptData(data){
     return new Promise((resolve, reject)=>{
         let reply = "";
         const key = crypto.scryptSync(encryption.password, "salt", 20);
-        const cipher = crypto.createCipher(encryption.algorithm, key);
+        const cipher = crypto.createCipheriv(encryption.algorithm, key);
 
         cipher.on('readable', ()=>{
             let chunk;
@@ -43,7 +43,7 @@ function decryptData(data){
     return new Promise((resolve, reject)=>{
         let reply = "";
         const key = crypto.scryptSync(encryption.password, "salt", 20);
-        const decipher = crypto.createDecipher(encryption.algorithm, key);
+        const decipher = crypto.createDecipheriv(encryption.algorithm, key);
 
         decipher.on('readable', ()=>{
             let chunk;
@@ -124,29 +124,9 @@ let closeFile = (url, data)=>{
 //saving config files params are url, the config data and key value of saving object
 let saveFile = async (url, data/*, hash*/) => {
         let d = (typeof data == 'object') ? JSON.stringify(data, null, 4) : data;
-        /*if(hash){
-            d = await encryptData(d)
-        }*/
         let error = await closeFile(url, d);
         return error;
 }
-
-// generates an auth token using the username and password
-/*function genAuthToken(user, pwrd) {
-    let authToken = md5Hex(`${user}:${pwrd}`)
-    return authToken
-}
-
-//
-function checkAuthToken(auth) {
-    userCredentials.authTokens.forEach((savedAuth) => {
-        if (savedAuth == auth) {
-            return true
-        }
-    })
-    return false;
-}*/
-
 
 
 //LOAD AND SAVE ALL CONFIG FILES

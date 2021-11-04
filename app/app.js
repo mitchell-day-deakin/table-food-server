@@ -106,6 +106,7 @@ function run(version, port) {
 
 //function to quick application
 let quit = () => {
+    logger.log("Server shutdown through SYSTRAY", "SHUTDOWN");
     app.quit();
 }
 

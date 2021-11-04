@@ -27,7 +27,6 @@ const network = require(path.join(__dirname, `/scripts/network.js`));
 const system = require(path.join(__dirname, `/scripts/system.js`));
 const user = require(path.join(__dirname, `/scripts/users.js`));
 const { Tewt, Qde, Event } = require(path.join(__dirname, `/scripts/tewt.js`));
-//const eApp = require(path.join(__dirname, `/electron.js`));
 
 //define global variables
 process.env.NODE_ENV = 'production';
@@ -45,11 +44,16 @@ async function loadTewtData() {
     //event = Event("Event 1", tewts[0], testUser, 61, "server");
 }
 
+
+process.on('SIGINT', function(){
+    logger.log('Server Shutdown', "CLOSE")
+});
+
 //stopEvent()
 
 let serverPort = 443 //port for server to run on
 let version = "1.1.4";
-logger.log(`Server is running on ${platform}`);
+logger.log(`Server started on ${platform}`, "STARTUP");
 
 let error = false;
 
@@ -120,6 +124,7 @@ let startWebServer = () => {
         let authKey = req.query.authKey ? req.query.authKey : req.body.authKey;
         let validUser = await user.validate(userName, authKey)
         if (validUser) {
+            res.locals.reply = await user.getUser(userName, authKey);
             next()
         } else {
             logger.log("User invalid")
@@ -193,7 +198,7 @@ let startWebServer = () => {
         system.saveConfig(jsonData).then(err => { })
     })
 
-    app.post('/api/tewt', userValidation, async (req, res, next) => {
+   /*  app.post('/api/tewt', userValidation, async (req, res, next) => {
         let task = req.body.task;
         let uname = req.body.uname;
         let authKey = req.query.authKey ? req.query.authKey : req.body.authKey;
@@ -215,12 +220,31 @@ let startWebServer = () => {
             reply = tewts.deleteResult(id, data.uname, data.sub)
         }
         res.json(reply)
+    }) */
+
+    app.post('/api/tewt', userValidation, async (req, res, next) => {
+        let {id, name, task, data} = req.body;
+        let u = res.locals.reply.data;
+        data = JSON.parse(decodeURIComponent(data));
+        let reply;
+        if (task == "submit") {
+            reply = tewts.saveResults(id, name, u.data, data)
+        } else if (task == "mark") {
+            let {uname, sub, qdeno, comment, score} = data;
+            reply = tewts.markResults(id, uname, sub, qdeno, comment, score);
+        } else if (task == "delete") {
+            reply = tewts.deleteResult(id, data.uname, data.sub)
+        }
+        res.json(reply)
     })
 
+
+
     app.get("/api/tewt", userValidation, (req, res, next) => {
-        let task = req.query.task;
+        /* let task = req.query.task;
         let name = req.query.name;
-        let id = req.query.id ? req.query.id : null;
+        let id = req.query.id ? req.query.id : null; */
+        let {id, name, task} = req.query;
         let reply;
         if (task == "list") {
             reply = tewts.getList(["name", "id", "enabled"]);
@@ -234,17 +258,15 @@ let startWebServer = () => {
         res.json(reply)
     })
 
+
+
     app.post("/api/qde", userValidation, (req, res, next) => {
-        let task = req.body.task;
-        let name = req.body.uname;
-        let id = req.body.id;
-        let qde = req.body.qde;
-        let data = req.body.data;
+        let {task, uname, id, qde, data} = req.body;
         let reply;
         if (task == "submit") {
             reply = tewts.getList(["name", "id"]);
         } else if (task == "getbyid") {
-            reply = tewts.getTewt(name, id)
+            reply = tewts.getTewt(uname, id)
         }
         res.json(reply)
     })
@@ -318,9 +340,11 @@ let startWebServer = () => {
     // on the request to root (localhost:3000/)
     app.post('/api/user', userValidation, async function (req, res, next) {
         let task = req.body.task;
-        let uname = req.body.uname;
-        let authKey = req.body.authKey;
-        let data = null
+        let u = res.locals.reply.data;
+        let attribute = req.body.attribute; //this is the key which will be updated on the selected user
+        let value = req.body.value; //value of the attribute
+        let unameupdate = req.body.unameupdate;
+        let data = {error:true, data: ""};
         switch (task) {
             case "create":
                 data = await user.create()
@@ -330,13 +354,34 @@ let startWebServer = () => {
             case "edit":
                 break;
             case "getall":
-                user.getAll();
+                data = {error: false, data: user.getAllFiltered(["uname", "fname","lname", "passwordResetRequested","level"])};
+                break;
+            case "update":
+                if(u.level != "admin"){
+                    data.data = "Wrong Privilidges";
+                    break;
+                };
+                data = {error: false, data: user.updateAttribute(unameupdate, attribute, value)};
+                break;
+            case "resetpassword":
+                if(u.level != "admin"){
+                    data.data = "Wrong Privilidges";
+                    break;
+                };
+                data = {error: false, data: user.resetPassword(unameupdate)};
                 break;
             default:
-                data = await user.getUser(uname, authKey)
+                data = await user.getUser(u.uname, u.authKey)
                 break;
         }
         res.json(data)
+    })
+
+    app.post('/api/user/requestpasswordreset', (req,res,next)=>{
+        let uname = req.body.uname;
+        let confirmRequest = user.requestPasswordReset(uname)
+        if(!confirmRequest) res.json({error: true});
+        data = {error: false, msg: "Password Request Sent"};
     })
 
     // on the request to root (localhost:3000/)
@@ -357,14 +402,13 @@ let startWebServer = () => {
     // start the server!
     server.listen(serverPort, function () {
         console.log(`Tactical Scenario Server, listening on port ${serverPort}.`);
-        logger.log(`Tactical Scenario Server, listening on port ${serverPort}.`);
+        logger.log(`HTTPS Server Started.`, "STARTUP");
     })
 
     // Redirect from http port 
     http.createServer(function (req, res) {
         res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
         console.log(`HTTP redirection server listening on port 80.`);
-        logger.log(`HTTP redirection server listening on port 80.`);
         res.end();
     }).listen(80);
 }

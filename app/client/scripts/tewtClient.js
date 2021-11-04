@@ -318,9 +318,8 @@ async function sendBlobs(qdeArray){
 let submitTewt = async ()=>{
     let submission = {startTime: current.tewt.startTime, endTime: new Date().getTime(), results: current.tewt.results}
     let url = `${serverIp}/api/tewt`;
-    console.log(submission)
     let reply = await xhrRequest(url, "POST", `task=submit&name=${current.tewt.name}&id=${current.tewt.id}&data=${encodeURIComponent(JSON.stringify(submission))}&${authReqString()}`);
-    let replyTwo = await sendBlobs(current.tewt.qdes)
+    let replyTwo = await sendBlobs(current.tewt.qdes);
     return reply;
 }
 

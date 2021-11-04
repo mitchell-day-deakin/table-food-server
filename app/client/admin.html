@@ -50,6 +50,7 @@
 				<h2>MENU</h2>
 				<li onclick="changeMainPage('mainPage', this)">RESULTS</li>
 				<!-- <li onclick="changeMainPage('markingPage', this)">SUBMISSIONS</li> -->
+				<li onclick="changeMainPage('settingsPage', this)">SETTINGS</li>
 				<li onclick="userPage()">USER</li><br>
 				<li onclick="logout()"><img class="listImage" src="media/barrow.svg" alt="">LOGOUT</li>
 				<li class="local-file" onclick="disconnectServer()"><img class="listImage" src="media/barrow.svg"
@@ -121,7 +122,8 @@
 		<div id="settingsPage" class="pages admin">
 			<div class="content">
 				<div id="user-control">
-
+					<h2>Users <button style="height: 30px; width: 110px" onclick="updateUsersList()" class="tewtBtns">REFRESH</button></h2>
+					<div id="admin-user-list"></div>
 				</div>
 
 			</div>

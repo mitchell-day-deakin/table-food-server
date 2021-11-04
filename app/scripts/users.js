@@ -45,7 +45,7 @@ let checkPassword = async (password, encryptedPwrd) => {
 function createUser(fname, lname, password, level, uname) {
     let authKey = createAuthKey();
     reply = encryptPassword(password);
-    return { fname, level, password: reply.password, lname, uname, authKey, issuedAt: new Date() }
+    return { fname, level, password: reply.password, lname, uname, authKey, issuedAt: new Date(), passwordResetRequested: false }
 }
 
 //creates a random string authKey
@@ -53,18 +53,6 @@ function createAuthKey() {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
 
-
-//FUNCTIONS THAT ARE EXPORTED
-//@params [array of keys wanted from users]
-async function getAllKeys(keys) {
-    if (!users) { return { error: true, data: [] } };
-    newUsers = users.map(u => {
-        let user = {};
-        keys.forEach(key => user[key] = u[key]);
-        return user;
-    });
-    return { error: false, data: newUsers };
-};
 
 
 //pass in the user name, and an array of usernames
@@ -114,16 +102,6 @@ async function changePassword(uname, newPwrd, password) {
 }
 
 
-/** PUBLIC
- * Resets users password to empty string
- * @param {string} adminUname 
- * @param {string} adminPwrd 
- * @param {string} uname 
- */
-async function resetPassword(adminUname, adminPwrd, uname) {
-    let loaded = await loadUsers(usersUrl);
-    loaded.data.forEach
-}
 
 function deleteUser(user) {
     for (i = 0; i < users.length; i++) {
@@ -142,6 +120,35 @@ function remove(adminUname, adminPwrd, uname) {
             deleteUser(user);
         }
     }
+}
+
+function requestPasswordReset(uname){
+    updateAttribute(uname, "passwordResetRequested", true);
+    return users;
+}
+
+
+function resetPassword(uname) {
+        updateAttribute(uname, "password", "");
+        updateAttribute(uname, "passwordResetRequested", false);
+        return users;
+}
+
+//sets the attribute of a user.
+function updateAttribute(uname, attribute, value){
+    for(const user of users){
+        if(uname == user.uname){
+            if(!(attribute in user)){
+                logger.log("Attribute not found in user: "+attribute, "ERROR");
+                return false;
+            }
+            user[attribute] = value;
+            saveUsers();
+            return users;
+        }
+    }
+    logger.log("Setting user attribute, not valid uname", "ERROR");
+    return false;
 }
 
 
@@ -178,26 +185,27 @@ function tokenTimeValid(user) {
 //if the user has reset=true, then the users password will be updated
 async function login(uname, password) {
     let data = {}
-    for (i = 0; i < users.length; i++) {
-        if (users[i].uname == uname.toLowerCase()) {
+    for (const user of users) {
+        if (user.uname == uname.toLowerCase()) {
             //this handles new password from user
-            if (!users[i].password) {
+            if (!user.password) {
                 let result = encryptPassword(password);
-                users[i].password = result.password;
-                users[i].authKey = createAuthKey();
+                user.password = result.password;
+                user.authKey = createAuthKey();
             }
-            let correctPassword = await checkPassword(password, users[i].password);
+            let correctPassword = await checkPassword(password, user.password);
             if (!correctPassword) return { error: true, msg: "Incorrect Password", data }
-            if(!tokenTimeValid(users[i])){
-                users[i].issuedAt = new Date();
+            if (!tokenTimeValid(user)) {
+                user.issuedAt = new Date();
             }
+            user.passwordResetRequested = false;
             saveUsers();
             data = {
-                level: users[i].level,
-                uname: users[i].uname,
-                fname: users[i].fname,
-                lname: users[i].lname,
-                authKey: users[i].authKey
+                level: user.level,
+                uname: user.uname,
+                fname: user.fname,
+                lname: user.lname,
+                authKey: user.authKey
             }
             return { error: false, data }
         }
@@ -215,12 +223,33 @@ async function getUser(uname, authKey) {
     return { error: true, data: "" };
 }
 
-async function getAll() {
-    return users;
+//returns all the users, minus the password.
+function getAll() {
+    let filteredUsers = [];
+    for (const user of users) {
+        let { uname, fname, lname, passwordResetRequested, level } = user;
+        filteredUsers.push({ uname, fname, lname, passwordResetRequested, level });
+    }
+    return filteredUsers;
+}
+
+//gets all the users
+//userKeys is an array of keys that will be returned from each user
+function getAllFiltered(userKeys) {
+    let filteredUsers = [];
+    users.forEach(user => {
+        let tempUser = {};
+        for (const key of userKeys) {
+            if (!(key in user)) continue;
+            tempUser[key] = user[key];
+        };
+        filteredUsers.push(tempUser);
+    })
+    return filteredUsers;
 }
 
 async function getAllUsernames() {
-    let loaded = await getAll(["uname"])
+    let loaded = await getAllFiltered(["uname"])
     if (!loaded.error) {
         logger.log("error getAllUsernames")
     }
@@ -240,8 +269,12 @@ module.exports = {
     remove,
     edit,
     changePassword,
+    updateAttribute,
+    resetPassword,
+    requestPasswordReset,
     validate,
     getAll,
+    getAllFiltered,
     getUser,
     login
 };

@@ -181,6 +181,13 @@ async function login(level) {
 }
 
 
+async function getUserList(){
+    let url = `${serverIp}/api/user`;
+    let cred = `task=getall&uname=${user.uname}&authKey=${user.authKey}`;
+    return await xhrRequest(url, "POST", cred);
+}
+
+
 function logout() {
     removeUser();
     setPage("loginPage");
@@ -193,6 +200,40 @@ async function checkUserValid() {
     let url = `${serverIp}/api/user?${authReqString()}`;
     let cred = `uname=${user.uname}&authKey=${user.authKey}`
     return await xhrRequest(url, "POST", cred)
+}
+
+async function confirmPrompt(title, text, confirmText) {
+    let result = await Swal.fire({
+        title,
+        text,
+        //icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: confirmText
+    })
+    if (result.value) {
+        return true;
+    }
+    return false;
+}
+
+async function requestPasswordReset(){
+    let unameInput = document.getElementById("loginUsername").value;
+    if(!unameInput){
+        Swal.fire({
+            title: "Info",
+            text: "Please Enter a valid username"});
+        return;
+    }
+    let confirmed = await confirmPrompt("Request Password Reset",
+                    "If proceed, you will need to wait for an administrator to reset this",
+                    "Confirm Reset?")
+    if(!confirmed) return;
+    let url = `${serverIp}/api/user/requestpasswordreset`;
+    let cred = `uname=${unameInput}`
+    xhrRequest(url, "POST", cred)
+    return;
 }
 
 

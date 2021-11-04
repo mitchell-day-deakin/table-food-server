@@ -51,6 +51,7 @@ function editDom() {
     updateMenus();
     updateTewt();
     updateMainPage();
+    updateUsersList();
 }
 
 async function serverCheck() {
@@ -106,6 +107,43 @@ async function checkUser() {
         error = true;
     }
     return error;
+}
+
+async function changeUserLevel(uname, selectEle){
+    let check = await confirmPrompt("Change User Level", `Changing "${uname}" user level to "${selectEle.value}""`, "Change Level?");
+    if(!check){
+        updateUsersList();
+        return;
+    }
+    let url = `${serverIp}/api/user`;
+    let cred = `task=update&attribute=level&value=${selectEle.value}&unameupdate=${uname}&uname=${user.uname}&authKey=${user.authKey}`
+    await xhrRequest(url, "POST", cred)
+    updateUsersList();
+}
+
+async function resetPassword(uname){
+    let check = await userEditPrompt();
+    if (!check) return;
+    let url = `${serverIp}/api/user`;
+    let cred = `task=resetpassword&unameupdate=${uname}&uname=${user.uname}&authKey=${user.authKey}`
+    await xhrRequest(url, "POST", cred)
+    updateUsersList();
+    return 
+}
+
+async function userEditPrompt() {
+    let result = await Swal.fire({
+        title: 'Are you sure?',
+        //icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Reset It'
+    })
+    if (result.value) {
+        return true;
+    }
+    return false;
 }
 
 let refreshWindow = async () => {
@@ -197,7 +235,7 @@ let adminPage = async () => {
 
 
 //map object with entity manipulation
-let map = Map("cesiumMap", "map-position"); 
+let map = Map("cesiumMap", "map-position");
 
 //creates map entities object
 let mapEntities = MapEntities(map);

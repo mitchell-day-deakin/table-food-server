@@ -176,6 +176,19 @@ h2 {
     cursor: pointer;
 }
 
+#user-table{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px black solid;
+}
+
+#user-table td{
+    width: 25%;
+    border-top: 1px black solid;
+}
+
+
 .backBtn {
     cursor: pointer;
     padding-right: 10px;

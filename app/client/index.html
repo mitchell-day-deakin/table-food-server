@@ -46,13 +46,14 @@
 				<h4 onclick="userLoginBox('create')" id="createTab">CREATE<br>ACCOUNT</h4>
 				<div id="loginUserDiv">
 					<form name="loginForm" id="loginForm" autocomplete="off" action="/login" method="post"
-						onsubmit="return false">
+						onsubmit="return false" novalidate>
 						<h2>USER LOGIN</h2><br>
 						<h4>USERNAME:</h4>
 						<input id="loginUsername" type="text" autocomplete="off" required><br>
 						<h4>PASSWORD: <img src="media/pwrd_eye.png" class="input-icon" id="togglePassword"/></h4>
 						<input id="loginPassword" type="password" autocomplete="off" required><br>
 						<input type="submit" value="LOGIN" class="hightlight" onclick='login();'><br><br>
+						<input style="width: 80%" type="submit" value="Forgot Password?" class="hightlight" onclick='requestPasswordReset();'><br><br>
 						<li class="local-file" onclick="disconnectServer()"><img class="listImage"
 								src="media/barrow.svg" alt="">DISCONNECT</li>
 					</form>
@@ -104,7 +105,7 @@
 			<!--<button onclick="setPage('tewtPage')">TEWT</button>-->
 
 			<div id="tewtSelection" class="mainPage">
-				<h2>Tactical Ex w/o Troops<br>
+				<h2><!--Tactical Ex w/o Troops<br>-->
 					Select an Exercise below</h2>
 				<div class="content"></div>
 			</div>

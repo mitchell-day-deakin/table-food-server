@@ -176,14 +176,13 @@ function Map(container, projContainer) {
 
     //listener, executes on map morph completion
     scene.morphComplete.addEventListener(e => {
+        console.log(e)
         if (e._previousMode != 2) {
             scene.camera
         }
         let { lat, lon, height } = camera;
         setCameraView({ lat, lon, height }, e._previousMode)
         updateTerrain();
-        //let { lat, lon, height } = current.tewt.qdes[current.qde].map.camera
-        //map.setCameraView({ lat, lon, height })
     })
 
 
@@ -404,6 +403,17 @@ function Map(container, projContainer) {
 
 
     function updateImagery(){
+
+    }
+
+    //used to change settings when user changes between Ellipsoid and Terrain.
+    let terrainChange = ()=>{
+
+    }
+
+    //used to change settings when user changes mode between 2D and 3D
+    //dimension = "2D"/"3D"
+    let dimensionChange = (dimensions)=>{
 
     }
 

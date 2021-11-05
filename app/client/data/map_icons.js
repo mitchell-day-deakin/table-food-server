@@ -1067,7 +1067,6 @@ let mapMenuIcons = [
                                 }
                             ]
                         },
-                        ,
                         {
                             text: 'Tank',
                             id: "en_tank",
@@ -2081,10 +2080,8 @@ async function addMapMenus() {
             div.appendChild(back);
         }
 
-        //iconArray.forEach(icon => {
-        //console.log(iconArray)
         for (const icon of iconArray) { 
-            if (icon.sub) {
+            if ('sub' in icon) {
                 let nIcon = await createParentIcon(icon)
                 div.appendChild(nIcon)
                 createMenu(menuId, icon.id, icon.text, icon.sub);

@@ -63,6 +63,13 @@ function DB() {
         })
     }
 
+    let getData = async ({table, keys, filter})=>{
+        filter = !filter ? ";" : `WHERE ${filter};`;
+        if(!keys || keys == "*"){
+            query
+        }
+    }
+
 
     let getAllUsers = () => {
         con.query('SELECT * FROM users', (err, results, fields) => {

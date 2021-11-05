@@ -50,6 +50,7 @@
                             {
                                 "id": "qde1",
                                 "name": "Clear",
+                                "group": "system",
                                 "description": [],
                                 "subType": null,
                                 "type": "rectangle",
@@ -68,6 +69,7 @@
                             {
                                 "id": "qde2",
                                 "name": "ABF",
+                                "group": "system",
                                 "description": [],
                                 "subType": null,
                                 "type": "rectangle",
@@ -86,6 +88,7 @@
                             {
                                 "id": "qde3",
                                 "name": "FUP",
+                                "group": "system",
                                 "description": [],
                                 "subType": null,
                                 "type": "rectangle",
@@ -102,30 +105,9 @@
                                 "scale": 15
                             },
                             {
-                                "id": "qde9",
-                                "name": "FUP Advance",
-                                "description": [],
-                                "subType": "arrow",
-                                "type": "line",
-                                "color": "#0011cc",
-                                "label": null,
-                                "image": null,
-                                "positions": [
-                                    {
-                                        "lat": -32.81120605762993,
-                                        "lon": 137.63538900289592
-                                    },
-                                    {
-                                        "lat": -32.81466494401015,
-                                        "lon": 137.63588312924946
-                                    }
-                                ],
-                                "rotation": 0,
-                                "scale": 0
-                            },
-                            {
                                 "id": "qde5",
                                 "name": "G34",
+                                "group": "system",
                                 "description": [
                                     ""
                                 ],
@@ -146,6 +128,7 @@
                             {
                                 "id": "qde7",
                                 "name": "OP",
+                                "group": "system",
                                 "description": [
                                     "C/S 65X (Sniper Quad)",
                                     "C/S 64 (DFSW sect, 2 x MAG 58)",
@@ -153,7 +136,6 @@
                                 ],
                                 "subType": null,
                                 "type": "rectangle",
-                                "color": null,
                                 "label": null,
                                 "image": "./media/mil/op.png",
                                 "positions": [
@@ -168,6 +150,7 @@
                             {
                                 "id": "qde6",
                                 "name": "C/S 3",
+                                "group": "system",
                                 "description": [
                                     "spt from now to 1000hrs",
                                     "10 HE and 5 SMK"
@@ -189,6 +172,7 @@
                             {
                                 "id": "qde4",
                                 "name": "C/S 83",
+                                "group": "system",
                                 "description": [
                                     "direct spt from now to 1000hrs",
                                     "5 HE and 3 WP"

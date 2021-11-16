@@ -50,7 +50,12 @@ function uavPage(uavUrl) {
         return;
     }
     uavMenuLi.style.display = "list-item";
-    uavVideo.src = `${serverIp}/${uavUrl}`;
+    if(uavUrl.includes("http")){
+        uavVideo.src = `${uavUrl}`
+    } else {
+        uavVideo.src = `${serverIp}/${uavUrl}`;
+    }
+    
 }
 
 

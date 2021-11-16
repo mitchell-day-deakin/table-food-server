@@ -38,6 +38,7 @@ let Storage = () => {
 
         dbRequest.onsuccess = (e) => {
             db = e.target.result;
+            status = STATUS.LOADED;
             successCB(db);
         }
 
@@ -72,7 +73,10 @@ let Storage = () => {
             let req = store.put(data);
 
             req.onsuccess = () => { resolve({ msg: "Successfully Added", error: false }); }
-            req.onerror = () => { resolve({ error: true, msg: "Data not added" }) }
+            req.onerror = (err) => { 
+                console.log(err)
+                resolve({ error: true, msg: "Data not added" }) 
+            }
         })
     }
 

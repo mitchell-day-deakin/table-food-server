@@ -14,6 +14,7 @@ function Map(container, projContainer) {
     let coord; //Coord object //{lat, lon, utm: {zoneNumber, zoneLetter, easting, northing}, mgrs: {zoneNumber, zoneLetter, id100k, easting, northing, mgrsString}}
     let gis = GIS(); //used to convert between utm, mgrs and latlon
     let clickPos = null; //this tracks where the LEFT_DOWN
+    let sceneMode = null;
     //dom elements
     let mapContainer = document.getElementById(container);
     let coordDisplay = document.getElementById(projContainer); //container to display the coords in
@@ -83,6 +84,8 @@ function Map(container, projContainer) {
         sceneModePicker: true
     });
 
+    sceneMode = "2D";
+
     //handles the double click event on a widget/entity
     viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
     viewer.scene.globe.depthTestAgainstTerrain = true;
@@ -105,8 +108,8 @@ function Map(container, projContainer) {
 
     function setCameraView(pos, previousMode) {
         //pos = (pos && pos.length == 2 ) ? pos : {lon: 175.8047, lat:-39.4413, height: 1000};
-        let pitch = previousMode == 2 ? -0.8 : 0
-        let lat = previousMode == 2 ? pos.lat - 0.05 : pos.lat
+        let pitch = previousMode == "2D" ? -1.25 : 0
+        let lat = previousMode == "2D" ? pos.lat - 0.05 : pos.lat
         camera = { lat, lon: pos.lon, height: pos.height };
         viewer.camera.setView({
             destination: Cesium.Cartesian3.fromDegrees(pos.lon, lat, pos.height),
@@ -137,7 +140,6 @@ function Map(container, projContainer) {
             url: `${serverIp}/${url}`,
             rectangle: Cesium.Rectangle.fromDegrees(pos[0], pos[1], pos[2], pos[3])
         }));
-        console.log(img)
         img.imageryProvider.readyPromise.then(_=>{
             return true;
         })
@@ -176,14 +178,26 @@ function Map(container, projContainer) {
 
     //listener, executes on map morph completion
     scene.morphComplete.addEventListener(e => {
-        console.log(e)
-        if (e._previousMode != 2) {
+        let prevMode = e._previousMode == 2 ? "2D" : "3D";
+        sceneMode = prevMode == "2D" ? "3D" : "2D";
+        if (prevMode != "2D") {
             scene.camera
         }
         let { lat, lon, height } = camera;
-        setCameraView({ lat, lon, height }, e._previousMode)
+        setCameraView({ lat, lon, height }, prevMode);
         updateTerrain();
+        //dimensionChange(curMode);
     })
+
+    //mode == 3D will morph in to 3D
+    //otherwise will morph to 2D
+    let morph = (mode)=>{
+        if(mode = "3D"){
+            viewer.scene.morphTo3D(0.5);
+        } else {
+            viewer.scene.morphTo2D(0.5);
+        }
+    }
 
 
     //MAP MODE
@@ -206,8 +220,7 @@ function Map(container, projContainer) {
      * @param {string} proj     a value from the PROJ enum
      */
     let setProj = () => {
-        let proj = document.getElementById("proj-type").value
-        console.log(proj)
+        let proj = document.getElementById("proj-type").value;
         projection = proj;
         displayCoords()
     }
@@ -287,10 +300,7 @@ function Map(container, projContainer) {
     //LISTENERS
     mapContainer.addEventListener("drop", async (e) => {
         e.preventDefault();
-        console.log(" map drop event")
-        console.log(e.dataTransfer.getData('text'))
         let reply;
-        console.log(viewer.camera.getMagnitude())
         let viewportOffset = viewer.container.getBoundingClientRect();
         // these are relative to the viewport, i.e. the window
         let top = viewportOffset.top;
@@ -303,7 +313,6 @@ function Map(container, projContainer) {
         reply = map.screenXYtoLatLon(e.clientX - left, e.clientY - top);
         if (reply.error) return reply;
         let rotation = map.getViewer().viewer.camera.heading*-1; //THIS WILL PUT THE GRAPHICS FACING THE WAY OF THE CAMERA
-        console.log("Rotatiton:", rotation);
         let result = await mapEntities.create(reply.data, url, name, type, rotation);
         if (!result.error) {
             openMapMenu("itemsEdit")
@@ -352,7 +361,6 @@ function Map(container, projContainer) {
             case MODES.NAVIGATE:
             case MODES.EDIT:
                 let pickedObject = scene.pick(clickRelease.position);
-                console.log(scene)
                 if (Cesium.defined(pickedObject)) {
                     if(pickedObject.id._export.group == "system") {openMapMenu("mapItems"); break};
                     mapEntities.setCurrent(pickedObject.id._id);
@@ -380,7 +388,6 @@ function Map(container, projContainer) {
                 if(checkDrag(clickPos, clickRelease.position)) break;
                 let icon = mapEntities.loadIcon()
                 let rotation = map.getViewer().viewer.camera.heading*-1; //THIS WILL PUT THE GRAPHICS FACING THE WAY OF THE CAMERA
-                console.log("Rotatiton:", rotation);
                 mapEntities.create(reply.data, icon.url, icon.name, icon.type, rotation);
                 setMode(MODES.EDIT)
                 updateTerrain();
@@ -394,7 +401,6 @@ function Map(container, projContainer) {
     //mapContainer.addEventListener("touchend", function (evt) { if (mode == MODES.ADD) { evt.preventDefault() } });
 
     mapContainer.addEventListener("touchend", function (evt) {
-        console.log(evt.path[0])
         let canvas = document.getElementsByTagName("canvas")[0];
         if (evt.path[0] == canvas) {
             evt.preventDefault();
@@ -414,21 +420,36 @@ function Map(container, projContainer) {
     //used to change settings when user changes mode between 2D and 3D
     //dimension = "2D"/"3D"
     let dimensionChange = (dimensions)=>{
-
+        let entitiesArray = mapEntities.getAll()._entities._array;
+        //set values for 2D
+        let height = 
+        entitiesArray.forEach(entity=>{
+            if(entity.rectangle){
+                entity.rectangle.height = height;
+                //entity.rectangle.clampToGround = clampGround;
+            }
+            if(entity.billboard){
+                entity.billboard.heightReference = heightReference;
+            }
+            if(entity.polygon){
+                //entity.polygon.heightReference = heightReference;
+                entity.polygon.height = height == 0.5 ? 0.2 : height;
+            }
+        })
     }
 
     function updateTerrain(){
         let height = undefined;
         let heightReference = Cesium.HeightReference.RELATIVE_TO_GROUND;
-        //let clampGround = true;
+        let clampGround = true;
         //if(viewer.baseLayerPicker.viewModel.selectedTerrain.name == "Cesium World Terrain" && viewer.scene.mode == Cesium.SceneMode.SCENE3D){
         //if(viewer.baseLayerPicker.viewModel.selectedTerrain.name == "WGS84 Ellipsoid" && viewer.scene.mode == Cesium.SceneMode.SCENE2D){
-        if(viewer.baseLayerPicker.viewModel.selectedTerrain.name == "WGS84 Ellipsoid"){
+        ////if(viewer.baseLayerPicker.viewModel.selectedTerrain.name == "WGS84giant  Ellipsoid" && sceneMode == "2D"){
         //if(viewer.baseLayerPicker.viewModel.selectedTerrain.name == "Cesium World Terrain"){
-            //height = 'undefined';
-            //alert("2d and ellipsoid")
+        if(sceneMode == "2D"){
             height = 0.5;
             heightReference = Cesium.HeightReference.NONE;
+            clampGround = false;
         }
         let entitiesArray = mapEntities.getAll()._entities._array;
         entitiesArray.forEach(entity=>{
@@ -438,6 +459,7 @@ function Map(container, projContainer) {
             }
             if(entity.billboard){
                 entity.billboard.heightReference = heightReference;
+                entity.billboard.clampToGround = clampGround;
             }
             if(entity.polygon){
                 //entity.polygon.heightReference = heightReference;
@@ -583,7 +605,6 @@ let vectorUsingUtm = (pt1, pt2) => {
  * @return {Object} with {distance, andgle:{mils, radians, degrees}
  */
 let vectorUsingLatLon = (pt1, pt2) => {
-    console.log(pt1, pt2)
     let lat1 = map.gis.degToRad(pt1.lat);
     let lon1 = map.gis.degToRad(pt1.lon);
     let lat2 = map.gis.degToRad(pt2.lat);
@@ -598,7 +619,6 @@ let vectorUsingLatLon = (pt1, pt2) => {
     const y = Math.sin(lon2 - lon1) * Math.cos(lat2);
     const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1);
     const rad = Math.atan2(y, x);
-    console.log(rad)
     let mils = Math.round(map.gis.radToMils(rad))
     const deg = Math.round((rad * 180 / Math.PI + 360) % 360); // in degrees
     return { distance: d, angle: { deg, mils, rad } }
@@ -682,7 +702,6 @@ let menuIcons = document.querySelectorAll(".dragImg");
 let selectedIcon = { url: "", name: "Map Icon", type: "billboard" }
 menuIcons.forEach(icon => {
     icon.addEventListener("touchend", function (evt) {
-        console.log("adding item to map")
         let mode = map.getMode()
         if (mode == map.MODES.LINE || mode == map.MODES.RULER) {
             return

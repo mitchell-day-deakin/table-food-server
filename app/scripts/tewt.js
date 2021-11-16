@@ -43,7 +43,6 @@ let createId = (list) => {
 
 
 let id = createId([createAuthKey(), createAuthKey(), "55"], 0)
-console.log(id)
 
 
 
@@ -83,6 +82,7 @@ let loadQdes = async () => {
 function Tewt() {
     let list = null;
     let results = null;
+
 
     let getList = (items) => {
         if (list) {

@@ -9,7 +9,6 @@ console.log(accessId)
 document.addEventListener('wheel', (event) => {
     if (!event.ctrlKey) return;
     event.preventDefault();
-    // Send a message to your handler in the browser to adjust the zoom.
 }, { passive: false })
 
 

@@ -6,8 +6,9 @@
         "uname": "daym",
         "password": "U2FsdGVkX1+q00OujvIBlX8ousxVswqDLG7Zumd6//s=",
         "authKey": "5cm2ckxe2vfpk42ktgtbcg",
-        "issuedAt": "2021-11-02T22:28:57.468Z",
-        "passwordResetRequested": false
+        "issuedAt": "2021-11-14T23:49:00.078Z",
+        "passwordResetRequested": false,
+        "groupId": 1686489954
     },
     {
         "fname": "admin",
@@ -16,17 +17,19 @@
         "lname": "",
         "uname": "admin",
         "authKey": "w0sxdolxt4weykjkl0ior",
-        "issuedAt": "2021-11-02T22:54:13.690Z",
-        "passwordResetRequested": false
+        "issuedAt": "2021-11-14T23:51:04.228Z",
+        "passwordResetRequested": false,
+        "groupId": 1686489954
     },
     {
         "fname": "test",
         "level": "user",
-        "password": "U2FsdGVkX19B93mi1tFkD9XJSA8Qkl9xuStwFQrUQmA=",
+        "password": "U2FsdGVkX19eN9Vx7uscWlc5F23/PRQ/QcC7oP5z6yM=",
         "lname": "test",
         "uname": "test",
-        "authKey": "84d6wagdzn5lbg83ju34wi",
-        "issuedAt": "2021-10-28T02:07:33.462Z",
-        "passwordResetRequested": false
+        "authKey": "u81ypx8m0jpspsudd7k07",
+        "issuedAt": "2021-11-14T23:50:04.782Z",
+        "passwordResetRequested": false,
+        "groupId": 1686489358
     }
 ]

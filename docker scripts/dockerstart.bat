@@ -1,0 +1,1 @@
+docker run --name tewttool -p 443:443 -p 80:80 cubic/tewt:1.0

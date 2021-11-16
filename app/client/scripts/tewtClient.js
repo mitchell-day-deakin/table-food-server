@@ -119,7 +119,6 @@ function saveTewtOld(cur) {
 
 async function saveTewt(){
     let req = await storage.addData('current', current)
-    console.log(req)
     if(req.error){
         console.log("Failed to save to indexed");
     }
@@ -252,7 +251,6 @@ function mapMenuPosition(pos) {
 
 function mapSpace() {
     let bOrientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation
-    console.log(bOrientation)
     let pos = bOrientation == "landscape-primary" ? "side" : "top";
     //let pos = screen.orientation.type == "landscape-primary" ? "side" : "top";
     mapMenuPosition(pos)

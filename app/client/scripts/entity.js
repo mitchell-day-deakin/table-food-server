@@ -563,11 +563,8 @@ function MapEntities(map) {
         }
         name = data.value.name != "" ? data.value.name : name;
         let description = data.value.description != "" ? data.value.description.split("<br>") : [""];
-        let cameraHeight = viewer.camera._positionCartographic.height;
-        let scale = cameraHeight/1500;
-        //let positions = map.getCoord(position, map.PROJ.LATLON);
-        let positions = { lat: position.lat, lon: position.lon }
-        let entity = { name, group: "user", description, type, subType: null, image: url, positions: [positions], rotation, scale, label: data.value.label, showPos: data.value.showPos }
+        let scale = viewer.camera._positionCartographic.height/1500;
+        let entity = { name, group: "user", description, type, subType: null, image: url, positions: [{ lat: position.lat, lon: position.lon }], rotation, scale, label: data.value.label, showPos: data.value.showPos }
         let entityId = addEntity(entity, "user");
         viewLayers()
         select(entityId);
@@ -589,7 +586,6 @@ function MapEntities(map) {
         entity.id = createId();
         //if group has value use it, else if the item has group use it, else use "system"
         item.group = group ? group : item.group ? item.group : "system";
-        console.log()
         item.id = entity.id;
         switch (item.type) {
             case TYPE.RECTANGLE:
@@ -606,13 +602,15 @@ function MapEntities(map) {
                 break;
             case TYPE.BILLBOARD:
                 item.type = TYPE.BILLBOARD; //force billboard types to become rectangle types
+                item.scale = 0.1;
                 entity.billboard = {
                     image: item.image,
                     //height: 100,
-                    scale: 0.1,
+                    scale: item.scale,
                     pixelOffset: new Cesium.Cartesian2(0, 0),
+                    //sizeInMeters: true
                     //heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
-                    heightReference: Cesium.HeightReference.RELATIVE_TO_GROUND,
+                    //heightReference: Cesium.HeightReference.RELATIVE_TO_GROUND,
                     disableDepthTestDistance: Number.POSITIVE_INFINITY
                 }
                 break;
@@ -951,7 +949,6 @@ function MapEntities(map) {
     //saves the entities on the map every x seconds
     function startInterval(){
         entityInterval = setInterval(()=>{
-            console.log("saving entities");
             saveEntitiesToStorage();
         }, 20000)
     }

@@ -198,37 +198,13 @@ let startWebServer = () => {
         system.saveConfig(jsonData).then(err => { })
     })
 
-   /*  app.post('/api/tewt', userValidation, async (req, res, next) => {
-        let task = req.body.task;
-        let uname = req.body.uname;
-        let authKey = req.query.authKey ? req.query.authKey : req.body.authKey;
-        let u = await user.getUser(uname, authKey)
-        let data = JSON.parse(decodeURIComponent(req.body.data));
-        let id = req.body.id;
-        let name = req.body.name;
-        let reply;
-        if (task == "submit") {
-            reply = tewts.saveResults(id, name, u.data, data)
-        } else if (task == "mark") {
-            let userName = data.uname;
-            let submission = data.sub;
-            let qdeNo = data.qdeno;
-            let comment = data.comment;
-            let score = data.score;
-            reply = tewts.markResults(id, userName, submission, qdeNo, comment, score);
-        } else if (task == "delete") {
-            reply = tewts.deleteResult(id, data.uname, data.sub)
-        }
-        res.json(reply)
-    }) */
-
     app.post('/api/tewt', userValidation, async (req, res, next) => {
         let {id, name, task, data} = req.body;
         let u = res.locals.reply.data;
         data = JSON.parse(decodeURIComponent(data));
         let reply;
         if (task == "submit") {
-            reply = tewts.saveResults(id, name, u.data, data)
+            reply = tewts.saveResults(id, name, u, data)
         } else if (task == "mark") {
             let {uname, sub, qdeno, comment, score} = data;
             reply = tewts.markResults(id, uname, sub, qdeno, comment, score);
@@ -241,13 +217,19 @@ let startWebServer = () => {
 
 
     app.get("/api/tewt", userValidation, (req, res, next) => {
-        /* let task = req.query.task;
-        let name = req.query.name;
-        let id = req.query.id ? req.query.id : null; */
+        let user = res.locals.reply.data;
         let {id, name, task} = req.query;
         let reply;
         if (task == "list") {
-            reply = tewts.getList(["name", "id", "enabled"]);
+            tewtList = tewts.getList(["name", "id", "enabled"]);
+            let userGroup = config.groups.filter(group=>user.groupId == group.id);
+            let userTewts = userGroup[0].tewts
+            if(userGroup[0].tewts == "*"){
+                reply = tewtList;
+            } else {
+                reply = {error: false, data: tewtList.data.filter(tewt => userTewts.includes(tewt.id))};
+            }
+            
         } else if (task == "getbyid") {
             reply = tewts.getTewt(name, id)
         } else if (task == "getresultsbyid") {
@@ -283,7 +265,6 @@ let startWebServer = () => {
     //SUBMITTING RECORDED VIDEOS
     app.post("/api/file", upload.single('video'), (req, res, next) => {
         console.log('receiving video');
-        console.log(req.query)
         let reply = { error: false, msg: "file uploaded" }
         res.json(reply)
     })

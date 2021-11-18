@@ -1,0 +1,1 @@
+docker build -t 58246/cubictewt:latest ../app/

@@ -3,3 +3,4 @@ builds/
 logs/
 app/data/terrain
 app/data/tewts/results
+app/logs/

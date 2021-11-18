@@ -27,6 +27,7 @@ const network = require(path.join(__dirname, `/scripts/network.js`));
 const system = require(path.join(__dirname, `/scripts/system.js`));
 const user = require(path.join(__dirname, `/scripts/users.js`));
 const { Tewt, Qde, Event } = require(path.join(__dirname, `/scripts/tewt.js`));
+const Domains = require(path.join(__dirname, `/scripts/domains.js`))
 
 //define global variables
 process.env.NODE_ENV = 'production';
@@ -37,6 +38,7 @@ let event;
 
 let testUser = { uname: "day", level: "admin" };
 let tewts = Tewt();
+let domains = Domains();
 
 async function loadTewtData() {
     await tewts.loadTewts();
